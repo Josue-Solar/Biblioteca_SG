@@ -1,2 +1,2 @@
 Entidades:
-	Autor
+	Reserva

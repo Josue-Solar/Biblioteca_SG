@@ -1,0 +1,4 @@
+Entidades:
+	Persona 
+	Rol
+	Sexo
