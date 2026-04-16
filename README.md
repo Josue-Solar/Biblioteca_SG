@@ -1,12 +1,12 @@
 BRANCHES:
-- Bibliografía:
+- Bibliografía: (Francisca Torres)
   - Libro
   - Genero
   - Edicion
   - Editorial
   - Ejemplar
 
-- Usuario/Registro:
+- Usuario/Registro: (Rodrigo Vives)
   - Persona
   - Prestamo
   - Reserva
