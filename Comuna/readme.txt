@@ -1,0 +1,3 @@
+Entidades:
+	Comuna
+	Region
