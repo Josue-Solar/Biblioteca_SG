@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Persona {
+    //comentario
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
