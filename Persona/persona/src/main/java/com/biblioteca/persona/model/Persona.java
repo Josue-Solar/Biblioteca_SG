@@ -11,37 +11,42 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Persona {
-    //comentario
+    //comentario agregando los nombres de cada atributo para la BD(name="xxx"), creado atributo sexo, y hay q hacer las clases sexo y rol
+    //con sus repo, serv y control
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
-    @Column(unique = true, length = 9, nullable = false)
+    @Column(name="num_run",unique = true, length = 9, nullable = false)
     private String run;
 
-    @Column(nullable = false, length = 1)
+    @Column(name="dv_run",nullable = false, length = 1)
     private String dvRun;
 
-    @Column(nullable = false, length = 50)
+    @Column(name="pnombre",nullable = false, length = 50)
     private String pNombre;
 
-    @Column(length = 50)
+    @Column(name="snombre",length = 50)
     private String sNombre;
 
-    @Column(nullable = false, length = 50)
+    @Column(name="apellido_paterno",nullable = false, length = 50)
     private String apPaterno;
 
-    @Column(length = 50)
+    @Column(name="apellido_materno",length = 50)
     private String apMaterno;
 
-    @Column(length = 100)
+    @Column(name="nombre_direccion",length = 100)
     private String direccion;
 
-    @Column(nullable = false, unique = true, length = 100)
+    @Column(name="correo",nullable = false, unique = true, length = 100)
     private String correo;
 
-    @Column(nullable = false, length = 20)
+    @Column(name="sexo_id", nullable = false)
+    private Long sexo;
+
+    @Column(name="rol_id",nullable = false, length = 20)
     private String rol; //q cargo tiene como empleado o si es usuario
 
     //@Column(nullable = false)
