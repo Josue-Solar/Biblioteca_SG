@@ -15,7 +15,7 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class CargoService {
 
-        @Autowired
+    @Autowired
     private CargoRepository cargoRepository;
 
     // Ver todos los cargos
