@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,6 +23,8 @@ import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.service.CargoService;
 import com.biblioteca.persona.service.PersonaService;
 import com.biblioteca.persona.service.SexoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/personas")
@@ -48,8 +51,8 @@ public class PersonaController {
         return ResponseEntity.ok(personas);
     }
 
-    @PostMapping //registrar persona
-    public ResponseEntity<Persona> guardar(@RequestBody Persona persona){
+    @PostMapping //registrar persona, up: faltaba el @valid
+    public ResponseEntity<Persona> guardar(@Valid @RequestBody Persona persona){
         logger.info("Recibiendo solicitud para guardar persona");//log
         Persona nPersona = personaService.save(persona);
         return ResponseEntity.status(HttpStatus.CREATED).body(nPersona);
@@ -121,6 +124,17 @@ public class PersonaController {
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    //  metodo PUT actualizar
+    @PutMapping("/{run}") // Actualizar por RUN
+    public ResponseEntity<Persona> actualizar(@PathVariable String run, @Valid @RequestBody Persona persona) {
+        logger.info("Recibiendo solicitud para actualizar persona por RUN: " + run);
+        Persona personaActualizada = personaService.updatePersona(run, persona);  
+        if (personaActualizada != null) {
+            return ResponseEntity.ok(personaActualizada);
+        }
+        return ResponseEntity.notFound().build();
     }
     
     

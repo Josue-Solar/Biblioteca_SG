@@ -15,7 +15,7 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class CargoService {
 
-    @Autowired
+        @Autowired
     private CargoRepository cargoRepository;
 
     // Ver todos los cargos
@@ -37,6 +37,16 @@ public class CargoService {
     // Buscar por nombre
     public Optional<Cargo> findByNombre(String nombre) {
         return cargoRepository.findByNombre(nombre);
+    }
+
+    //recordar actualizar esto en el github
+    public Cargo updateCargo(Long id, Cargo nCargo){
+        Cargo cargo= cargoRepository.findById(id).orElse(null);
+        if(cargo!=null){
+            cargo.setNombre(nCargo.getNombre());
+            return cargoRepository.save(cargo);
+        }
+        return null;
     }
 
 }

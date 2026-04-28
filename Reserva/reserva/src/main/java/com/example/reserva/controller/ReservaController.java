@@ -2,6 +2,9 @@ package com.example.reserva.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,9 @@ import com.example.reserva.service.ReservaService;
 @RestController
 @RequestMapping("/api/v1/reserva")
 public class ReservaController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ReservaController.class.getName());
+
     @Autowired
     private ReservaService reservaService;
 
@@ -32,7 +38,7 @@ public class ReservaController {
     }
 
     @GetMapping("id:{id}")
-    public ResponseEntity<Reserva> getByID(@PathVariable Long id){
+    public ResponseEntity<Reserva> getByID(@PathVariable long id){
         try {
             Reserva res = reservaService.findByID(id);
             return ResponseEntity.ok(res);
@@ -48,7 +54,7 @@ public class ReservaController {
     } 
 
     @DeleteMapping("/eliminar:{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+    public ResponseEntity<Void> deleteById(@PathVariable long id){
         try{
             reservaService.borrarById(id);
             return ResponseEntity.noContent().build();

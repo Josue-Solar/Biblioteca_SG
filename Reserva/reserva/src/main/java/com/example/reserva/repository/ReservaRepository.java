@@ -10,8 +10,8 @@ import java.util.List;
 public interface ReservaRepository extends JpaRepository<Reserva, Long> {
 
     List<Reserva> findAll();
-    List<Reserva> findByPersonaId(@Param("id") Long id);
+    List<Reserva> findByPersonaId(@Param("id") long id);
     List<Reserva> findByEjemplarId(long id);
     Reserva save(Reserva res);
-    void deleteById(Long id);
+    void deleteById(long id);
 }

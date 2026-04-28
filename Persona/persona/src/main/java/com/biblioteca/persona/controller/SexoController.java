@@ -11,12 +11,15 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.service.SexoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/sexos")
@@ -40,7 +43,7 @@ public class SexoController {
 
     // Crear nuevo sexo
     @PostMapping
-    public ResponseEntity<Sexo> guardar(@RequestBody Sexo sexo) {
+    public ResponseEntity<Sexo> guardar(@Valid @RequestBody Sexo sexo) {
         logger.info("Recibiendo solicitud para guardar sexo");//log
         Sexo nSexo = sexoService.save(sexo);
         return ResponseEntity.status(HttpStatus.CREATED).body(nSexo);
@@ -69,5 +72,16 @@ public class SexoController {
 
     // ELIMINADO - No permitimos eliminar sexos para evitar referencias inválidas
     // @DeleteMapping("/{id}")
+
+    //  metodo PUT actualizar
+    @PutMapping("/{id}") // Actualizar por ID
+    public ResponseEntity<Sexo> actualizar(@PathVariable Long id, @Valid @RequestBody Sexo sexo) {
+        logger.info("Recibiendo solicitud para actualizar sexo por NOMBRE: " + id);
+        Sexo sexoActualizado = sexoService.updateSexo(id, sexo);  
+        if (sexoActualizado != null) {
+            return ResponseEntity.ok(sexoActualizado);
+        }
+        return ResponseEntity.notFound().build();
+    }
 
 }

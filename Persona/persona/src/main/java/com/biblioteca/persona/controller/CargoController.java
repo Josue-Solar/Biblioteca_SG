@@ -10,12 +10,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Cargo;
 import com.biblioteca.persona.service.CargoService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/cargos")
@@ -39,7 +42,7 @@ public class CargoController {
 
     // Crear nuevo cargo
     @PostMapping
-    public ResponseEntity<Cargo> guardar(@RequestBody Cargo cargo) {
+    public ResponseEntity<Cargo> guardar(@Valid @RequestBody Cargo cargo) {
         logger.info("Recibiendo solicitud para guardar cargo");//log
         Cargo nCargo = cargoService.save(cargo);
         return ResponseEntity.status(HttpStatus.CREATED).body(nCargo);
@@ -64,6 +67,16 @@ public class CargoController {
         return cargoService.findByNombre(nombre)
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}") // Actualizar por ID
+    public ResponseEntity<Cargo> actualizar(@PathVariable Long id, @Valid @RequestBody Cargo cargo) {
+        logger.info("Recibiendo solicitud para actualizar cargo por ID: " + id);
+        Cargo cargoActualizado = cargoService.updateCargo(id, cargo);  
+        if (cargoActualizado != null) {
+            return ResponseEntity.ok(cargoActualizado);
+        }
+        return ResponseEntity.notFound().build();
     }
 
 }

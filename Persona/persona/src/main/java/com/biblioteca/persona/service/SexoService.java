@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.repository.SexoRepository;
 
@@ -44,6 +45,14 @@ public class SexoService {
         return sexoRepository.findByNombre(nombre);
     }
 
-    
+    //recordar actualizar esto en github, update 
+    public Sexo updateSexo(Long id, Sexo nSexo){
+        Sexo sexo= sexoRepository.findById(id).orElse(null);
+        if(sexo!=null){
+            sexo.setNombre(nSexo.getNombre());
+            return sexoRepository.save(sexo);
+        }
+        return null;
+    }
 
 }
