@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.service.annotation.PatchExchange;
 
 import com.example.reserva.model.Reserva;
 import com.example.reserva.service.ReservaService;
@@ -41,6 +42,16 @@ public class ReservaController {
     public ResponseEntity<Reserva> getByID(@PathVariable long id){
         try {
             Reserva res = reservaService.findByID(id);
+            return ResponseEntity.ok(res);
+        } catch (Exception ex) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("personaID:{id}")
+    public ResponseEntity<Reserva> getByPersonaID(@PathVariable long id){
+        try {
+            Reserva res = reservaService.findByPersonaID(id);
             return ResponseEntity.ok(res);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
