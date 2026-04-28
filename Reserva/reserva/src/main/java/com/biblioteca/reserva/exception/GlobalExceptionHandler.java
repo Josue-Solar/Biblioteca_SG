@@ -1,4 +1,4 @@
-package com.example.reserva.exception;
+package com.biblioteca.reserva.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

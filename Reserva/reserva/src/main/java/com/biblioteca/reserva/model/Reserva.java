@@ -1,4 +1,4 @@
-package com.example.reserva.model;
+package com.biblioteca.reserva.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
