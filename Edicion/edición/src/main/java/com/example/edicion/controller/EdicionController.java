@@ -31,7 +31,7 @@ public class EdicionController {
 
     @GetMapping
     public ResponseEntity<Object> listar(){
-        logger.info("Recibiendo solicitud para listar generos");//log
+        logger.info("Recibiendo solicitud para listar ediciones");//log
         List<Edicion> ediciones = edicionService.obtenerTodos();
         if(ediciones.isEmpty()){
             return ResponseEntity.noContent().build();
