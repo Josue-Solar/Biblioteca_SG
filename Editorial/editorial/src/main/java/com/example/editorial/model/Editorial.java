@@ -1,4 +1,4 @@
-package com.example.genero.model;
+package com.example.editorial.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,12 +13,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "Genero")
+@Table(name = "Editorial")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class Genero {
+public class Editorial {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,4 +28,5 @@ public class Genero {
     @Size(max = 100, message = "Máximo 100 caracteres")
     @Column(nullable = false, name = "nombre")
     private String nombre;
+
 }

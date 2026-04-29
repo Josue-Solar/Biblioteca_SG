@@ -11,7 +11,12 @@ import java.util.List;
 @Repository
 public interface EdicionRepository extends JpaRepository<Edicion, Long>{
 
+    @Query("SELECT e FROM Edicion e")
+    List<Edicion> findAll();
+
     @Query("SELECT e FROM Edicion e WHERE e.id= :id")
     List<Edicion> findById(long id);
 
+    @Query("SELECT e FROM Edicion e WHERE LOWER(e.nombre)")
+    List<Edicion> findByNombre(String nombre);
 }
