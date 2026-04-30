@@ -1,14 +1,14 @@
 BRANCHES:
 - Bibliografía: (Francisca Torres)
-  - Libro
+  - Libro (Josue)
   - Genero
   - Edicion
   - Editorial
   - Ejemplar
 
 - Usuario/Registro: (Rodrigo Vives)
-  - Persona
+  - Persona (Josue)
   - Prestamo
-  - Reserva
+  - Reserva (Josue)
   - Comuna
   - Autor
