@@ -8,18 +8,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Libro")
-public class Libro {
+@Table(name = "Autor_Libro")
+public class LibroAutor {
 
     @Id
-    @Column(unique = true, name = "isbn")
-    long isbn;
+    @Column(nullable = false, name = "Autor_id")
+    long autorId;
 
-    @Column(nullable = false, length = 120, name = "nombre")
-    String nombre;
-
+    @Id
+    @Column(unique = true, name = "Libro_isbn")
+    long libroIsbn;
 }

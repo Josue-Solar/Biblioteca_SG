@@ -12,14 +12,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Libro")
-public class Libro {
+@Table(name = "Libro_Genero")
+public class LibroGenero {
 
     @Id
-    @Column(unique = true, name = "isbn")
-    long isbn;
-
-    @Column(nullable = false, length = 120, name = "nombre")
-    String nombre;
+    @Column(nullable = false, name = "Genero_id")
+    long generoId;
+    
+    @Id
+    @Column(unique = true, name = "Libro_isbn")
+    long libroIsbn;  
 
 }
