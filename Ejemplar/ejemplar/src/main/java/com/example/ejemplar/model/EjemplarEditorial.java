@@ -1,4 +1,4 @@
-package com.example.libro.model;
+package com.example.ejemplar.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,19 +8,18 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Autor_Libro")
-public class LibroAutor {
+@Table(name = "Ejemplar_editorial")
+public class EjemplarEditorial {
 
     @Id
-    @Column(nullable = false, name = "Autor_id")
-    Long autorId;
+    @Column(nullable = false, name = "Ejemplar_id")
+    long ejemplarId;
 
     @Id
-    @Column(unique = true, name = "Libro_isbn")
-    Long libroIsbn;
+    @Column(nullable = false, name = "Editorial_id")
+    long editorialId;
 }

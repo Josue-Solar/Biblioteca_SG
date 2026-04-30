@@ -17,10 +17,10 @@ public class LibroGenero {
 
     @Id
     @Column(nullable = false, name = "Genero_id")
-    long generoId;
+    Long generoId;
     
     @Id
     @Column(unique = true, name = "Libro_isbn")
-    long libroIsbn;  
+    Long libroIsbn;  
 
 }

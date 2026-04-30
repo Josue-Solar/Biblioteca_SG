@@ -1,4 +1,4 @@
-package com.example.libro.security;
+package com.example.edicion.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +22,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/v1/**").permitAll()
-                .requestMatchers("/api/v1/libros/**").hasRole("USER")
+                .requestMatchers("/api/v1/ediciones/**").hasRole("USER")
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());
