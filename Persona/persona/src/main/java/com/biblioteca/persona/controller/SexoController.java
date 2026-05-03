@@ -22,7 +22,7 @@ import com.biblioteca.persona.service.SexoService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/sexos")
+@RequestMapping("/api/v1/personas/sexo")
 public class SexoController {
 
     private static final Logger logger = LoggerFactory.getLogger(SexoController.class.getName());

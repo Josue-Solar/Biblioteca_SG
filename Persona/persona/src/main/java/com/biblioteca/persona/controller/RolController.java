@@ -21,7 +21,7 @@ import com.biblioteca.persona.service.RolService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/roles")
+@RequestMapping("/api/v1/personas/roles")
 public class RolController {
 
     private static final Logger logger = LoggerFactory.getLogger(RolController.class.getName());

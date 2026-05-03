@@ -14,11 +14,11 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(precision = 10)
-    private long id;
+    private Long id;
 
     @Column(name = "PERSONA_id", unique = true, nullable = false, precision = 10)
-    private long personaId;
+    private Long personaID;
 
     @Column(name = "EJEMPLAR_id", unique = true, nullable = false, precision = 10)
-    private long ejemplarId;
+    private Long ejemplarID;
 }

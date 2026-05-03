@@ -16,7 +16,7 @@ public class Rol {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private long id;
 
     @NotBlank(message = "El nombre del rol es obligatorio")
     @Size(max = 30)

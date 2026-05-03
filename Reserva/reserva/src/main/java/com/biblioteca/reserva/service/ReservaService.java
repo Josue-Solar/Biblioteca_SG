@@ -6,12 +6,14 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 import java.util.Optional;
-
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.reserva.client.PersonaClient;
+import com.biblioteca.reserva.dto.PersonaDTO;
+import com.biblioteca.reserva.dto.ReservaPersonaDTO;
 import com.biblioteca.reserva.model.Reserva;
 import com.biblioteca.reserva.repository.ReservaRepository;
 
@@ -37,22 +39,36 @@ public class ReservaService {
 
     public Optional<Reserva> modReserva(long id, Reserva nRes){
         return reservaRepo.findById(id).map(r -> {
-            r.setPersonaId(nRes.getPersonaId());
-            r.setEjemplarId(nRes.getEjemplarId());
+            r.setPersonaID(nRes.getPersonaID());
+            r.setEjemplarID(nRes.getEjemplarID());
             return reservaRepo.save(r);
         });
     }
 
     public void deleteByID(long id){
         reservaRepo.deleteById(id);
+        
     }
 
-    private PersonaClient personaClient;
+    private final PersonaClient personaClient;
     //get by personaID
-    public String getbyIDPersona(long id){
-        return personaClient.buscarPorId(id);
+    public ReservaPersonaDTO getReservaDatosPersona(long id){
+        /*return reservaRepo.findAll().stream().map(reserva -> {
+            PersonaDTO persona = personaClient.buscarPorId(id);
+            return new ReservaPersonaDTO(
+                reserva.getId(),
+                persona.getId(),
+                persona.getNombreCompleto()
+            );
+        })
+        .collect(Collectors.toList());*/
+        PersonaDTO persona = personaClient.buscarPorId(id);
+        ReservaPersonaDTO resPersonaDTO = new ReservaPersonaDTO(persona, reservaRepo.findByPersonaID(id));
+        return resPersonaDTO;
         
     }
     //get by ejemplarID
-
+    public List<Reserva> getByEjID(long id){
+        return reservaRepo.findByEjemplarID(id);
+    }
 }

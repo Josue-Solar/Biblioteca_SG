@@ -42,9 +42,14 @@ public class ReservaController {
                                             .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/perID:{id}")
-    public ResponseEntity<String> getByPerID(@PathVariable long id){
-        return ResponseEntity.ok(reservaService.getbyIDPersona(id));
+    @GetMapping("/personaDatos:{id}")
+    public ResponseEntity<?> getByPerID(@PathVariable long id){
+        return ResponseEntity.ok(reservaService.getReservaDatosPersona(id));
+    }
+
+    @GetMapping("/ejemplarID:{id}")
+    public ResponseEntity<?> getByEjID(@PathVariable long id){
+        return ResponseEntity.ok(reservaService.getByEjID(id));
     }
 
     @PostMapping
