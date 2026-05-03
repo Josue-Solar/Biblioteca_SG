@@ -42,6 +42,11 @@ public class ReservaController {
                                             .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/perID:{id}")
+    public ResponseEntity<String> getByPerID(@PathVariable long id){
+        return ResponseEntity.ok(reservaService.getbyIDPersona(id));
+    }
+
     @PostMapping
     public ResponseEntity<Reserva> postReserva(@Valid @RequestBody Reserva res){
         return ResponseEntity.status(HttpStatus.CREATED).body(reservaService.addReserva(res));
@@ -58,5 +63,6 @@ public class ReservaController {
         reservaService.deleteByID(id);
         return ResponseEntity.noContent().build();
     }
+    
     
 }

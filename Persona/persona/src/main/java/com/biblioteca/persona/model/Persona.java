@@ -70,9 +70,9 @@ public class Persona {
     @JoinColumn(name="SEXO_id", nullable = false)
     private Sexo sexo;
 
-    @NotNull(message = "Debe indicar el cargo")
+    @NotNull(message = "Debe indicar el rol")
     @ManyToOne
-    @JoinColumn (name="CARGO_id", nullable= false)
-    private Cargo cargo; //q cargo tiene como empleado o si es usuario
+    @JoinColumn (name="ROL_id", nullable= false)
+    private Rol rol; //q rol tiene como empleado o si es usuario
 
 }

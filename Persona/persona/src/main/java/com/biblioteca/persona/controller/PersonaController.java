@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biblioteca.persona.model.Cargo;
+import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
-import com.biblioteca.persona.service.CargoService;
+import com.biblioteca.persona.service.RolService;
 import com.biblioteca.persona.service.PersonaService;
 import com.biblioteca.persona.service.SexoService;
 
@@ -39,7 +39,7 @@ public class PersonaController {
     private SexoService sexoService;
     
     @Autowired
-    private CargoService cargoService;
+    private RolService rolService;
 
     @GetMapping //mostrar personas
     public ResponseEntity<List<Persona>> listar() {
@@ -70,8 +70,8 @@ public class PersonaController {
     }
 
     // Buscar por ID
-    @GetMapping("/id/{id}")
-    public ResponseEntity<Persona> buscarPorId(@PathVariable Long id) {
+    @GetMapping("/id:{id}")
+    public ResponseEntity<Persona> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar persona por RUT: " + id);//log
         try {
             Persona persona = personaService.findByIdOrThrow(id);
@@ -92,12 +92,12 @@ public class PersonaController {
         return ResponseEntity.ok(persona);
     }
     
-    //buscar por cargo
-    @GetMapping("/cargo/{cargoId}")
-    public ResponseEntity<List<Persona>> buscarPorCargo(@PathVariable Long cargoId) {
-        logger.info("Recibiendo solicitud para buscar persona por CARGO: " + cargoId);//log
-        Cargo cargo = cargoService.findByIdOrThrow(cargoId);  
-        List<Persona> personas = personaService.findByCargo(cargo);
+    //buscar por rol
+    @GetMapping("/rol/{rold}")
+    public ResponseEntity<List<Persona>> buscarPorrol(@PathVariable Long rolId) {
+        logger.info("Recibiendo solicitud para buscar persona por ROL: " + rolId);//log
+        Rol rol = rolService.findByIdOrThrow(rolId);  
+        List<Persona> personas = personaService.findByRol(rol);
             return ResponseEntity.ok(personas);
     }
 

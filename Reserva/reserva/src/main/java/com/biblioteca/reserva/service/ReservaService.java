@@ -11,6 +11,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.biblioteca.reserva.client.PersonaClient;
 import com.biblioteca.reserva.model.Reserva;
 import com.biblioteca.reserva.repository.ReservaRepository;
 
@@ -46,7 +47,12 @@ public class ReservaService {
         reservaRepo.deleteById(id);
     }
 
+    private PersonaClient personaClient;
     //get by personaID
+    public String getbyIDPersona(long id){
+        return personaClient.buscarPorId(id);
+        
+    }
     //get by ejemplarID
 
 }

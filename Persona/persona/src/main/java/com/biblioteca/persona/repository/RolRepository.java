@@ -5,12 +5,12 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.biblioteca.persona.model.Cargo;
+import com.biblioteca.persona.model.Rol;
 
 @Repository
-public interface CargoRepository extends JpaRepository<Cargo, Long>{
+public interface RolRepository extends JpaRepository<Rol, Long>{
 
-    // Buscar por nombre del cargo
-    Optional<Cargo> findByNombre(String nombre);
+    // Buscar por nombre del rol
+    Optional<Rol> findByNombre(String nombre);
 
 }
