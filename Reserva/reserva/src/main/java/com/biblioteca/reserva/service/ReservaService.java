@@ -64,8 +64,7 @@ public class ReservaService {
         .collect(Collectors.toList());*/
         PersonaDTO persona = personaClient.buscarPorId(id);
         ReservaPersonaDTO resPersonaDTO = new ReservaPersonaDTO(persona, reservaRepo.findByPersonaID(id));
-        return resPersonaDTO;
-        
+        return resPersonaDTO;   
     }
     //get by ejemplarID
     public List<Reserva> getByEjID(long id){

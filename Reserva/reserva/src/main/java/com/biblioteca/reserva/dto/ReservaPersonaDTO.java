@@ -12,5 +12,4 @@ import lombok.Data;
 public class ReservaPersonaDTO {
     private PersonaDTO persona;
     private List<Reserva> reserva;
-    private String nombreLibro;
 }
