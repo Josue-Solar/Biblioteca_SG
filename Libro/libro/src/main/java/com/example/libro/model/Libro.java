@@ -17,9 +17,9 @@ public class Libro {
 
     @Id
     @Column(unique = true, name = "isbn")
-    Long isbn;
+    private Long isbn;
 
     @Column(nullable = false, length = 120, name = "nombre")
-    String nombre;
+    private String nombre;
 
 }

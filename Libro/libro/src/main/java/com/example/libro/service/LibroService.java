@@ -27,7 +27,7 @@ public class LibroService {
     }
     
     public Optional<Libro> obtenerPorIsbn(Long isbn) {
-        return libroRepository.findById(isbn);
+        return libroRepository.findByIsbn(isbn);
     }
 
     public Libro obtenerPorNombre(String nombre) {
@@ -49,7 +49,7 @@ public class LibroService {
         });
     }
 
-    public void eliminar(Long isbn) {
-        libroRepository.deleteById(isbn);
+    public Optional<Boolean> eliminar(Long isbn) {
+        return libroRepository.deleteLibroByIsbn(isbn);
     }
 }

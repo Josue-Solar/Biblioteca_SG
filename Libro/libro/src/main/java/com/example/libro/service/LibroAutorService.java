@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.libro.model.LibroAutor;
+import com.example.libro.model.LibroAutorID;
 import com.example.libro.repository.LibroAutorRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -25,11 +26,11 @@ public class LibroAutorService {
         return libroAutorRepo.findAll();
     }
     
-    public Optional<LibroAutor> obtenerPorGeneroId(Long autorId) {
+    public Optional<LibroAutor> obtenerPorGeneroId(LibroAutorID autorId) {
         return libroAutorRepo.findById(autorId);
     }
 
-    public Optional<LibroAutor> obtenerPorIsbn(Long libroIsbn) {
+    public Optional<LibroAutor> obtenerPorIsbn(LibroAutorID libroIsbn) {
         return libroAutorRepo.findById(libroIsbn);
     }
 
@@ -37,11 +38,11 @@ public class LibroAutorService {
         return libroAutorRepo.save(libroAutor);
     }
 
-    public void eliminarPorIsbn(Long libroIsbn) {
+    public void eliminarPorIsbn(LibroAutorID libroIsbn) {
         libroAutorRepo.deleteById(libroIsbn);
     }
 
-    public void eliminar(Long autorId) {
+    public void eliminar(LibroAutorID autorId) {
         libroAutorRepo.deleteById(autorId);
     }
 }
