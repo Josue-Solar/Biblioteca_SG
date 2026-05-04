@@ -1,4 +1,4 @@
-package com.example.editorial.model;
+package com.example.ejemplar.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,19 +10,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "Editorial")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Editorial {
+@Entity
+@Table(name = "Ejemplar")
+public class Ejemplar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private Long id;
 
-    @Column(nullable = false, length = 50, name = "nombre")
-    String nombre;
-
+    @Id
+    @Column(unique = true, name = "Libro_Isbn")
+    long libroIsbn;
 
 }

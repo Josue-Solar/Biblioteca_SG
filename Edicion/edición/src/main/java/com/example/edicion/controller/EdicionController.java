@@ -24,6 +24,7 @@ import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/api/v2/ediciones")
 public class EdicionController {
+
     private static final Logger logger = Logger.getLogger(EdicionController.class.getName());
     
     @Autowired

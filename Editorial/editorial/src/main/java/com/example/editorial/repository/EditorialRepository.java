@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.example.editorial.model.Editorial;
 
 @Repository
-public interface EditorialRepository extends JpaRepository<Editorial, Long>{
+public interface EditorialRepository extends  JpaRepository<Editorial, Long> {
 
     @Query("SELECT e FROM Editorial e ")
     List<Editorial> findAll();

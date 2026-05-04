@@ -45,6 +45,17 @@ public class EdicionService {
         });
     }
 
+    public Edicion guardar(Edicion edicion) {
+        return edicionRepository.save(edicion);
+    }
+
+    public Optional<Edicion> actualizar(Long id, Edicion datos) {
+        return edicionRepository.findById(id).map(e -> {
+            e.setNombre(datos.getNombre());
+            return edicionRepository.save(e);
+        });
+    }
+
     public void eliminar(Long id) {
         edicionRepository.deleteById(id);
     }

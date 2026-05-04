@@ -13,7 +13,7 @@ import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
-public class EditorialService { 
+public class EditorialService {
 
     @Autowired
     private EditorialRepository editorialRepository;
