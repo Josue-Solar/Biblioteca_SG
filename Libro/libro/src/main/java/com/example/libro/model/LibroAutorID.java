@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class LibroAutorID implements Serializable{
-    private Long autorId;
-    private Long libroIsbn;
+    private long autorId;
+    private long libroIsbn;
 }

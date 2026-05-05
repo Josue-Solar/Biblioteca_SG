@@ -1,4 +1,4 @@
-package com.example.libro.model;
+package com.example.ejemplar.model;
 
 import java.io.Serializable;
 
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LibroGeneroID implements Serializable{
-    private long generoId;
-    private long libroIsbn;
+public class EjemplarEdicionID implements Serializable{
+    private long ejemplarId;
+    private long edicionIsbn;
 }

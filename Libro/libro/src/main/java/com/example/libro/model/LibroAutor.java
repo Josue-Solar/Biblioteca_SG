@@ -20,9 +20,9 @@ public class LibroAutor {
 
     @Id
     @Column(nullable = false, name = "AUTOR_id")
-    private Long autorId;
+    private long autorId;
 
     @Id
     @Column(unique = true, name = "LIBRO_isbn")
-    private Long libroIsbn;
+    private long libroIsbn;
 }

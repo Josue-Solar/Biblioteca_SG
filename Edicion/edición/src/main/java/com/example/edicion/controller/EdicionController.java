@@ -42,7 +42,7 @@ public class EdicionController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Long> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Long> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar edicion por ID: " + id);//log
         Optional<Edicion> ediciones = edicionService.obtenerPorId(id);
         if (ediciones == null) {
@@ -60,7 +60,7 @@ public class EdicionController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Edicion> actualizar(
-            @PathVariable Long id,
+            @PathVariable long id,
             @Valid @RequestBody Edicion datos) {
         logger.info("Recibiendo solicitud para actualizar edicion");
         return edicionService.actualizar(id, datos)
@@ -69,7 +69,7 @@ public class EdicionController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable long id) {
         logger.info("Recibiendo solicitud para eliminar edicion por ID: " + id);//log
         try {
             edicionService.eliminar(id);

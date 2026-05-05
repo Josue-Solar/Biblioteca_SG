@@ -26,7 +26,7 @@ public class LibroService {
         return libroRepository.findAll();
     }
     
-    public Optional<Libro> obtenerPorIsbn(Long isbn) {
+    public Optional<Libro> obtenerPorIsbn(long isbn) {
         return libroRepository.findByIsbn(isbn);
     }
 
@@ -42,14 +42,14 @@ public class LibroService {
         return libroRepository.save(libro);
     }
 
-    public Optional<Libro> actualizar(Long isbn, Libro datos) {
+    public Optional<Libro> actualizar(long isbn, Libro datos) {
         return libroRepository.findById(isbn).map(l -> {
             l.setNombre(datos.getNombre());
             return libroRepository.save(l);
         });
     }
 
-    public Optional<Boolean> eliminar(Long isbn) {
+    public Optional<Boolean> eliminar(long isbn) {
         return libroRepository.deleteLibroByIsbn(isbn);
     }
 }

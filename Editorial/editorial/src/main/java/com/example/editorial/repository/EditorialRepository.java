@@ -16,7 +16,7 @@ public interface EditorialRepository extends  JpaRepository<Editorial, Long> {
     List<Editorial> findAll();
 
     @Query("SELECT e FROM Editorial e WHERE e.id = :id")
-    Optional<Editorial> findById(Long id);
+    Optional<Editorial> findById(long id);
 
     @Query("SELECT e FROM Editorial e WHERE LOWER(e.nombre)")
     List<Editorial> findByNombre(String nombre);

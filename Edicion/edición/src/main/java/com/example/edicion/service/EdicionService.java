@@ -22,7 +22,7 @@ public class EdicionService {
         return edicionRepository.findAll();
     }
     
-    public Optional<Edicion> obtenerPorId(Long id) {
+    public Optional<Edicion> obtenerPorId(long id) {
         return edicionRepository.findById(id);
     }
 
@@ -38,25 +38,14 @@ public class EdicionService {
         return edicionRepository.save(edicion);
     }
 
-    public Optional<Edicion> actualizar(Long id, Edicion datos) {
+    public Optional<Edicion> actualizar(long id, Edicion datos) {
         return edicionRepository.findById(id).map(e -> {
             e.setNombre(datos.getNombre());
             return edicionRepository.save(e);
         });
     }
 
-    public Edicion guardar(Edicion edicion) {
-        return edicionRepository.save(edicion);
-    }
-
-    public Optional<Edicion> actualizar(Long id, Edicion datos) {
-        return edicionRepository.findById(id).map(e -> {
-            e.setNombre(datos.getNombre());
-            return edicionRepository.save(e);
-        });
-    }
-
-    public void eliminar(Long id) {
+    public void eliminar(long id) {
         edicionRepository.deleteById(id);
     }
 

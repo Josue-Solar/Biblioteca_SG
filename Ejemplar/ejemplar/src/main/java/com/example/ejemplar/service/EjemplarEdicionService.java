@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.ejemplar.model.EjemplarEdicion;
+import com.example.ejemplar.model.EjemplarEdicionID;
 import com.example.ejemplar.repository.EjemplarEdicionRepository;
 
 public class EjemplarEdicionService {
@@ -17,11 +18,11 @@ public class EjemplarEdicionService {
         return EjemplarEdicionRepo.findAll();
     }
     
-    public Optional<EjemplarEdicion> obtenerPorEjemplarId(Long ejemplarId) {
+    public Optional<EjemplarEdicion> obtenerPorEjemplarId(EjemplarEdicionID ejemplarId) {
         return EjemplarEdicionRepo.findById(ejemplarId);
     }
 
-    public Optional<EjemplarEdicion> obtenerPorEdicionId(Long edicionId) {
+    public Optional<EjemplarEdicion> obtenerPorEdicionId(EjemplarEdicionID edicionId) {
         return EjemplarEdicionRepo.findById(edicionId);
     }
 
@@ -29,11 +30,11 @@ public class EjemplarEdicionService {
         return EjemplarEdicionRepo.save(ejemplarEdicion);
     }
 
-    public void eliminarPorEjemplarId(Long ejemplarId) {
+    public void eliminarPorEjemplarId(EjemplarEdicionID ejemplarId) {
         EjemplarEdicionRepo.deleteById(ejemplarId);
     }
 
-    public void eliminarPorEdicionId(Long edicionId) {
+    public void eliminarPorEdicionId(EjemplarEdicionID edicionId) {
         EjemplarEdicionRepo.deleteById(edicionId);
     }
 

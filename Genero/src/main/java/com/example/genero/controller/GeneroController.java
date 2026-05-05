@@ -42,7 +42,7 @@ public class GeneroController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Long> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Long> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar genero por ID: " + id);//log
         Optional<Genero> generos = generoService.obtenerPorId(id);
         if (generos == null) {
@@ -60,7 +60,7 @@ public class GeneroController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Genero> actualizar(
-            @PathVariable Long id,
+            @PathVariable long id,
             @Valid @RequestBody Genero datos) {
         logger.info("Recibiendo solicitud para actualizar genero");
         return generoService.actualizar(id, datos)
@@ -69,7 +69,7 @@ public class GeneroController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable long id) {
         logger.info("Recibiendo solicitud para eliminar genero por ID: " + id);//log
         try {
             generoService.eliminar(id);

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.ejemplar.model.EjemplarEditorial;
+import com.example.ejemplar.model.EjemplarEditorialID;
 import com.example.ejemplar.repository.EjemplarEditorialRepository;
 
 public class EjemplarEditorialService {
@@ -17,11 +18,11 @@ public class EjemplarEditorialService {
         return EjemplarEditorialRepo.findAll();
     }
     
-    public Optional<EjemplarEditorial> obtenerPorEjemplarId(Long ejemplarId) {
+    public Optional<EjemplarEditorial> obtenerPorEjemplarId(EjemplarEditorialID ejemplarId) {
         return EjemplarEditorialRepo.findById(ejemplarId);
     }
 
-    public Optional<EjemplarEditorial> obtenerPorEditorialId(Long editorialId) {
+    public Optional<EjemplarEditorial> obtenerPorEditorialId(EjemplarEditorialID editorialId) {
         return EjemplarEditorialRepo.findById(editorialId);
     }
 
@@ -29,11 +30,11 @@ public class EjemplarEditorialService {
         return EjemplarEditorialRepo.save(ejemplarEditorial);
     }
 
-    public void eliminarPorEjemplarId(Long ejemplarId) {
+    public void eliminarPorEjemplarId(EjemplarEditorialID ejemplarId) {
         EjemplarEditorialRepo.deleteById(ejemplarId);
     }
 
-    public void eliminarPorEditorialId(Long editorialId) {
+    public void eliminarPorEditorialId(EjemplarEditorialID editorialId) {
         EjemplarEditorialRepo.deleteById(editorialId);
     }
 

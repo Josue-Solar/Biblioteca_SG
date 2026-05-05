@@ -42,7 +42,7 @@ public class EditorialController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Long> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<Long> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar editorial por ID: " + id);//log
         Optional<Editorial> editoriales = editorialService.obtenerPorId(id);
         if (editoriales == null) {
@@ -60,7 +60,7 @@ public class EditorialController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Editorial> actualizar(
-            @PathVariable Long id,
+            @PathVariable long id,
             @Valid @RequestBody Editorial datos) {
         logger.info("Recibiendo solicitud para actualizar editorial");
         return editorialService.actualizar(id, datos)
@@ -69,7 +69,7 @@ public class EditorialController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminar(@PathVariable long id) {
         logger.info("Recibiendo solicitud para eliminar editorial por ID: " + id);//log
         try {
             editorialService.eliminar(id);

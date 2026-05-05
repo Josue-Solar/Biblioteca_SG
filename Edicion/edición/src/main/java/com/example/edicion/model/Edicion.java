@@ -8,6 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,12 +19,15 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Edicion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
 
+    @NotNull(message = "Nombre no puede ser vacio")
+    @NotEmpty(message = "Nombre no puede ser vacio")
     @Column(nullable = false, length = 50, name = "nombre")
     String nombre;
 

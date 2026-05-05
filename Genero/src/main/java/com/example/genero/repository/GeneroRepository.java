@@ -16,7 +16,7 @@ public interface GeneroRepository extends  JpaRepository<Genero, Long> {
     List<Genero> findAll();
 
     @Query("SELECT g FROM Genero g WHERE g.id = :id")
-    Optional<Genero> findById(Long id);
+    Optional<Genero> findById(long id);
 
     @Query("SELECT g FROM Genero g WHERE LOWER(g.nombre)")
     List<Genero> findByNombre(String nombre);
