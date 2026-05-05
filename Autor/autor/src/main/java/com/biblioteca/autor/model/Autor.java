@@ -6,6 +6,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+<<<<<<< HEAD
+=======
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+>>>>>>> usuario
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +26,7 @@ public class Autor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     @Column(nullable = false, length = 50)
     private String pNombre;
 
@@ -31,6 +37,24 @@ public class Autor {
     private String apPaterno;
 
     @Column(length = 50)
+=======
+    @NotBlank(message = "El primer nombre es obligatorio")
+    @Size(max = 50)
+    @Column(name="pnombre",nullable = false, length = 50)
+    private String pNombre;
+
+    @Size(max = 50)
+    @Column(name="snombre",length = 50)
+    private String sNombre;
+
+    @NotBlank(message = "El primero apellido es obligatorio")
+    @Size(max = 50)
+    @Column(name="apellido_paterno",nullable = false, length = 50)
+    private String apPaterno;
+
+    @Size(max = 50)
+    @Column(name="apellido_materno",length = 50)
+>>>>>>> usuario
     private String apMaterno;
 
 }

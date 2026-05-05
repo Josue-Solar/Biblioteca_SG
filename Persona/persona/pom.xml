@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<<<<<<< HEAD
 	<modelVersion>4.0.0</modelVersion>
+=======
+	<modelVersion>3.3.0</modelVersion>
+>>>>>>> usuario
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
@@ -44,10 +48,25 @@
 		</dependency>
 
 		<dependency>
+<<<<<<< HEAD
 			<groupId>com.mysql</groupId>
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+=======
+    		<groupId>com.oracle.database.jdbc</groupId>
+    		<artifactId>ojdbc11</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+		
+		<!-- H2 Database para probar independiente, sin MySQL -->
+		<dependency>   
+    		<groupId>com.h2database</groupId>
+    		<artifactId>h2</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+
+>>>>>>> usuario
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
