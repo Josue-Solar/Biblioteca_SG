@@ -22,7 +22,7 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/v1/reservas/**").hasRole("USER")
+                .requestMatchers("/api/v1/reservas/**").hasRole("user")
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());
