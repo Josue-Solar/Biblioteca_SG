@@ -10,7 +10,9 @@ import com.biblioteca.comuna.model.Comuna;
 import com.biblioteca.comuna.repository.ComunaRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 @Transactional
 public class ComunaService {
