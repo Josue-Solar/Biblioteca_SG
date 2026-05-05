@@ -1,5 +1,74 @@
 package com.biblioteca.genero.controller;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.biblioteca.genero.model.Genero;
+import com.biblioteca.genero.service.GeneroService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RestController
+@RequestMapping("/api/v1/generos")
 public class GeneroController {
 
+    private static final Logger logger = LoggerFactory.getLogger(GeneroController.class.getName());
+
+    @Autowired
+    private GeneroService generoService;
+
+    @GetMapping
+    public ResponseEntity<List<Genero>> listar() {
+        logger.info("Recibiendo solicitud para listar generos");//log
+        List<Genero> generos = generoService.obtenerTodos();
+        if (generos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(generos);
+    }
+
+    @PostMapping
+    public ResponseEntity<Genero> crear(@RequestBody Genero genero) {
+        logger.info("Recibiendo solicitud para guardar genero");//log
+        Genero nuevoGenero = generoService.guardar(genero);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nuevoGenero);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Genero>> buscarPorId(@PathVariable long id) {
+        logger.info("Recibiendo solicitud para buscar genero por id: " + id);//log
+        Optional<Genero> genero = generoService.obtenerPorId(id);
+        if (genero == null) {
+            logger.error("Recibiendo solicitud para buscar genero por id: ");//log
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(genero);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarPorId(@PathVariable long id) {
+        logger.info("Recibiendo solicitud para eliminar genero por id: " + id);//log
+        try {
+            generoService.eliminar(id);
+            return ResponseEntity.noContent().build();
+        } catch (Exception e) {
+            //logger.severe("Error al intentar eliminar persona por id: " + id);//log
+            logger.error("Error al intentar eliminar genero por id: " + id);//log
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
