@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "AutorApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.autor.AutorApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
+            "name": "ComunaApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.comuna.ComunaApplication",
+            "projectName": "comuna"
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-ReservaApplication<reseva>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
