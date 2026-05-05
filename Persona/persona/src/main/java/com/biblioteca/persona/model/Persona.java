@@ -1,13 +1,10 @@
 package com.biblioteca.persona.model;
 
 import jakarta.persistence.*;
-<<<<<<< HEAD
-=======
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
->>>>>>> usuario
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,48 +15,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Persona {
-<<<<<<< HEAD
-    //comentario agregando los nombres de cada atributo para la BD(name="xxx"), creado atributo sexo, y hay q hacer las clases sexo y rol
-    //con sus repo, serv y control
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
-    @Column(name="num_run",unique = true, length = 9, nullable = false)
-    private String run;
-
-    @Column(name="dv_run",nullable = false, length = 1)
-    private String dvRun;
-
-    @Column(name="pnombre",nullable = false, length = 50)
-    private String pNombre;
-
-    @Column(name="snombre",length = 50)
-    private String sNombre;
-
-    @Column(name="apellido_paterno",nullable = false, length = 50)
-    private String apPaterno;
-
-    @Column(name="apellido_materno",length = 50)
-    private String apMaterno;
-
-    @Column(name="nombre_direccion",length = 100)
-    private String direccion;
-
-    @Column(name="correo",nullable = false, unique = true, length = 100)
-    private String correo;
-
-    @Column(name="sexo_id", nullable = false)
-    private Long sexo;
-
-    @Column(name="rol_id",nullable = false, length = 20)
-    private String rol; //q cargo tiene como empleado o si es usuario
-
-    //@Column(nullable = false)
-    //private Comuna comuna; //foreing key de comuna
-=======
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -119,6 +74,5 @@ public class Persona {
     @ManyToOne
     @JoinColumn (name="ROL_id", nullable= false)
     private Rol rol; //q rol tiene como empleado o si es usuario
->>>>>>> usuario
 
 }

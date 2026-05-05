@@ -6,23 +6,15 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import com.biblioteca.persona.model.Persona;
-=======
 import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
->>>>>>> usuario
 import com.biblioteca.persona.repository.PersonaRepository;
 
 import jakarta.transaction.Transactional;
 
 @Service
-<<<<<<< HEAD
-@Transactional
-=======
 @Transactional //sirve para datos q no se guardara en la db
->>>>>>> usuario
 public class PersonaService {
 
     @Autowired
@@ -49,11 +41,7 @@ public class PersonaService {
         return personaRepository.save(persona);
     }
 
-<<<<<<< HEAD
-    //updatear
-=======
     //updatear por run
->>>>>>> usuario
     public Persona updatePersona(String run, Persona nPersona){
         Persona persona= findByRun(run);
         if(persona!=null){
@@ -66,12 +54,8 @@ public class PersonaService {
             persona.setDireccion(nPersona.getDireccion());
             persona.setCorreo(nPersona.getCorreo());
             persona.setRol(nPersona.getRol());
-<<<<<<< HEAD
-            //persona.setComuna(nPersona.getComuna());
-=======
             persona.setSexo(nPersona.getSexo());
             persona.setComunaId(nPersona.getComunaId());
->>>>>>> usuario
             return personaRepository.save(persona);
         }
         return null;
@@ -83,24 +67,11 @@ public class PersonaService {
     }
 
     //buscar por run
-<<<<<<< HEAD
-    public Persona findByRun(String run){
-        List<Persona> personas=
-        personaRepository.findByRun(run);
-        if(!personas.isEmpty()){
-            return personas.get(0);
-        }
-        return null;
-    }
-
-        // Verificar si existe por RUN
-=======
     public Persona findByRun(String run) {
         return personaRepository.findByRun(run).orElse(null);
     }
 
     // Verificar si existe por RUN
->>>>>>> usuario
     public boolean existsByRun(String run){
         return personaRepository.existsByRun(run);
     }
@@ -111,15 +82,6 @@ public class PersonaService {
     }
 
     //buscar por rol
-<<<<<<< HEAD
-    public List<Persona> findByRol(String rol){
-        return personaRepository.findByRol(rol);
-    }
-
-    // Contar por rol
-    public long countByRol(String rol){
-        return personaRepository.findByRol(rol).size();
-=======
     public List<Persona> findByRol(Rol rol){
         return personaRepository.findByRol(rol);
     }
@@ -127,7 +89,6 @@ public class PersonaService {
     // Buscar personas por sexo
     public List<Persona> findBySexo(Sexo sexo) {
         return personaRepository.findBySexo(sexo);
->>>>>>> usuario
     }
 
 }
