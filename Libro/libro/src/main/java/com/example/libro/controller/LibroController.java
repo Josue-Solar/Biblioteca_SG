@@ -14,12 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.libro.client.AutorClient;
-import com.example.libro.dto.AutorDTO;
-import com.example.libro.dto.LibroAutorDTO;
 import com.example.libro.model.Libro;
-import com.example.libro.model.LibroAutor;
-import com.example.libro.repository.LibroAutorRepository;
 import com.example.libro.service.LibroService;
 
 import jakarta.validation.Valid;
@@ -38,18 +33,29 @@ public class LibroController {
     }
 
     @GetMapping("/isbn:{isbn}")
-    public ResponseEntity<Libro> getByID(@Valid @PathVariable long isbn){
-        return libroService.obtenerPorIsbn(isbn).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<?> getByID(@Valid @PathVariable long isbn){
+        try{
+            return ResponseEntity.ok(libroService.obtenerPorIsbn(isbn));
+        }catch(Exception ex){
+            ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
     }
 
-    @GetMapping("/porAutores:{isbn}")
-    public ResponseEntity<?> getOrderByAutores(@PathVariable Long isbn){
+    @GetMapping("/autoresPorLibro:{isbn}")
+    public ResponseEntity<?> getAutoresPorLibro(@PathVariable Long isbn){
         try{
             return ResponseEntity.ok(libroService.obtenerAutores(isbn));
         }catch(Exception ex){
-            ex.printStackTrace(); // ← agrega esto
-            return ResponseEntity.status(500).body(ex.getMessage()); // ← cambia a 500 con mensaje
+            ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage());
         }
+    }
+
+
+    @GetMapping("/autorId/{id}")
+    public ResponseEntity<List<?>> getAllByAuthId(@PathVariable Long id){
+        return ResponseEntity.ok(libroService.listarLibros(id));
     }
 
     @PostMapping

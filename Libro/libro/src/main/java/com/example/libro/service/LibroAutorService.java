@@ -31,6 +31,10 @@ public class LibroAutorService {
         return libroAutorRepo.findById(libroIsbn);
     }
 
+    public List<LibroAutor> obtenerPorAutorId(Long autorId){
+        return libroAutorRepo.findAllByAutorId(autorId);
+    }
+
     public LibroAutor guardar(LibroAutor libroAutor) {
         return libroAutorRepo.save(libroAutor);
     }

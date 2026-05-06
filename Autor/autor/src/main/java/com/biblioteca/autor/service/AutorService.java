@@ -5,19 +5,23 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.biblioteca.autor.client.LibroClient;
+import com.biblioteca.autor.dto.LibroAutorDTO;
+import com.biblioteca.autor.dto.LibroDTO;
 import com.biblioteca.autor.model.Autor;
 import com.biblioteca.autor.repository.AutorRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
 @Transactional
+@RequiredArgsConstructor
 public class AutorService {
 
-    @Autowired
-    private AutorRepository autorRepository;
+    private final AutorRepository autorRepository;
 
     //ver todos los autores
     public List<Autor> findAll(){
@@ -28,6 +32,15 @@ public class AutorService {
     public Autor findByIdOrThrow(Long id){
         return autorRepository.findById(id).orElseThrow(() -> new RuntimeException("Autor no encontrado con ID: " + id));
     }
+
+    private final LibroClient libroClient;
+    public LibroAutorDTO listarLibros(Long autorId){
+        List<LibroDTO> libros = libroClient.getAllByAuthId(autorId);
+        Autor autor = autorRepository.findById(autorId).orElseThrow(() -> new RuntimeException("Autor no encontrado: " + autorId));
+
+        LibroAutorDTO libroAutorDTO = new LibroAutorDTO(autor, libros);
+        return libroAutorDTO;
+    }   
 
     //crear
     public Autor save(Autor autor){

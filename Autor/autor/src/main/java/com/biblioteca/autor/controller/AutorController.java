@@ -21,15 +21,16 @@ import com.biblioteca.autor.model.Autor;
 import com.biblioteca.autor.service.AutorService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/autores")
+@RequiredArgsConstructor
 public class AutorController {
 
     private static final Logger logger = LoggerFactory.getLogger(AutorController.class.getName());
 
-    @Autowired
-    private AutorService autorService;
+    private final AutorService autorService;
 
     // ver todos
     @GetMapping
@@ -42,12 +43,18 @@ public class AutorController {
         return ResponseEntity.ok(autores);
     }
 
+    @GetMapping("/libros/{autorId}")
+    public ResponseEntity<?> listarLibros(@PathVariable Long autorId){
+        logger.info("Recibiendo solicitud para buscar libros por autor: " + autorId);//log
+        return ResponseEntity.ok(autorService.listarLibros(autorId));
+    }
+
     //crear
     @PostMapping
     public ResponseEntity<Autor> guardar(@Valid @RequestBody Autor autor){
         logger.info("Recibiendo solicitud para guardar autor");//log
-            Autor nAutor = autorService.save(autor);
-            return ResponseEntity.status(HttpStatus.CREATED).body(nAutor);
+        Autor nAutor = autorService.save(autor);
+        return ResponseEntity.status(HttpStatus.CREATED).body(nAutor);
     }
 
     //borrar

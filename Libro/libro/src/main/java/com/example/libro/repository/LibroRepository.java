@@ -10,7 +10,7 @@ import com.example.libro.model.Libro;
 
 @Repository
 public interface LibroRepository extends JpaRepository<Libro, Long> {
-    Optional<Libro> findByIsbn(Long isbn);
+    Libro findByIsbn(Long isbn);
     List<Libro> findByNombre(String nombre);
     Optional<Boolean> deleteLibroByIsbn(Long isbn);
 }

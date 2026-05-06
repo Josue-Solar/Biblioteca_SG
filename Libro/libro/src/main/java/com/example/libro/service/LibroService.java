@@ -32,7 +32,7 @@ public class LibroService {
         return libroRepository.findAll();
     }
     
-    public Optional<Libro> obtenerPorIsbn(long isbn) {
+    public Libro obtenerPorIsbn(long isbn) {
         return libroRepository.findByIsbn(isbn);
     }
 
@@ -72,4 +72,16 @@ public class LibroService {
         LibroAutorDTO libroPorAutores = new LibroAutorDTO(libroRepository.findByIsbn(isbn), autores);
         return libroPorAutores;
     }
+
+    public List<Libro> listarLibros(Long autorId){
+        List<LibroAutor> registros = libroAutRepo.findAllByAutorId(autorId);
+        List<Libro> libros = new ArrayList<>();
+
+        for (LibroAutor libs : registros) {
+            libros.add(libroRepository.findByIsbn(libs.getLibroIsbn()));
+        }
+
+        return libros;
+    }
+    
 }
