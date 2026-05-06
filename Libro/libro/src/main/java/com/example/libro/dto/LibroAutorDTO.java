@@ -1,0 +1,16 @@
+package com.example.libro.dto;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.example.libro.model.Libro;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class LibroAutorDTO {
+    private Optional<Libro> libro;
+    private List<AutorDTO> autor;
+}

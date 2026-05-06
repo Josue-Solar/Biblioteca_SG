@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "LibroApplication",
+            "request": "launch",
+            "mainClass": "com.example.libro.LibroApplication",
+            "projectName": "com.biblioteca-libro"
+        },
+        {
+            "type": "java",
             "name": "PersonaApplication",
             "request": "launch",
             "mainClass": "com.biblioteca.persona.PersonaApplication",
