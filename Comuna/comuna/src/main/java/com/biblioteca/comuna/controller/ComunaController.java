@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.comuna.model.Comuna;
@@ -73,8 +74,8 @@ public class ComunaController {
     }
 
     // buscar por nombre
-    @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<Comuna> buscarPorNombre(@PathVariable String nombre) {
+    @GetMapping("/nombre")
+    public ResponseEntity<Comuna> buscarPorNombre(@RequestParam String nombre) {
         logger.info("Recibiendo solicitud para buscar comunas por nombre");//log
         Optional<Comuna> comuna = comunaService.findByNombre(nombre);
         return comuna

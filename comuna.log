@@ -622,3 +622,385 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2026-05-05 20:12:02 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-05-05 20:12:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-05-05 20:12:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:25:09 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 48087 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:25:09 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:25:09 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:25:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:25:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 28 ms. Found 1 JPA repository interface.
+2026-05-05 20:25:10 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:25:10 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:25:10 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:25:10 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:25:10 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1206 ms
+2026-05-05 20:25:10 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:25:10 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:25:11 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:25:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:25:11 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@2e20c20b
+2026-05-05 20:25:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:25:11 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:25:11 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:25:11 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:25:12 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:25:12 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:25:12 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:25:12 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:25:12 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:25:13 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:25:13 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:25:13 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.439 seconds (process running for 4.902)
+2026-05-05 20:25:15 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:25:15 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:25:15 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-05 20:26:54 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para listar comunas
+2026-05-05 20:32:38 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:32:38 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:32:38 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:32:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:32:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:34:22 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 51627 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:34:22 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:34:22 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:34:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:34:22 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interface.
+2026-05-05 20:34:23 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:34:23 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:34:23 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:34:23 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:34:23 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1232 ms
+2026-05-05 20:34:23 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:34:23 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:34:24 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:34:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:34:24 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@7d4bdbd8
+2026-05-05 20:34:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:34:24 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:34:24 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:34:24 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:34:25 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:34:25 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:34:25 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:34:25 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:34:25 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:34:26 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:34:26 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:34:26 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.301 seconds (process running for 4.803)
+2026-05-05 20:34:28 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:34:28 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:34:28 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-05 20:34:50 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:34:50 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:34:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:34:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:34:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:36:05 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 52363 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:36:05 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:36:05 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:36:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:36:06 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 1 JPA repository interface.
+2026-05-05 20:36:06 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=3b50d18b-6451-3f4e-be9f-01d236205b83
+2026-05-05 20:36:06 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:36:06 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:36:06 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:36:06 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1179 ms
+2026-05-05 20:36:06 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:36:06 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:36:07 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:36:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:36:07 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@c0521e5
+2026-05-05 20:36:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:36:07 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:36:07 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:36:07 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:36:08 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:36:08 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:36:08 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:36:08 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:36:08 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:36:09 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:36:09 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:36:09 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.247 seconds (process running for 4.709)
+2026-05-05 20:36:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:36:11 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:36:11 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-05 20:36:29 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comuna por id
+2026-05-05 20:36:44 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:36:44 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:36:44 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:36:44 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:36:44 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:39:36 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 53908 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:39:36 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:39:36 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:39:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:39:36 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interface.
+2026-05-05 20:39:37 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:39:37 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:39:37 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:39:37 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:39:37 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1165 ms
+2026-05-05 20:39:37 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:39:37 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:39:38 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:39:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:39:38 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@2c557eee
+2026-05-05 20:39:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:39:38 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:39:38 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:39:38 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:39:39 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:39:39 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:39:39 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:39:39 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:39:39 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:39:40 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:39:40 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:39:40 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.353 seconds (process running for 4.831)
+2026-05-05 20:39:41 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:39:41 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:39:41 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-05 20:39:52 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:39:52 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:39:52 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:39:52 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:39:52 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:42:52 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 55146 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:42:52 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:42:52 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:42:53 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:42:53 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interface.
+2026-05-05 20:42:53 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:42:54 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:42:54 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:42:54 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:42:54 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1200 ms
+2026-05-05 20:42:54 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:42:54 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:42:54 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:42:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:42:55 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@c0521e5
+2026-05-05 20:42:55 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:42:55 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:42:55 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:42:55 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:42:55 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:42:55 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:42:55 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:42:56 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:42:56 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:42:56 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:42:56 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:42:56 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.186 seconds (process running for 4.672)
+2026-05-05 20:42:58 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:42:58 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:42:58 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-05 20:43:18 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comuna por id
+2026-05-05 20:43:29 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:43:37 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:44:05 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:44:50 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:44:50 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:44:50 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:44:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:44:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:46:20 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 56874 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:46:20 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:46:20 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:46:20 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:46:20 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interface.
+2026-05-05 20:46:20 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:46:21 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:46:21 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:46:21 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:46:21 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1210 ms
+2026-05-05 20:46:21 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:46:21 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:46:21 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:46:21 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:46:22 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@3fad8636
+2026-05-05 20:46:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:46:22 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:46:22 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:46:22 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:46:23 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:46:23 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:46:23 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:46:23 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:46:23 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:46:23 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:46:23 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:46:24 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.261 seconds (process running for 4.719)
+2026-05-05 20:46:50 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:46:50 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:46:50 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-05 20:49:27 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:49:27 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:49:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:49:27 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:49:27 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:50:26 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 58286 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:50:26 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:50:26 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:50:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:50:27 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 27 ms. Found 1 JPA repository interface.
+2026-05-05 20:50:28 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:50:28 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:50:28 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:50:28 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:50:28 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1374 ms
+2026-05-05 20:50:28 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:50:28 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:50:28 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:50:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:50:29 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@42c9b1ee
+2026-05-05 20:50:29 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:50:29 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:50:29 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:50:29 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:50:30 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:50:30 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:50:30 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:50:30 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:50:30 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:50:30 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:50:31 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:50:31 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.42 seconds (process running for 4.892)
+2026-05-05 20:50:42 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:50:42 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:50:42 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-05 20:53:04 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 20:53:04 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 20:53:04 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:53:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 20:53:04 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-05 20:53:23 INFO  c.b.comuna.ComunaApplication - Starting ComunaApplication using Java 17.0.12 with PID 59599 (/home/jos/Documentos/GitHub/Biblioteca_SG/Comuna/comuna/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-05 20:53:23 DEBUG c.b.comuna.ComunaApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-05 20:53:23 INFO  c.b.comuna.ComunaApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-05 20:53:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-05 20:53:24 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 1 JPA repository interface.
+2026-05-05 20:53:24 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=8bb790b2-5f8f-3498-9287-5ba845a5b557
+2026-05-05 20:53:25 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8088 (http)
+2026-05-05 20:53:25 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-05 20:53:25 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-05 20:53:25 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1301 ms
+2026-05-05 20:53:25 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-05 20:53:25 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-05 20:53:25 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-05 20:53:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-05 20:53:26 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@1d167630
+2026-05-05 20:53:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-05 20:53:26 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-05 20:53:26 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-05 20:53:26 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-05 20:53:27 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-05 20:53:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 20:53:27 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-05 20:53:27 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-05 20:53:27 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-05 20:53:28 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-05 20:53:28 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8088 (http) with context path '/'
+2026-05-05 20:53:28 INFO  c.b.comuna.ComunaApplication - Started ComunaApplication in 4.646 seconds (process running for 5.135)
+2026-05-05 20:53:28 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-05 20:53:28 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-05 20:53:28 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-05 20:53:28 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para listar comunas
+2026-05-05 20:53:46 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:53:51 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:53:57 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:54:10 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:54:13 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:54:16 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:54:24 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:54:28 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para listar comunas
+2026-05-05 20:54:37 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 20:55:33 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comuna por id
+2026-05-05 21:01:15 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
+2026-05-05 21:01:37 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comuna por id

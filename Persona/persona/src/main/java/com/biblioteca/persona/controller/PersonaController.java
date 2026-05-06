@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Rol;
@@ -126,12 +127,13 @@ public class PersonaController {
         }
     }
 
-    @GetMapping("/comuna/{nombre}")
-    public ResponseEntity<?> buscarPorComuna(@PathVariable String nombre){
+    @GetMapping("/comuna")
+    public ResponseEntity<?> buscarPorComuna(@RequestParam String nombre){
         try{
             return ResponseEntity.ok(personaService.findByComunaNombre(nombre));
         }catch(Exception ex){
-            return ResponseEntity.notFound().build();
+            ex.printStackTrace(); // ← agrega esto
+            return ResponseEntity.status(500).body(ex.getMessage()); // ← cambia a 500 con mensaje
         }
     }
 
@@ -140,7 +142,8 @@ public class PersonaController {
         try{
             return ResponseEntity.ok(personaService.findByComunaID(id));
         }catch(Exception ex){
-            return ResponseEntity.notFound().build();
+            ex.printStackTrace(); // ← agrega esto
+            return ResponseEntity.status(500).body(ex.getMessage()); // ← cambia a 500 con mensaje
         }
     }
 
