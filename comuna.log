@@ -1004,3 +1004,8 @@ Caused by: java.net.ConnectException: Connection refused: no further information
 2026-05-05 20:55:33 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comuna por id
 2026-05-05 21:01:15 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comunas por nombre
 2026-05-05 21:01:37 INFO  c.b.c.controller.ComunaController - Recibiendo solicitud para buscar comuna por id
+2026-05-05 21:03:22 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-05 21:03:22 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-05 21:03:22 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-05 21:03:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-05 21:03:22 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

@@ -1,22 +1,217 @@
-2026-05-05 12:45:06 INFO  c.biblioteca.autor.AutorApplication - Starting AutorApplication using Java 17.0.12 with PID 3180 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Autor\autor\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
-2026-05-05 12:45:06 DEBUG c.biblioteca.autor.AutorApplication - Running with Spring Boot v4.0.5, Spring v7.0.6
-2026-05-05 12:45:06 INFO  c.biblioteca.autor.AutorApplication - No active profile set, falling back to 1 default profile: "default"
-2026-05-05 12:45:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-05 12:45:07 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 71 ms. Found 1 JPA repository interface.
-2026-05-05 12:45:09 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
-2026-05-05 12:45:09 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-05-05 12:45:09 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.20]
-2026-05-05 12:45:09 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2481 ms
-2026-05-05 12:45:09 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
-2026-05-05 12:45:09 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.7.Final
-2026-05-05 12:45:10 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-05 12:45:10 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-05-05 12:45:11 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@65b73689
-2026-05-05 12:45:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-05-05 12:45:11 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-05 12:45:11 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
-2026-05-05 12:45:11 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
-	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+2026-05-06 06:36:38 INFO  c.biblioteca.autor.AutorApplication - Starting AutorApplication using Java 17.0.12 with PID 4808 (/home/jos/Documentos/GitHub/Biblioteca_SG/Autor/autor/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-06 06:36:38 DEBUG c.biblioteca.autor.AutorApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-06 06:36:38 INFO  c.biblioteca.autor.AutorApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-06 06:36:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-06 06:36:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 1 JPA repository interface.
+2026-05-06 06:36:39 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=13b2b0b3-ef04-3d0f-bf84-51b44280f4cc
+2026-05-06 06:36:39 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+2026-05-06 06:36:39 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-06 06:36:39 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-06 06:36:39 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1566 ms
+2026-05-06 06:36:39 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-06 06:36:39 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-06 06:36:40 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-06 06:36:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-06 06:37:11 WARN  org.hibernate.orm.jdbc.error - HHH000247: ErrorCode: 12170, SQLState: 08006
+2026-05-06 06:37:11 WARN  org.hibernate.orm.jdbc.error - ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.113.107 port 1521. (CONNECTION_ID=VX01Tj6sToyASHB4pNMZ2Q==)
+https://docs.oracle.com/error-help/db/ora-12170/
+2026-05-06 06:37:11 WARN  org.hibernate.orm.jdbc - HHH100046: Could not obtain connection to query JDBC database metadata
+org.hibernate.exception.JDBCConnectionException: Unable to obtain isolated JDBC connection [ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.113.107 port 1521. (CONNECTION_ID=VX01Tj6sToyASHB4pNMZ2Q==)
+https://docs.oracle.com/error-help/db/ora-12170/] [n/a]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:80)
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:101)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:51)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironmentUsingJdbcMetadata(JdbcEnvironmentInitiator.java:366)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.getJdbcEnvironment(JdbcEnvironmentInitiator.java:143)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:120)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:80)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:133)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:260)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:235)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:212)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:44)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:251)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:203)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:172)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1392)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.populateSessionFactoryBuilder(EntityManagerFactoryBuilderImpl.java:1472)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1454)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.biblioteca.autor.AutorApplication.main(AutorApplication.java:11)
+Caused by: java.sql.SQLTimeoutException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.113.107 port 1521. (CONNECTION_ID=VX01Tj6sToyASHB4pNMZ2Q==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1912)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1228)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1210)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:576)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:97)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:111)
+	at org.hibernate.engine.jdbc.connections.internal.DataSourceConnectionProvider.getConnection(DataSourceConnectionProvider.java:137)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:508)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcIsolationDelegate.delegateWork(JdbcIsolationDelegate.java:48)
+	... 37 common frames omitted
+Caused by: oracle.net.ns.NetException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.113.107 port 1521. (CONNECTION_ID=VX01Tj6sToyASHB4pNMZ2Q==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.net.nt.TcpNTAdapter.handleEstablishSocketException(TcpNTAdapter.java:385)
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:350)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:228)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:357)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1296)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:791)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:724)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:972)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:341)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3746)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1107)
+	... 51 common frames omitted
+2026-05-06 06:37:11 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-06 06:37:11 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database dialect: OracleDialect
+	Database version: 19.0
+	Default catalog/schema: unknown/unknown
+	Autocommit mode: undefined/unknown
+	Isolation level: NONE [default NONE]
+	JDBC fetch size: undefined/unknown
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-06 06:37:12 ERROR o.s.o.j.LocalContainerEntityManagerFactoryBean - Failed to initialize JPA EntityManagerFactory: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.biblioteca.autor.model.Autor' due to: null
+2026-05-06 06:37:12 WARN  o.s.b.w.s.s.c.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.biblioteca.autor.model.Autor' due to: null
+2026-05-06 06:37:12 INFO  o.a.catalina.core.StandardService - Stopping service [Tomcat]
+2026-05-06 06:37:12 INFO  o.s.b.a.l.ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-05-06 06:37:12 ERROR o.s.boot.SpringApplication - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/hibernate/autoconfigure/HibernateJpaConfiguration.class]: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.biblioteca.autor.model.Autor' due to: null
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1817)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:603)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:525)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:331)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:201)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:977)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:621)
+	at org.springframework.boot.web.server.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:143)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:756)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:445)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:321)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1365)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at com.biblioteca.autor.AutorApplication.main(AutorApplication.java:11)
+Caused by: jakarta.persistence.PersistenceException: Unable to build Hibernate SessionFactory  [persistence unit: default] ; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.biblioteca.autor.model.Autor' due to: null
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:448)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:411)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:419)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1864)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1813)
+	... 15 common frames omitted
+Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.biblioteca.autor.model.Autor' due to: null
+	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:101)
+	at org.hibernate.engine.internal.UnsavedValueFactory.inferUnsavedIdentifierValue(UnsavedValueFactory.java:54)
+	at org.hibernate.engine.internal.UnsavedValueFactory.getUnsavedIdentifierValue(UnsavedValueFactory.java:39)
+	at org.hibernate.metamodel.mapping.internal.BasicEntityIdentifierMappingImpl.<init>(BasicEntityIdentifierMappingImpl.java:148)
+	at org.hibernate.persister.entity.AbstractEntityPersister.generateIdentifierMapping(AbstractEntityPersister.java:5173)
+	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$0(AbstractEntityPersister.java:4821)
+	at org.hibernate.metamodel.mapping.internal.MappingModelCreationProcess.processSubPart(MappingModelCreationProcess.java:170)
+	at org.hibernate.persister.entity.AbstractEntityPersister.prepareMappingModel(AbstractEntityPersister.java:4820)
+	at org.hibernate.persister.entity.AbstractEntityPersister.initializeSpecialAttributeMappings(AbstractEntityPersister.java:4682)
+	at org.hibernate.persister.entity.AbstractEntityPersister.prepareMappings(AbstractEntityPersister.java:4663)
+	at org.hibernate.persister.entity.AbstractEntityPersister.prepareMappingModel(AbstractEntityPersister.java:4631)
+	at org.hibernate.metamodel.mapping.internal.MappingModelCreationProcess.execute(MappingModelCreationProcess.java:88)
+	at org.hibernate.metamodel.mapping.internal.MappingModelCreationProcess.process(MappingModelCreationProcess.java:43)
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.finishInitialization(MappingMetamodelImpl.java:167)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:283)
+	at org.hibernate.internal.SessionFactoryRegistry.instantiateSessionFactory(SessionFactoryRegistry.java:64)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:437)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1456)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:93)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:443)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:436)
+	... 19 common frames omitted
+Caused by: java.lang.reflect.InvocationTargetException
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:98)
+	... 39 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problems: 
+	Syntax error on tokens, delete these tokens
+	Syntax error on tokens, delete these tokens
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Duplicate parameter pNombre
+	Duplicate parameter sNombre
+	Duplicate parameter apPaterno
+	Syntax error, insert "Identifier (" to complete ConstructorHeaderName
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error on tokens, delete these tokens
+	Duplicate field Autor.pNombre
+	Duplicate field Autor.sNombre
+	Duplicate field Autor.apPaterno
+	Syntax error on tokens, delete these tokens
+	Duplicate field Autor.pNombre
+	Duplicate field Autor.sNombre
+	Duplicate field Autor.apPaterno
+	Syntax error on tokens, delete these tokens
+
+	at com.biblioteca.autor.model.Autor.<init>(Autor.java:9)
+	... 45 common frames omitted
+2026-05-06 06:38:38 INFO  c.biblioteca.autor.AutorApplication - Starting AutorApplication using Java 17.0.12 with PID 5706 (/home/jos/Documentos/GitHub/Biblioteca_SG/Autor/autor/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG)
+2026-05-06 06:38:38 DEBUG c.biblioteca.autor.AutorApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-06 06:38:38 INFO  c.biblioteca.autor.AutorApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-06 06:38:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-06 06:38:38 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 1 JPA repository interface.
+2026-05-06 06:38:39 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=13b2b0b3-ef04-3d0f-bf84-51b44280f4cc
+2026-05-06 06:38:39 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8089 (http)
+2026-05-06 06:38:39 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-06 06:38:39 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-06 06:38:39 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1372 ms
+2026-05-06 06:38:39 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-06 06:38:39 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-06 06:38:39 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-06 06:38:39 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-06 06:38:40 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@2e785b28
+2026-05-06 06:38:40 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-06 06:38:40 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-06 06:38:40 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-06 06:38:40 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
 	Database driver: Oracle JDBC driver
 	Database dialect: OracleDialect
 	Database version: 21.3
@@ -27,14 +222,19 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2026-05-05 12:45:13 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-05 12:45:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-05 12:45:13 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-05-05 12:45:13 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-05-05 12:45:13 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
-2026-05-05 12:45:14 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path '/'
-2026-05-05 12:45:14 INFO  c.biblioteca.autor.AutorApplication - Started AutorApplication in 8.964 seconds (process running for 9.71)
-2026-05-05 12:46:53 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-05 12:46:53 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-05-05 12:46:53 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
-2026-05-05 12:46:53 INFO  c.b.autor.controller.AutorController - Recibiendo solicitud para listar autores
+2026-05-06 06:38:41 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-06 06:38:41 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-06 06:38:41 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-06 06:38:41 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-06 06:38:41 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-06 06:38:42 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-06 06:38:42 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8089 (http) with context path '/'
+2026-05-06 06:38:42 INFO  c.biblioteca.autor.AutorApplication - Started AutorApplication in 4.943 seconds (process running for 5.42)
+2026-05-06 06:38:43 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-06 06:38:43 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-06 06:38:43 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-06 06:39:01 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-06 06:39:01 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-06 06:39:01 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-06 06:39:01 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-06 06:39:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
