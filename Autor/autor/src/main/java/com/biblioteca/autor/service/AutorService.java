@@ -9,13 +9,9 @@ import com.biblioteca.autor.model.Autor;
 import com.biblioteca.autor.repository.AutorRepository;
 
 import jakarta.transaction.Transactional;
-<<<<<<< HEAD
-
-=======
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
->>>>>>> usuario
 @Service
 @Transactional
 public class AutorService {
@@ -28,15 +24,9 @@ public class AutorService {
         return autorRepository.findAll();
     }
 
-<<<<<<< HEAD
-    public Autor findByIdOrThrow(Long id){
-        return autorRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Autor no encontrado con ID: " + id));
-=======
     //buscar por id
     public Autor findByIdOrThrow(Long id){
         return autorRepository.findById(id).orElseThrow(() -> new RuntimeException("Autor no encontrado con ID: " + id));
->>>>>>> usuario
     }
 
     //crear
@@ -46,12 +36,7 @@ public class AutorService {
 
     //updatear
     public Autor updateAutor(Long id, Autor nAutor){
-<<<<<<< HEAD
-        Autor autor= autorRepository.findById(id)
-            .orElse(null);
-=======
         Autor autor= autorRepository.findById(id).orElse(null);
->>>>>>> usuario
         if(autor!=null){
             autor.setPNombre(nAutor.getPNombre());
             autor.setSNombre(nAutor.getSNombre());

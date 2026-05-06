@@ -7,18 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.persona.model.Rol;
+import com.biblioteca.persona.client.ComunaClient;
+import com.biblioteca.persona.dto.ComunaDTO;
+import com.biblioteca.persona.dto.PersonaComunaDTO;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.repository.PersonaRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 @Transactional //sirve para datos q no se guardara en la db
 public class PersonaService {
 
-    @Autowired
-    private PersonaRepository personaRepository;
+    private final PersonaRepository personaRepository;
 
     //ver todas las personas
     public List<Persona> findAll(){
@@ -89,6 +93,19 @@ public class PersonaService {
     // Buscar personas por sexo
     public List<Persona> findBySexo(Sexo sexo) {
         return personaRepository.findBySexo(sexo);
+    }   
+
+    private final ComunaClient comunaClient;
+    public PersonaComunaDTO findByComunaNombre(String nombreComuna){
+        ComunaDTO comuna = comunaClient.buscarPorNombre(nombreComuna);
+        PersonaComunaDTO persoComuDTO = new PersonaComunaDTO(comuna, personaRepository.findByComunaId(comuna.getId()));
+        return persoComuDTO;
+    }
+
+    public PersonaComunaDTO findByComunaID(Long id){
+        ComunaDTO comuna = comunaClient.buscarPorId(id);
+        PersonaComunaDTO persoComuDTO = new PersonaComunaDTO(comuna, personaRepository.findByComunaId(id));
+        return persoComuDTO;
     }
 
 }

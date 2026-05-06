@@ -35,4 +35,5 @@ public interface PersonaRepository extends JpaRepository<Persona, Long> {
     //buscar por sexo
     List<Persona> findBySexo(Sexo sexo);
 
+    List<Persona> findByComunaId(Long comunaId);
 }

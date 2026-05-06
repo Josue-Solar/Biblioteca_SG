@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PersonaApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.persona.PersonaApplication",
+            "projectName": "persona"
+        },
+        {
+            "type": "java",
             "name": "AutorApplication",
             "request": "launch",
             "mainClass": "com.biblioteca.autor.AutorApplication",

@@ -126,6 +126,25 @@ public class PersonaController {
         }
     }
 
+    @GetMapping("/comuna/{nombre}")
+    public ResponseEntity<?> buscarPorComuna(@PathVariable String nombre){
+        try{
+            return ResponseEntity.ok(personaService.findByComunaNombre(nombre));
+        }catch(Exception ex){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/comunaID/{id}")
+    public ResponseEntity<?> buscarPorComunaID(@PathVariable Long id){
+        try{
+            return ResponseEntity.ok(personaService.findByComunaID(id));
+        }catch(Exception ex){
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
     //  metodo PUT actualizar
     @PutMapping("/{run}") // Actualizar por RUN
     public ResponseEntity<Persona> actualizar(@PathVariable String run, @Valid @RequestBody Persona persona) {
