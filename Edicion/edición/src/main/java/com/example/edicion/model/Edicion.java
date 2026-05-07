@@ -2,14 +2,8 @@ package com.example.edicion.model;
 
 import java.sql.Date;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,13 +18,12 @@ public class Edicion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    long id;
+    private long id;
 
-    @NotNull(message = "Nombre no puede ser vacio")
-    @NotEmpty(message = "Nombre no puede ser vacio")
+    @NotBlank(message = "El RUN no puede estar vacío")
     @Column(nullable = false, length = 50, name = "nombre")
-    String nombre;
+    private String nombre;
 
     @Column(nullable = false, name = "fecha_publicacion")
-    Date fechaPublicacion;
+    private Date fechaPublicacion;
 }

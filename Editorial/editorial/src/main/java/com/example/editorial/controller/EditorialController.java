@@ -1,9 +1,10 @@
 package com.example.editorial.controller;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.logging.Logger;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,7 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/v2/editoriales")
 public class EditorialController {
 
-    private static final Logger logger = Logger.getLogger(EditorialController.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(EditorialController.class.getName());
     
     @Autowired
     private EditorialService editorialService;
@@ -42,13 +43,24 @@ public class EditorialController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Long> buscarPorId(@PathVariable long id) {
+    public ResponseEntity<Editorial> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar editorial por ID: " + id);//log
-        Optional<Editorial> editoriales = editorialService.obtenerPorId(id);
-        if (editoriales == null) {
+        try {
+            Editorial editorial = editorialService.findByIdOrThrow(id);
+            return ResponseEntity.ok(editorial);
+        } catch (Exception ex) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(id);
+    }
+
+    @GetMapping("/nombre/{nombre}") //buscar por apellido
+    public ResponseEntity<List<Editorial>> buscarPorNombre(@PathVariable String nombre) {
+        logger.info("Recibiendo solicitud para buscar editorial por nombre: " + nombre);//log
+        List<Editorial> editoriales = editorialService.obtenerPorNombre(nombre);
+        if (editoriales.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(editoriales);
     }
 
     @PostMapping
@@ -59,13 +71,13 @@ public class EditorialController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Editorial> actualizar(
-            @PathVariable long id,
-            @Valid @RequestBody Editorial datos) {
-        logger.info("Recibiendo solicitud para actualizar editorial");
-        return editorialService.actualizar(id, datos)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Editorial> actualizar(@PathVariable long id, @Valid @RequestBody Editorial editorial) {
+        logger.info("Recibiendo solicitud para actualizar editorial" + id);
+        Editorial editorialActualizada = editorialService.modificarEditorial(id, editorial);  
+        if (editorialActualizada != null) {
+            return ResponseEntity.ok(editorialActualizada);
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
