@@ -142,8 +142,8 @@ public class PersonaController {
         try{
             return ResponseEntity.ok(personaService.findByComunaID(id));
         }catch(Exception ex){
-            ex.printStackTrace(); // ← agrega esto
-            return ResponseEntity.status(500).body(ex.getMessage()); // ← cambia a 500 con mensaje
+            ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage()); 
         }
     }
 

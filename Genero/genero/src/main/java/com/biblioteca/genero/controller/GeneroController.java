@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.genero.model.Genero;
@@ -30,7 +31,7 @@ public class GeneroController {
     @Autowired
     private GeneroService generoService;
 
-    @GetMapping
+    @GetMapping //mostrar géneros
     public ResponseEntity<List<Genero>> listar() {
         logger.info("Recibiendo solicitud para listar generos");//log
         List<Genero> generos = generoService.obtenerTodos();
@@ -40,7 +41,7 @@ public class GeneroController {
         return ResponseEntity.ok(generos);
     }
 
-    @GetMapping("/nombre/{nombre}") //buscar por apellido
+    @GetMapping("/nombre/{nombre}") //buscar por nombre
     public ResponseEntity<List<Genero>> buscarPorNombre(@PathVariable String nombre) {
         logger.info("Recibiendo solicitud para buscar genero por nombre: " + nombre);//log
         List<Genero> generos = generoService.obtenerPorNombre(nombre);
@@ -51,7 +52,7 @@ public class GeneroController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // Buscar por ID
     public ResponseEntity<Genero> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar genero por ID: " + id);//log
         try {
@@ -62,14 +63,34 @@ public class GeneroController {
         }
     }
 
-    @PostMapping
+    @GetMapping("/libro")
+    public ResponseEntity<?> buscarPorLibro(@RequestParam String nombre){
+        try{
+            return ResponseEntity.ok(generoService.findByLibroNombre(nombre));
+        }catch(Exception ex){
+            ex.printStackTrace(); // ← agrega esto
+            return ResponseEntity.status(500).body(ex.getMessage()); // ← cambia a 500 con mensaje
+        }
+    }
+
+    @GetMapping("/LibroISBN/{isbn}")
+    public ResponseEntity<?> buscarPorLibroISBN(@PathVariable Long isbn){
+        try{
+            return ResponseEntity.ok(generoService.findByLibroISBN(isbn));
+        }catch(Exception ex){
+            ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage()); 
+        }
+    }
+
+    @PostMapping //registrar género
     public ResponseEntity<Genero> crear(@RequestBody Genero genero) {
         logger.info("Recibiendo solicitud para guardar genero");//log
         Genero nuevoGenero = generoService.guardar(genero);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoGenero);
     }
 
-    @PutMapping("/{id}")
+    @PutMapping("/{id}") //actualizar por id
     public ResponseEntity<Genero> actualizar(@PathVariable long id, @Valid @RequestBody Genero genero) {
         logger.info("Recibiendo solicitud para actualizar genero" + id);
         Genero generoActualizado = generoService.modificarGenero(id, genero);  
@@ -79,7 +100,7 @@ public class GeneroController {
         return ResponseEntity.notFound().build();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/{id}") //borrar por id
     public ResponseEntity<Void> eliminarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para eliminar genero por id: " + id);//log
         try {

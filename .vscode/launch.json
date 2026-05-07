@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GeneroApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.genero.GeneroApplication",
+            "projectName": "com.biblioteca-genero"
+        },
+        {
+            "type": "java",
             "name": "EjemplarApplication",
             "request": "launch",
             "mainClass": "com.biblioteca.ejemplar.EjemplarApplication",
