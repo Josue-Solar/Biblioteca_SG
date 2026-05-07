@@ -1,10 +1,10 @@
-package com.example.editorial.service;
+package com.biblioteca.editorial.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-import com.example.editorial.model.Editorial;
-import com.example.editorial.repository.EditorialRepository;
+import com.biblioteca.editorial.model.Editorial;
+import com.biblioteca.editorial.repository.EditorialRepository;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 public class EditorialService {
 
-    private EditorialRepository editorialRepository;
+    private final EditorialRepository editorialRepository;
 
     public List<Editorial> obtenerTodos(){
         return editorialRepository.findAll();

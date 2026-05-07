@@ -1,4 +1,4 @@
-package com.example.editorial.security;
+package com.biblioteca.editorial.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

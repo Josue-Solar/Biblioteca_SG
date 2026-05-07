@@ -1,4 +1,4 @@
-package com.example.editorial.model;
+package com.biblioteca.editorial.model;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
@@ -16,7 +16,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class Editorial {
 
     @Id

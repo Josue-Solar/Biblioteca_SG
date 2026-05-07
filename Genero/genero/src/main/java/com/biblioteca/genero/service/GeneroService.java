@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 public class GeneroService {
     
-    private GeneroRepository generoRepository;
+    private final GeneroRepository generoRepository;
 
     public List<Genero> obtenerTodos(){
         return generoRepository.findAll();

@@ -1684,3 +1684,279 @@ Caused by: java.net.ConnectException: Connection timed out: getsockopt
 2026-05-06 21:24:05 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 213 ms
 2026-05-06 21:24:06 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
 2026-05-06 21:24:06 INFO  c.e.editorial.EditorialApplication - Started EditorialApplication in 34.528 seconds (process running for 35.9)
+2026-05-07 11:48:07 INFO  c.b.genero.GeneroApplication - Starting GeneroApplication using Java 17.0.12 with PID 19912 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Genero\genero\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
+2026-05-07 11:48:07 DEBUG c.b.genero.GeneroApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-07 11:48:07 INFO  c.b.genero.GeneroApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-07 11:48:08 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07 11:48:08 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2026-05-07 11:48:08 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a35d22fc-5b10-3cd8-b220-515e64bec2b6
+2026-05-07 11:48:09 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-07 11:48:09 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-07 11:48:09 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07 11:48:09 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2084 ms
+2026-05-07 11:48:09 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07 11:48:09 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07 11:48:10 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07 11:48:10 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-07 11:48:10 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@69d021c1
+2026-05-07 11:48:10 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-07 11:48:11 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 11:48:11 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-07 11:48:11 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07 11:48:12 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 11:48:12 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07 11:48:12 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07 11:48:12 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-07 11:48:13 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07 11:48:14 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:48:14 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-05-07 11:48:15 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:48:16 INFO  c.b.genero.GeneroApplication - Started GeneroApplication in 10.707 seconds (process running for 11.708)
+2026-05-07 11:48:48 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07 11:48:48 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-07 11:48:48 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-07 11:48:48 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para listar generos
+2026-05-07 11:49:31 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para guardar genero
+2026-05-07 11:50:10 INFO  c.b.genero.GeneroApplication - Starting GeneroApplication using Java 17.0.12 with PID 14832 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Genero\genero\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
+2026-05-07 11:50:10 DEBUG c.b.genero.GeneroApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-07 11:50:10 INFO  c.b.genero.GeneroApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-07 11:50:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07 11:50:11 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
+2026-05-07 11:50:11 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a35d22fc-5b10-3cd8-b220-515e64bec2b6
+2026-05-07 11:50:11 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-05-07 11:50:11 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-07 11:50:11 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07 11:50:11 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1772 ms
+2026-05-07 11:50:12 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07 11:50:12 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07 11:50:13 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07 11:50:13 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-07 11:50:13 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@6968bb65
+2026-05-07 11:50:13 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-07 11:50:13 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 11:50:13 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-07 11:50:13 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07 11:50:14 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 11:50:14 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07 11:50:14 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07 11:50:15 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07 11:50:15 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-07 11:50:17 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:50:17 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-05-07 11:50:18 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:50:18 INFO  c.b.genero.GeneroApplication - Started GeneroApplication in 10.144 seconds (process running for 10.835)
+2026-05-07 11:50:22 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07 11:50:22 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-07 11:50:22 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-07 11:50:22 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para guardar genero
+2026-05-07 11:50:31 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para guardar genero
+2026-05-07 11:50:35 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para listar generos
+2026-05-07 11:51:24 INFO  c.example.edicion.EdicionApplication - Starting EdicionApplication using Java 17.0.12 with PID 3920 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Edicion\edición\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
+2026-05-07 11:51:24 INFO  c.example.edicion.EdicionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-07 11:51:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07 11:51:25 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 1 JPA repository interface.
+2026-05-07 11:51:25 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=f822e817-a4ef-33b2-a2a0-cdf5b0249317
+2026-05-07 11:51:26 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-05-07 11:51:26 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-07 11:51:26 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07 11:51:26 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2121 ms
+2026-05-07 11:51:27 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07 11:51:27 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07 11:51:28 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07 11:51:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-07 11:51:28 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@451a4187
+2026-05-07 11:51:28 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-07 11:51:28 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 11:51:28 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-07 11:51:28 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07 11:51:29 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 11:51:29 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07 11:51:29 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07 11:51:30 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-07 11:51:31 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07 11:51:32 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07 11:51:32 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-07 11:51:32 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'webEndpointServletHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 11:51:32 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'management.endpoints.web.cors-org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 11:51:32 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-07 11:51:32 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'controllerEndpointHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 11:51:32 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 15 ms
+2026-05-07 11:51:32 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:51:32 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-05-07 11:51:34 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:51:34 INFO  c.example.edicion.EdicionApplication - Started EdicionApplication in 11.469 seconds (process running for 12.262)
+2026-05-07 11:55:03 WARN  o.a.c.util.SessionIdGeneratorBase - Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [250] milliseconds.
+2026-05-07 11:55:31 INFO  c.e.e.controller.EdicionController - Recibiendo solicitud para listar ediciones
+2026-05-07 11:55:46 INFO  c.example.edicion.EdicionApplication - Starting EdicionApplication using Java 17.0.12 with PID 11208 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Edicion\edición\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
+2026-05-07 11:55:46 INFO  c.example.edicion.EdicionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-07 11:55:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07 11:55:47 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 1 JPA repository interface.
+2026-05-07 11:55:48 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=f822e817-a4ef-33b2-a2a0-cdf5b0249317
+2026-05-07 11:55:48 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8082 (http)
+2026-05-07 11:55:48 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-07 11:55:48 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07 11:55:48 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1856 ms
+2026-05-07 11:55:49 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07 11:55:49 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07 11:55:50 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07 11:55:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-07 11:55:50 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@451a4187
+2026-05-07 11:55:50 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-07 11:55:50 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 11:55:50 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-07 11:55:50 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07 11:55:51 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 11:55:51 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07 11:55:51 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07 11:55:52 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07 11:55:52 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-07 11:55:54 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07 11:55:54 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-07 11:55:54 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'webEndpointServletHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 11:55:54 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'management.endpoints.web.cors-org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 11:55:54 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-07 11:55:54 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'controllerEndpointHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 11:55:54 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 22 ms
+2026-05-07 11:55:54 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:55:54 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8082 (http) with context path '/'
+2026-05-07 11:55:55 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 11:55:55 INFO  c.example.edicion.EdicionApplication - Started EdicionApplication in 10.613 seconds (process running for 11.311)
+2026-05-07 11:56:09 INFO  c.e.e.controller.EdicionController - Recibiendo solicitud para listar ediciones
+2026-05-07 12:04:22 INFO  c.b.editorial.EditorialApplication - Starting EditorialApplication using Java 17.0.12 with PID 11724 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Editorial\editorial\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
+2026-05-07 12:04:22 DEBUG c.b.editorial.EditorialApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-07 12:04:22 INFO  c.b.editorial.EditorialApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-07 12:04:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07 12:04:23 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
+2026-05-07 12:04:24 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a3b89aab-b4d2-3831-86c6-d516344e8f8c
+2026-05-07 12:04:24 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2026-05-07 12:04:24 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-07 12:04:24 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07 12:04:24 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2039 ms
+2026-05-07 12:04:25 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07 12:04:25 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07 12:04:25 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07 12:04:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-07 12:04:26 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@1bba9862
+2026-05-07 12:04:26 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-07 12:04:26 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 12:04:26 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-07 12:04:26 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07 12:04:27 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 12:04:27 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07 12:04:27 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07 12:04:27 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-07 12:04:28 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07 12:04:29 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07 12:04:29 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-07 12:04:29 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'webEndpointServletHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 12:04:29 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'management.endpoints.web.cors-org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 12:04:29 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-07 12:04:29 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'controllerEndpointHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 12:04:29 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 14 ms
+2026-05-07 12:04:30 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 12:04:30 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2026-05-07 12:04:31 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 12:04:31 INFO  c.b.editorial.EditorialApplication - Started EditorialApplication in 11.196 seconds (process running for 12.028)
+2026-05-07 12:04:50 INFO  c.b.e.controller.EditorialController - Recibiendo solicitud para listar editoriales
+2026-05-07 12:05:04 INFO  c.b.editorial.EditorialApplication - Starting EditorialApplication using Java 17.0.12 with PID 13676 (C:\Users\Duoc\Documents\GitHub\Biblioteca_SG\Editorial\editorial\target\classes started by Duoc in C:\Users\Duoc\Documents\GitHub\Biblioteca_SG)
+2026-05-07 12:05:04 DEBUG c.b.editorial.EditorialApplication - Running with Spring Boot v4.0.6, Spring v7.0.7
+2026-05-07 12:05:04 INFO  c.b.editorial.EditorialApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-07 12:05:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-07 12:05:05 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interface.
+2026-05-07 12:05:05 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=a3b89aab-b4d2-3831-86c6-d516344e8f8c
+2026-05-07 12:05:05 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8083 (http)
+2026-05-07 12:05:05 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-07 12:05:05 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-07 12:05:06 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1977 ms
+2026-05-07 12:05:06 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-07 12:05:06 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-07 12:05:07 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-07 12:05:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-07 12:05:07 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@60fe75f7
+2026-05-07 12:05:07 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-07 12:05:08 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-07 12:05:08 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-07 12:05:08 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.113.107:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-07 12:05:09 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-07 12:05:09 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-07 12:05:09 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-07 12:05:09 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-07 12:05:09 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-07 12:05:11 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-07 12:05:11 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-07 12:05:11 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'webEndpointServletHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 12:05:11 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'management.endpoints.web.cors-org.springframework.boot.actuate.autoconfigure.endpoint.web.CorsEndpointProperties' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 12:05:11 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-07 12:05:11 INFO  o.s.b.f.s.DefaultListableBeanFactory - Obtaining singleton bean 'controllerEndpointHandlerMapping' in thread "RMI TCP Connection(2)-127.0.0.1" while other thread holds singleton lock for other beans [simpleDiscoveryClient, simpleDiscoveryProperties, compositeDiscoveryClient]
+2026-05-07 12:05:11 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 16 ms
+2026-05-07 12:05:12 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 12:05:12 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8083 (http) with context path '/'
+2026-05-07 12:05:13 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-07 12:05:13 INFO  c.b.editorial.EditorialApplication - Started EditorialApplication in 11.199 seconds (process running for 11.996)
+2026-05-07 12:05:39 INFO  c.b.e.controller.EditorialController - Recibiendo solicitud para listar editoriales

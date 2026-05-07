@@ -10,7 +10,7 @@ import com.biblioteca.genero.model.Genero;
 @Repository
 public interface GeneroRepository extends  JpaRepository<Genero, Long> {
 
-    List<Edicion> findByNombre(String nombre);
+    List<Genero> findByNombre(String nombre);
 
-    List<Edicion> findById(long id);
+    List<Genero> findById(long id);
 }

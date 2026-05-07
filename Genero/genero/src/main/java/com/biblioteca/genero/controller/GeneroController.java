@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.service.GeneroService;
 
+import jakarta.validation.Valid;
+
 
 @RestController
 @RequestMapping("/api/v1/generos")
@@ -70,7 +72,7 @@ public class GeneroController {
     @PutMapping("/{id}")
     public ResponseEntity<Genero> actualizar(@PathVariable long id, @Valid @RequestBody Genero genero) {
         logger.info("Recibiendo solicitud para actualizar genero" + id);
-        Genero generoActualizado = generoService.modificarEdicion(id, genero);  
+        Genero generoActualizado = generoService.modificarGenero(id, genero);  
         if (generoActualizado != null) {
             return ResponseEntity.ok(generoActualizado);
         }

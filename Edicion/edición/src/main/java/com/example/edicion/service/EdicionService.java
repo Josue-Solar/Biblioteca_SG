@@ -13,9 +13,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Transactional
 public class EdicionService {
-
     
-    private EdicionRepository edicionRepository;
+    private final EdicionRepository edicionRepository;
 
     public List<Edicion> obtenerTodos(){
         return edicionRepository.findAll();
