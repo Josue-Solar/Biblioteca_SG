@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.libro.client.AutorClient;
+import com.example.libro.client.EjemplarClient;
 import com.example.libro.dto.AutorDTO;
+import com.example.libro.dto.EjemplarDTO;
 import com.example.libro.dto.LibroAutorDTO;
+import com.example.libro.dto.LibroEjemplarDTO;
 import com.example.libro.model.Libro;
 import com.example.libro.model.LibroAutor;
 import com.example.libro.repository.LibroAutorRepository;
@@ -82,6 +85,14 @@ public class LibroService {
         }
 
         return libros;
+    }
+
+    public final EjemplarClient ejemplarClient;
+    public LibroEjemplarDTO listarEjemplares(Long isbn){
+        List<EjemplarDTO> ejemplares = ejemplarClient.getAllByISBN(isbn);
+        LibroEjemplarDTO libroEjemplares = new LibroEjemplarDTO(libroRepository.findByIsbn(isbn), ejemplares);
+
+        return libroEjemplares;
     }
     
 }

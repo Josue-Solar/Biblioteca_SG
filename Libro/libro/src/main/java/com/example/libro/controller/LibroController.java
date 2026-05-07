@@ -19,6 +19,8 @@ import com.example.libro.service.LibroService;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/v1/libros")
@@ -52,6 +54,11 @@ public class LibroController {
         }
     }
 
+    @GetMapping("/ejemplares/{isbn}")
+    public ResponseEntity<?> getEjemplares(@PathVariable Long isbn) {
+        return ResponseEntity.ok(libroService.listarEjemplares(isbn));
+    }
+    
 
     @GetMapping("/autorId/{id}")
     public ResponseEntity<List<?>> getAllByAuthId(@PathVariable Long id){

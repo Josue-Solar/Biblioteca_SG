@@ -9,7 +9,7 @@ import com.biblioteca.ejemplar.dto.LibroDTO;
 
 import jakarta.validation.Valid;
 
-@FeignClient(name = "libro", url = "http://localhost:8080", configuration = FeignConfig.class)
+@FeignClient(name = "libro", url = "${libro.url}", configuration = FeignConfig.class)
 public interface LibroClient {
     @GetMapping("/api/v1/libros/isbn:{isbn}")
     LibroDTO getByID(@Valid @PathVariable long isbn);

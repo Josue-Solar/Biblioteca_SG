@@ -3,7 +3,6 @@ package com.biblioteca.ejemplar.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.ejemplar.client.LibroClient;
@@ -35,6 +34,9 @@ public class EjemplarService {
         return ejemplarRepository.findById(libroIsbn);
     }
 
+    public List<Ejemplar> obtenerTodosPorIsbn(long libroIsbn) {
+        return ejemplarRepository.getAllByLibroIsbn(libroIsbn);
+    }
     public Ejemplar guardar(Ejemplar ejemplar) {
         return ejemplarRepository.save(ejemplar);
     }

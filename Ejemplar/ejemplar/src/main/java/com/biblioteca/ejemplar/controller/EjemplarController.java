@@ -31,7 +31,7 @@ public class EjemplarController {
         return ejemplarService.obtenerTodos();
     }
 
-    @GetMapping("/id:{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Ejemplar> getByID(@Valid @PathVariable long id){
         return ejemplarService.obtenerPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
@@ -39,6 +39,11 @@ public class EjemplarController {
     @GetMapping("/traeLibro/{id}")
     public ResponseEntity<?> getLibro(@PathVariable Long id){
         return ResponseEntity.ok(ejemplarService.getLibro(id));
+    }
+
+    @GetMapping("porISBN/{isbn}")
+    public ResponseEntity<?> getAllByISBN(@PathVariable Long isbn){
+        return ResponseEntity.ok(ejemplarService.obtenerTodosPorIsbn(isbn));
     }
 
     @PostMapping
