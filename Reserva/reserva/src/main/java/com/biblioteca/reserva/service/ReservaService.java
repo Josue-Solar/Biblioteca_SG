@@ -59,7 +59,7 @@ public class ReservaService {
     public ReservaCompletaDTO getAllInfoByResId(Long id){
         Reserva res = reservaRepo.findById(id).orElseThrow(() -> new RuntimeException("Reserva no encontrada"));
         PersonaDTO persona = personaClient.buscarPorId(res.getPersonaID());
-        EjemplarDTO ejemplar = ejemplarClient.getNombreLibro(res.getEjemplarID());
+        EjemplarDTO ejemplar = ejemplarClient.getLibro(res.getEjemplarID());
         
         ReservaCompletaDTO reservaCompleta = new ReservaCompletaDTO(id, persona, ejemplar);
 

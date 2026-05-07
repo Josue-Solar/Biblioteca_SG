@@ -36,9 +36,9 @@ public class EjemplarController {
         return ejemplarService.obtenerPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/traeNombre/{id}")
-    public ResponseEntity<?> getNombreLibro(@PathVariable Long id){
-        return ResponseEntity.ok(ejemplarService.getNombreLibro(id));
+    @GetMapping("/traeLibro/{id}")
+    public ResponseEntity<?> getLibro(@PathVariable Long id){
+        return ResponseEntity.ok(ejemplarService.getLibro(id));
     }
 
     @PostMapping

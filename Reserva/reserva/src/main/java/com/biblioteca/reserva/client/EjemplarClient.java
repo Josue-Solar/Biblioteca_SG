@@ -10,5 +10,5 @@ import com.biblioteca.reserva.dto.EjemplarDTO;
 @FeignClient(name = "ejemplar", url = "http://localhost:8083", configuration = FeignConfig.class)
 public interface EjemplarClient {
     @GetMapping("/api/v1/ejemplares/traeNombre/{isbn}")
-    EjemplarDTO getNombreLibro(@PathVariable Long isbn);
+    EjemplarDTO getLibro(@PathVariable Long isbn);
 }

@@ -54,9 +54,6 @@ public class ReservaController {
 
     /*
     @GetMapping("/infoCompleta")
-    public ResponseEntity<?> getAllInfo(){
-        return reservaService.getAllInfoByResId(null);
-    }
     @GetMapping("/infoCompleta/{nombreLibro}")
     @GetMapping("/infoCompleta/{runUsuario}")
     */

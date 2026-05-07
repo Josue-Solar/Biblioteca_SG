@@ -56,9 +56,8 @@ public class EjemplarService {
     }
 
     private final LibroClient libroClient;
-    public LibroDTO getNombreLibro(Long id){
-        LibroDTO libro = libroClient.getByID(ejemplarRepository.getById(id)
-                                                                .getLibroIsbn());
+    public LibroDTO getLibro(Long id){
+        LibroDTO libro = libroClient.getByID(ejemplarRepository.getById(id).getLibroIsbn());
         return libro;
     }
 }
