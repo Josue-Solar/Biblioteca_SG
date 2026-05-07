@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EjemplarApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.ejemplar.EjemplarApplication",
+            "projectName": "ejemplar"
+        },
+        {
+            "type": "java",
+            "name": "EjemplarApplication",
+            "request": "launch",
+            "mainClass": "com.example.ejemplar.EjemplarApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "LibroApplication",
             "request": "launch",
             "mainClass": "com.example.libro.LibroApplication",

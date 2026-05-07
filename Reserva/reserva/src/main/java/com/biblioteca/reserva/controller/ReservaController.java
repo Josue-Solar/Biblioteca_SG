@@ -42,7 +42,7 @@ public class ReservaController {
                                             .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/personaDatos:{id}")
+    @GetMapping("/verPersonaDatos:{id}")
     public ResponseEntity<?> getByPerID(@PathVariable long id){
         return ResponseEntity.ok(reservaService.getReservaDatosPersona(id));
     }
@@ -51,6 +51,20 @@ public class ReservaController {
     public ResponseEntity<?> getByEjID(@PathVariable long id){
         return ResponseEntity.ok(reservaService.getByEjID(id));
     }
+
+    /*
+    @GetMapping("/infoCompleta")
+    public ResponseEntity<?> getAllInfo(){
+        return reservaService.getAllInfoByResId(null);
+    }
+    @GetMapping("/infoCompleta/{nombreLibro}")
+    @GetMapping("/infoCompleta/{runUsuario}")
+    */
+    @GetMapping("/infoCompleta/{idReserva}")
+    public ResponseEntity<?> getAllInfoById(@PathVariable Long idReserva){
+        return ResponseEntity.ok(reservaService.getAllInfoByResId(idReserva));
+    }
+
 
     @PostMapping
     public ResponseEntity<Reserva> postReserva(@Valid @RequestBody Reserva res){

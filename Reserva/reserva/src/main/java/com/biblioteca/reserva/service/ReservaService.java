@@ -11,8 +11,11 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.biblioteca.reserva.client.EjemplarClient;
 import com.biblioteca.reserva.client.PersonaClient;
+import com.biblioteca.reserva.dto.EjemplarDTO;
 import com.biblioteca.reserva.dto.PersonaDTO;
+import com.biblioteca.reserva.dto.ReservaCompletaDTO;
 import com.biblioteca.reserva.dto.ReservaPersonaDTO;
 import com.biblioteca.reserva.model.Reserva;
 import com.biblioteca.reserva.repository.ReservaRepository;
@@ -51,17 +54,19 @@ public class ReservaService {
     }
 
     private final PersonaClient personaClient;
+    private final EjemplarClient ejemplarClient;
+    //get toda info
+    public ReservaCompletaDTO getAllInfoByResId(Long id){
+        Reserva res = reservaRepo.findById(id).orElseThrow(() -> new RuntimeException("Reserva no encontrada"));
+        PersonaDTO persona = personaClient.buscarPorId(res.getPersonaID());
+        EjemplarDTO ejemplar = ejemplarClient.getNombreLibro(res.getEjemplarID());
+        
+        ReservaCompletaDTO reservaCompleta = new ReservaCompletaDTO(id, persona, ejemplar);
+
+        return reservaCompleta;
+    }
     //get by personaID
     public ReservaPersonaDTO getReservaDatosPersona(long id){
-        /*return reservaRepo.findAll().stream().map(reserva -> {
-            PersonaDTO persona = personaClient.buscarPorId(id);
-            return new ReservaPersonaDTO(
-                reserva.getId(),
-                persona.getId(),
-                persona.getNombreCompleto()
-            );
-        })
-        .collect(Collectors.toList());*/
         PersonaDTO persona = personaClient.buscarPorId(id);
         ReservaPersonaDTO resPersonaDTO = new ReservaPersonaDTO(persona, reservaRepo.findByPersonaID(id));
         return resPersonaDTO;   
