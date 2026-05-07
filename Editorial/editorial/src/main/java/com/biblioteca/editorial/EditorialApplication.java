@@ -1,13 +1,14 @@
-package com.example.genero;
+package com.biblioteca.editorial;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GeneroApplication {
+
+public class EditorialApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GeneroApplication.class, args);
+		SpringApplication.run(EditorialApplication.class, args);
 	}
 
 }
