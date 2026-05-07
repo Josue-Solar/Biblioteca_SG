@@ -2,6 +2,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PersonaApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.persona.PersonaApplication",
+            "projectName": "com.biblioteca-persona"
+        },
+        {
+            "type": "java",
+            "name": "ComunaApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.comuna.ComunaApplication",
+            "projectName": "com.biblioteca-comuna"
+        },
+        {
+            "type": "java",
             "name": "EjemplarApplication",
             "request": "launch",
             "mainClass": "com.biblioteca.ejemplar.EjemplarApplication",

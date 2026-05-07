@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.biblioteca.persona.config.FeignConfig;
 import com.biblioteca.persona.dto.ComunaDTO;
 
-@FeignClient(name = "comuna", url = "http://localhost:8088", configuration = FeignConfig.class)
+@FeignClient(name = "comuna", url = "${comuna.url}", configuration = FeignConfig.class)
 public interface ComunaClient {
     @GetMapping("/api/v1/comunas/nombre")
     ComunaDTO buscarPorNombre(@RequestParam String nombre);
