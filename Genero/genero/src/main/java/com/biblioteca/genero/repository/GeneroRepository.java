@@ -13,4 +13,7 @@ public interface GeneroRepository extends  JpaRepository<Genero, Long> {
     List<Genero> findByNombre(String nombre);
 
     List<Genero> findById(long id);
+
+    List<Genero> findByLibroIsbn(Long libroIsbn);
+
 }

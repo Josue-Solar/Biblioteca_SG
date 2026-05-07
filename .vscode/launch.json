@@ -2,17 +2,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "PersonaApplication",
+            "name": "GeneroApplication",
             "request": "launch",
-            "mainClass": "com.biblioteca.persona.PersonaApplication",
-            "projectName": "com.biblioteca-persona"
-        },
-        {
-            "type": "java",
-            "name": "ComunaApplication",
-            "request": "launch",
-            "mainClass": "com.biblioteca.comuna.ComunaApplication",
-            "projectName": "com.biblioteca-comuna"
+            "mainClass": "com.biblioteca.genero.GeneroApplication",
+            "projectName": "com.biblioteca-genero"
         },
         {
             "type": "java",
