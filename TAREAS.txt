@@ -6,9 +6,9 @@ A HACER:
 - IMPLEMENTAR DTOs (RESPONSE Y REQUEST)
 
 CONEXIONES LISTAS Y PROBADAS (A NIVEL BÁSICO):
-1.- PERSONA <--> COMUNA 
-2.- LIBRO <--> AUTOR 
-3.- PERSONA <--> RESERVA <-> EJEMPLAR
+1.- PERSONA <--> COMUNA (Personas separadas por comuna)
+2.- LIBRO <--> AUTOR (Libros por cada autor y viceversa)
+3.- PERSONA <--> RESERVA <-> EJEMPLAR (Lista de reservas con datos de ejemplar y persona)
 
 CONEXIONES PENDIENTES:
 1.- LIBRO <--> GENERO
