@@ -1,47 +1,45 @@
 package com.biblioteca.genero.service;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.repository.GeneroRepository;
 
 import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 @Transactional
 public class GeneroService {
-    @Autowired
-    private GeneroRepository generoRepository;
+    
+    private final GeneroRepository generoRepository;
 
     public List<Genero> obtenerTodos(){
         return generoRepository.findAll();
     }
     
-    public Optional<Genero> obtenerPorId(long id) {
-        return generoRepository.findById(id);
+    public Genero findByIdOrThrow(Long id){
+        return generoRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Genero no encontrado con ID: " + id));
     }
 
-    public Genero obtenerPorNombre(String nombre) {
-        List<Genero> generos = generoRepository.findByNombre(nombre);
-        if (!generos.isEmpty()) {
-            return generos.get(0);
-        }
-        return null;
+    public List<Genero> obtenerPorNombre(String nombre){
+        return generoRepository.findByNombre(nombre);
     }
 
     public Genero guardar(Genero genero) {
         return generoRepository.save(genero);
     }
 
-    public Optional<Genero> actualizar(long id, Genero datos) {
-        return generoRepository.findById(id).map(g -> {
-            g.setNombre(datos.getNombre());
-            return generoRepository.save(g);
-        });
+    public Genero modificarGenero(long id, Genero nGenero) {
+        Genero genero = findByIdOrThrow(id);
+        if(genero!=null){
+            genero.setNombre(nGenero.getNombre());
+            return generoRepository.save(genero);
+        }
+        return null;
     }
 
     public void eliminar(long id) {

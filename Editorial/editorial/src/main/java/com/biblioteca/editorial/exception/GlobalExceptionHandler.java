@@ -1,4 +1,4 @@
-package com.example.editorial.exception;
+package com.biblioteca.editorial.exception;
 
 import java.util.HashMap;
 import java.util.Map;

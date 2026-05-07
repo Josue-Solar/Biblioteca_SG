@@ -1,8 +1,6 @@
 package com.biblioteca.genero.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.service.GeneroService;
 
-import lombok.extern.slf4j.Slf4j;
+import jakarta.validation.Valid;
 
-@Slf4j
+
 @RestController
 @RequestMapping("/api/v1/generos")
 public class GeneroController {
@@ -41,6 +40,28 @@ public class GeneroController {
         return ResponseEntity.ok(generos);
     }
 
+    @GetMapping("/nombre/{nombre}") //buscar por apellido
+    public ResponseEntity<List<Genero>> buscarPorNombre(@PathVariable String nombre) {
+        logger.info("Recibiendo solicitud para buscar genero por nombre: " + nombre);//log
+        List<Genero> generos = generoService.obtenerPorNombre(nombre);
+        if (generos.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(generos);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Genero> buscarPorId(@PathVariable long id) {
+        logger.info("Recibiendo solicitud para buscar genero por ID: " + id);//log
+        try {
+            Genero genero = generoService.findByIdOrThrow(id);
+            return ResponseEntity.ok(genero);
+        } catch (Exception ex) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<Genero> crear(@RequestBody Genero genero) {
         logger.info("Recibiendo solicitud para guardar genero");//log
@@ -48,15 +69,14 @@ public class GeneroController {
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoGenero);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Genero>> buscarPorId(@PathVariable long id) {
-        logger.info("Recibiendo solicitud para buscar genero por id: " + id);//log
-        Optional<Genero> genero = generoService.obtenerPorId(id);
-        if (genero == null) {
-            logger.error("Recibiendo solicitud para buscar genero por id: ");//log
-            return ResponseEntity.notFound().build();
+    @PutMapping("/{id}")
+    public ResponseEntity<Genero> actualizar(@PathVariable long id, @Valid @RequestBody Genero genero) {
+        logger.info("Recibiendo solicitud para actualizar genero" + id);
+        Genero generoActualizado = generoService.modificarGenero(id, genero);  
+        if (generoActualizado != null) {
+            return ResponseEntity.ok(generoActualizado);
         }
-        return ResponseEntity.ok(genero);
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping("/{id}")
