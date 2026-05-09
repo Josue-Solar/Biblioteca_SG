@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.biblioteca.persona.model.Cargo;
+import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.repository.PersonaRepository;
@@ -53,7 +53,7 @@ public class PersonaService {
             persona.setApMaterno(nPersona.getApMaterno());
             persona.setDireccion(nPersona.getDireccion());
             persona.setCorreo(nPersona.getCorreo());
-            persona.setCargo(nPersona.getCargo());
+            persona.setRol(nPersona.getRol());
             persona.setSexo(nPersona.getSexo());
             persona.setComunaId(nPersona.getComunaId());
             return personaRepository.save(persona);
@@ -82,8 +82,8 @@ public class PersonaService {
     }
 
     //buscar por rol
-    public List<Persona> findByCargo(Cargo cargo){
-        return personaRepository.findByCargo(cargo);
+    public List<Persona> findByRol(Rol rol){
+        return personaRepository.findByRol(rol);
     }
 
     // Buscar personas por sexo

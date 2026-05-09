@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.biblioteca.persona.model.Cargo;
+import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
 
@@ -24,7 +24,7 @@ public interface PersonaRepository extends JpaRepository<Persona, Long> {
     Persona findByCorreo(String correo);
 
     //buscar por rol
-    List<Persona> findByCargo(Cargo cargo);
+    List<Persona> findByRol(Rol rol);
 
     // Verificar si existe por RUN 
     boolean existsByRun(String run);
