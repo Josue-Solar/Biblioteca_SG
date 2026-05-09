@@ -1,7 +1,6 @@
 package com.biblioteca.persona.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,11 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.dto.PersonaDTO;
-import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
+import com.biblioteca.persona.service.RolService;
+import com.biblioteca.persona.service.SexoService;
 import com.biblioteca.persona.service.impl.PersonaServiceImpl;
-import com.biblioteca.persona.service.impl.RolService;
-import com.biblioteca.persona.service.impl.SexoService;
 
 import jakarta.validation.Valid;
 
@@ -95,7 +93,7 @@ public class PersonaController {
     }
     
     //buscar por rol
-    @GetMapping("/rol/{rold}")
+    @GetMapping("/rol/{rolId}")
     public ResponseEntity<List<PersonaDTO.Response>> buscarPorrol(@PathVariable Long rolId) {
         logger.info("Recibiendo solicitud para buscar persona por ROL: " + rolId);//log
         Rol rol = rolService.findByIdOrThrow(rolId);  

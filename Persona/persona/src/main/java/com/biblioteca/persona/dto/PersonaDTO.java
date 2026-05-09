@@ -71,7 +71,5 @@ public class PersonaDTO {
         private ComunaDTO comuna;
         private Sexo sexo;
         private Rol rol;
-    }
-
-    
+    }   
 }

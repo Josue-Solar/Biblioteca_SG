@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.biblioteca.persona.dto.PersonaComunaDTO;
 import com.biblioteca.persona.dto.PersonaDTO;
-import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Sexo;
 

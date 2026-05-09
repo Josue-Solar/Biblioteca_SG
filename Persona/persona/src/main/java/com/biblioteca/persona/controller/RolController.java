@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Rol;
-import com.biblioteca.persona.service.impl.RolService;
+import com.biblioteca.persona.service.RolService;
 
 import jakarta.validation.Valid;
 

@@ -4,10 +4,8 @@ import com.biblioteca.persona.repository.RolRepository;
 import com.biblioteca.persona.repository.SexoRepository;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.persona.model.Rol;

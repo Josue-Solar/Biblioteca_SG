@@ -1,4 +1,4 @@
-package com.biblioteca.persona.service.impl;
+package com.biblioteca.persona.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +15,7 @@ import jakarta.transaction.Transactional;
 @Transactional
 public class RolService {
 
-        @Autowired
+    @Autowired
     private RolRepository rolRepository;
 
     // Ver todos los roles
