@@ -20,17 +20,17 @@ public class Persona {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "El RUN no puede estar vacío")
-    @Size(max = 9, message = "El RUN no puede tener más de 9 caracteres")
+    @NotBlank
+    @Size(max = 9)
     @Column(name="num_run",unique = true, length = 9, nullable = false)
     private String run;
 
-    @NotBlank(message = "El dígito verificador es obligatorio")
+    @NotBlank
     @Size(max = 1)
     @Column(name="dv_run",nullable = false, length = 1)
     private String dvRun;
 
-    @NotBlank(message = "El primer nombre es obligatorio")
+    @NotBlank
     @Size(max = 50)
     @Column(name="pnombre",nullable = false, length = 50)
     private String pNombre;
@@ -39,7 +39,7 @@ public class Persona {
     @Column(name="snombre",length = 50)
     private String sNombre;
 
-    @NotBlank(message = "El apellido paterno es obligatorio")
+    @NotBlank
     @Size(max = 50)
     @Column(name="apellido_paterno",nullable = false, length = 50)
     private String apPaterno;
@@ -52,27 +52,35 @@ public class Persona {
     @Column(name="nombre_direccion",length = 100)
     private String direccion;
 
-    @NotBlank(message = "El correo es obligatorio")
-    @Email(message = "Debe ser un formato de correo válido")
+    @NotBlank
+    @Email
     @Size(max = 100)
     @Column(name="correo",nullable = false, unique = true, length = 100)
     private String correo;
 
     //foreign keys
     // diferente microservicio
-    @NotNull(message = "Debe indicar la comuna")
+    @NotNull
     @Column(name="COMUNA_id",nullable = false)
     private Long comunaId;  
    
     //entidades dentro de este mismo microservicio
-    @NotNull(message = "Debe indicar el sexo")
+    @NotNull
     @ManyToOne
     @JoinColumn(name="SEXO_id", nullable = false)
     private Sexo sexo;
 
-    @NotNull(message = "Debe indicar el rol")
+    @NotNull
     @ManyToOne
     @JoinColumn (name="ROL_id", nullable= false)
     private Rol rol; //q rol tiene como empleado o si es usuario
+
+    public String getNombreYApellido(){
+        return this.getPNombre() + " " + this.getApPaterno();
+    }
+
+    public String getRut(){
+        return this.getRun() + this.getDvRun();
+    }
 
 }

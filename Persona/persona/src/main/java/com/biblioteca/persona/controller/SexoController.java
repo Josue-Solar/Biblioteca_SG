@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Sexo;
-import com.biblioteca.persona.service.SexoService;
+import com.biblioteca.persona.service.impl.SexoService;
 
 import jakarta.validation.Valid;
 

@@ -19,11 +19,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Rol;
+import com.biblioteca.persona.dto.PersonaDTO;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.model.Sexo;
-import com.biblioteca.persona.service.RolService;
-import com.biblioteca.persona.service.PersonaService;
-import com.biblioteca.persona.service.SexoService;
+import com.biblioteca.persona.service.impl.PersonaServiceImpl;
+import com.biblioteca.persona.service.impl.RolService;
+import com.biblioteca.persona.service.impl.SexoService;
 
 import jakarta.validation.Valid;
 
@@ -34,7 +35,7 @@ public class PersonaController {
     private static final Logger logger = LoggerFactory.getLogger(PersonaController.class.getName());
 
     @Autowired
-    private PersonaService personaService;
+    private PersonaServiceImpl personaService;
 
     @Autowired
     private SexoService sexoService;
@@ -43,9 +44,9 @@ public class PersonaController {
     private RolService rolService;
 
     @GetMapping //mostrar personas
-    public ResponseEntity<List<Persona>> listar() {
+    public ResponseEntity<List<PersonaDTO.Response>> listar() {
         logger.info("Recibiendo solicitud para listar personas");//log
-        List<Persona> personas = personaService.findAll();
+        List<PersonaDTO.Response> personas = personaService.findAll();
         if(personas.isEmpty()){
             return ResponseEntity.noContent().build();
         }
@@ -53,9 +54,9 @@ public class PersonaController {
     }
 
     @PostMapping //registrar persona, up: faltaba el @valid
-    public ResponseEntity<Persona> guardar(@Valid @RequestBody Persona persona){
+    public ResponseEntity<PersonaDTO.Response> guardar(@Valid @RequestBody PersonaDTO.Request persona){
         logger.info("Recibiendo solicitud para guardar persona");//log
-        Persona nPersona = personaService.save(persona);
+        PersonaDTO.Response nPersona = personaService.save(persona);
         return ResponseEntity.status(HttpStatus.CREATED).body(nPersona);
     }
 
@@ -72,10 +73,10 @@ public class PersonaController {
 
     // Buscar por ID
     @GetMapping("/id:{id}")
-    public ResponseEntity<Persona> buscarPorId(@PathVariable long id) {
+    public ResponseEntity<PersonaDTO.Response> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar persona por RUT: " + id);//log
         try {
-            Persona persona = personaService.findByIdOrThrow(id);
+            PersonaDTO.Response persona = personaService.findById(id);
             return ResponseEntity.ok(persona);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
@@ -84,9 +85,9 @@ public class PersonaController {
 
     //Buscar por RUN (corregido)
     @GetMapping("/run/{run}")
-    public ResponseEntity<Persona> buscarPorRun(@PathVariable String run) {
+    public ResponseEntity<PersonaDTO.Response> buscarPorRun(@PathVariable String run) {
         logger.info("Recibiendo solicitud para buscar persona por RUT: " + run);//log
-        Persona persona = personaService.findByRun(run);
+        PersonaDTO.Response persona = personaService.findByRun(run);
         if(persona== null){
             return ResponseEntity.notFound().build();
         }
@@ -95,17 +96,17 @@ public class PersonaController {
     
     //buscar por rol
     @GetMapping("/rol/{rold}")
-    public ResponseEntity<List<Persona>> buscarPorrol(@PathVariable Long rolId) {
+    public ResponseEntity<List<PersonaDTO.Response>> buscarPorrol(@PathVariable Long rolId) {
         logger.info("Recibiendo solicitud para buscar persona por ROL: " + rolId);//log
         Rol rol = rolService.findByIdOrThrow(rolId);  
-        List<Persona> personas = personaService.findByRol(rol);
+        List<PersonaDTO.Response> personas = personaService.findByRol(rol);
             return ResponseEntity.ok(personas);
     }
 
     @GetMapping("/apellido/{apellido}") //buscar por apellido
-    public ResponseEntity<List<Persona>> buscarPorApellido(@PathVariable String apellido) {
+    public ResponseEntity<List<PersonaDTO.Response>> buscarPorApellido(@PathVariable String apellido) {
         logger.info("Recibiendo solicitud para buscar persona por APELLIDO: " + apellido);//log
-        List<Persona> personas = personaService.findByApPaterno(apellido);
+        List<PersonaDTO.Response> personas = personaService.findByApPaterno(apellido);
         if (personas.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -113,11 +114,11 @@ public class PersonaController {
     }
 
     @GetMapping("/sexo/{sexoId}")
-    public ResponseEntity<List<Persona>> buscarPorSexo(@PathVariable Long sexoId) {
+    public ResponseEntity<List<PersonaDTO.Response>> buscarPorSexo(@PathVariable Long sexoId) {
         logger.info("Recibiendo solicitud para buscar persona por SEXO: " + sexoId);//log
         try {
             Sexo sexo = sexoService.findByIdOrThrow(sexoId);
-            List<Persona> personas = personaService.findBySexo(sexo);
+            List<PersonaDTO.Response> personas = personaService.findBySexo(sexo);
             if (personas.isEmpty()) {
                 return ResponseEntity.noContent().build();
             }
@@ -150,9 +151,9 @@ public class PersonaController {
 
     //  metodo PUT actualizar
     @PutMapping("/{run}") // Actualizar por RUN
-    public ResponseEntity<Persona> actualizar(@PathVariable String run, @Valid @RequestBody Persona persona) {
+    public ResponseEntity<PersonaDTO.Response> actualizar(@PathVariable String run, @Valid @RequestBody PersonaDTO.Request persona) {
         logger.info("Recibiendo solicitud para actualizar persona por RUN: " + run);
-        Persona personaActualizada = personaService.updatePersona(run, persona);  
+        PersonaDTO.Response personaActualizada = personaService.updatePersona(run, persona);  
         if (personaActualizada != null) {
             return ResponseEntity.ok(personaActualizada);
         }
