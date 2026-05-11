@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.libro.model.Libro;
+import com.example.libro.service.LibroGeneroService;
 import com.example.libro.service.LibroService;
 
 import jakarta.validation.Valid;
@@ -26,6 +27,7 @@ import lombok.RequiredArgsConstructor;
 public class LibroController {
 
     private final LibroService libroService;
+    private final LibroGeneroService libroGeneroService;
 
     @GetMapping
     public List<Libro> getAllLibs(){
@@ -48,6 +50,15 @@ public class LibroController {
             return ResponseEntity.ok(libroService.obtenerAutores(isbn));
         }catch(Exception ex){
             ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+
+    @GetMapping("/verGenero/{isbn}")
+    public ResponseEntity<?> getGenero(@PathVariable Long isbn){
+        try{
+            return ResponseEntity.ok(libroService.verGenero(isbn));
+        }catch(Exception ex){
             return ResponseEntity.status(500).body(ex.getMessage());
         }
     }

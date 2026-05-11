@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biblioteca.genero.dto.GeneroLibroDTO;
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.service.GeneroService;
 
@@ -63,23 +64,14 @@ public class GeneroController {
         }
     }
 
-    @GetMapping("/libro")
-    public ResponseEntity<?> buscarPorLibro(@RequestParam String nombre){
-        try{
-            return ResponseEntity.ok(generoService.findByLibroNombre(nombre));
-        }catch(Exception ex){
-            ex.printStackTrace(); // ← agrega esto
-            return ResponseEntity.status(500).body(ex.getMessage()); // ← cambia a 500 con mensaje
-        }
-    }
-
-    @GetMapping("/LibroISBN/{isbn}")
-    public ResponseEntity<?> buscarPorLibroISBN(@PathVariable Long isbn){
-        try{
-            return ResponseEntity.ok(generoService.findByLibroISBN(isbn));
-        }catch(Exception ex){
-            ex.printStackTrace(); 
-            return ResponseEntity.status(500).body(ex.getMessage()); 
+    @GetMapping("/librosPorGenero/{generoId}")
+    public ResponseEntity<GeneroLibroDTO> libroPorGenero(@PathVariable long generoId){
+        logger.info("Recibiendo solicitud para buscar libros por genero: " + generoId);//log
+        try {
+            GeneroLibroDTO generoLibroDTO = generoService.librosPorGenero(generoId);
+            return ResponseEntity.ok(generoLibroDTO);
+        } catch (Exception ex) {
+            return ResponseEntity.notFound().build();
         }
     }
 

@@ -23,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
+@Transactional
 public class PersonaServiceImpl implements PersonaService{
 
     private final RolRepository rolRepository;
@@ -82,7 +83,7 @@ public class PersonaServiceImpl implements PersonaService{
             persona.setDireccion(request.getDireccion());
             persona.setCorreo(request.getCorreo());
             persona.setSexo(sexoRepository.findById(request.getSexoId()).orElseThrow(() -> new RuntimeException("Sexo no encontrado")));
-            persona.setRol(rolRepository.findById(request.getIdRol()).orElseThrow(() -> new RuntimeException("Sexo no encontrado")));
+            persona.setRol(rolRepository.findById(request.getIdRol()).orElseThrow(() -> new RuntimeException("Rol no encontrado")));
             persona.setComunaId(request.getComunaId());
 
             Persona guardada = personaRepository.save(persona);
@@ -118,9 +119,11 @@ public class PersonaServiceImpl implements PersonaService{
         List<Persona> personas = personaRepository.findByApPaterno(apPaterno);
         List<PersonaDTO.Response> personasResponse = new ArrayList<>();
 
-        for (Persona per : personas) {
+        /*for (Persona per : personas) {
             personasResponse.add(mapToResponse(per));
-        }
+        }*/
+
+        personas.forEach(per -> personasResponse.add(mapToResponse(per)));
 
         return personasResponse;
     }
@@ -131,10 +134,8 @@ public class PersonaServiceImpl implements PersonaService{
     public List<PersonaDTO.Response> findByRol(Rol rol){
         List<Persona> personas = personaRepository.findByRol(rol);
         List<PersonaDTO.Response> personasResponse = new ArrayList<>();
-
-        for (Persona per : personas) {
-            personasResponse.add(mapToResponse(per));
-        }
+        
+        personas.forEach(per -> personasResponse.add(mapToResponse(per)));
 
         return personasResponse;
     }
@@ -145,16 +146,12 @@ public class PersonaServiceImpl implements PersonaService{
     public List<PersonaDTO.Response> findBySexo(Sexo sexo) {
         List<Persona> personas = personaRepository.findBySexo(sexo);
         List<PersonaDTO.Response> personasResponse = new ArrayList<>();
-
-        for (Persona per : personas) {
-            personasResponse.add(mapToResponse(per));
-        }
+        
+        personas.forEach(per -> personasResponse.add(mapToResponse(per)));
 
         return personasResponse;
     }   
 
-    @Override
-    @Transactional(readOnly = true)
     public PersonaComunaDTO findByComunaNombre(String nombreComuna){
         ComunaDTO comuna = comunaClient.buscarPorNombre(nombreComuna);
         PersonaComunaDTO persoComuDTO = new PersonaComunaDTO(comuna, personaRepository.findByComunaId(comuna.getId()));
@@ -176,7 +173,8 @@ public class PersonaServiceImpl implements PersonaService{
             persona.getCorreo(), 
             comunaClient.buscarPorId(persona.getComunaId()), 
             persona.getSexo(), 
-            persona.getRol());
+            persona.getRol()
+        );
 
     }
 

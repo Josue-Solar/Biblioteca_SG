@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.genero.client.LibroClient;
+import com.biblioteca.genero.dto.GeneroDTO;
 import com.biblioteca.genero.dto.GeneroLibroDTO;
 import com.biblioteca.genero.dto.LibroDTO;
 import com.biblioteca.genero.model.Genero;
@@ -18,6 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class GeneroService {
     
     private final GeneroRepository generoRepository;
+    private final LibroClient libroClient;
 
     public List<Genero> obtenerTodos(){
         return generoRepository.findAll();
@@ -49,16 +51,17 @@ public class GeneroService {
         generoRepository.deleteById(id);
     }
 
-    private final LibroClient libroClient;
-    public GeneroLibroDTO findByLibroNombre(String nombreLibro){
-        LibroDTO libro = libroClient.buscarPorNombre(nombreLibro);
-        GeneroLibroDTO generoLibroDTO = new GeneroLibroDTO(libro, generoRepository.findByLibroIsbn(libro.getIsbn()));
-        return generoLibroDTO;
+    public GeneroLibroDTO librosPorGenero(Long generoId){
+        Genero genero = generoRepository.findById(generoId).orElseThrow(() -> new RuntimeException());
+        GeneroDTO.Response generoDTO = mapToResponse(genero);
+        List<LibroDTO> libros = libroClient.getAllByGeneroId(generoId);
+
+        GeneroLibroDTO librosPorGenero = new GeneroLibroDTO(generoDTO, libros);
+
+        return librosPorGenero;
     }
 
-    public GeneroLibroDTO findByLibroISBN(Long isbn){
-        LibroDTO libro = libroClient.buscarPorIsbn(isbn);
-        GeneroLibroDTO generoLibroDTO = new GeneroLibroDTO(libro, generoRepository.findByLibroIsbn(isbn));
-        return generoLibroDTO;
-    }   
+    public GeneroDTO.Response mapToResponse(Genero genero){
+        return new GeneroDTO.Response(genero.getNombre());
+    }
 }

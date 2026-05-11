@@ -3,19 +3,28 @@ package com.example.libro.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.libro.client.AutorClient;
 import com.example.libro.client.EjemplarClient;
-import com.example.libro.dto.AutorDTO;
-import com.example.libro.dto.EjemplarDTO;
-import com.example.libro.dto.LibroAutorDTO;
-import com.example.libro.dto.LibroEjemplarDTO;
+import com.example.libro.client.GeneroClient;
+import com.example.libro.dto.LibroDTO;
+import com.example.libro.dto.LibroGeneroDTO;
+import com.example.libro.dto.clientDTO.AutorDTO;
+import com.example.libro.dto.clientDTO.EjemplarDTO;
+import com.example.libro.dto.clientDTO.GeneroDTO;
+import com.example.libro.dto.clientDTO.LibroAutorDTO;
+import com.example.libro.dto.clientDTO.LibroEjemplarDTO;
+import com.example.libro.dto.clientDTO.LibroGeneroDTOcli;
 import com.example.libro.model.Libro;
 import com.example.libro.model.LibroAutor;
+import com.example.libro.model.LibroGenero;
 import com.example.libro.repository.LibroAutorRepository;
+import com.example.libro.repository.LibroGeneroRepository;
 import com.example.libro.repository.LibroRepository;
 
 import jakarta.transaction.Transactional;
@@ -28,8 +37,9 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 public class LibroService {
     
-    @Autowired
-    private LibroRepository libroRepository;
+    private final LibroRepository libroRepository;
+    private final LibroGeneroRepository libroGeneroRepository;
+    private final GeneroClient generoClient;
 
     public List<Libro> obtenerTodos(){
         return libroRepository.findAll();
@@ -94,5 +104,23 @@ public class LibroService {
 
         return libroEjemplares;
     }
-    
+
+    public LibroGeneroDTOcli verGenero(Long isbn){
+        List<LibroGenero> registros = libroGeneroRepository.findAllByLibroIsbn(isbn);
+        List<GeneroDTO> generoDTOs = new ArrayList<>();
+
+        for(LibroGenero libGen : registros){
+            generoDTOs.add(generoClient.buscarPorId(libGen.getGeneroId()));
+        }
+        LibroGeneroDTOcli libroGeneroDTOcli = new LibroGeneroDTOcli(maptoResponseLibroDTO(libroRepository.findByIsbn(isbn)), generoDTOs);
+
+        return libroGeneroDTOcli;
+    }
+    public LibroGeneroDTO.Response mapToResponseLibroGeneroDTO(LibroGenero libroGenero){
+        return new LibroGeneroDTO.Response(libroGenero.getGeneroId(), libroGenero.getLibroIsbn());
+    }
+
+    public LibroDTO.Response maptoResponseLibroDTO(Libro libro){
+        return new LibroDTO.Response(libro.getIsbn(), libro.getNombre());
+    }
 }

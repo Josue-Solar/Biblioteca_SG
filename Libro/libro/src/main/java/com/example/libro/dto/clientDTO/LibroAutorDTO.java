@@ -1,4 +1,4 @@
-package com.example.libro.dto;
+package com.example.libro.dto.clientDTO;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class LibroEjemplarDTO {
+public class LibroAutorDTO {
     private Libro libro;
-    private List<EjemplarDTO> ejemplares;
+    private List<AutorDTO> autor;
 }
