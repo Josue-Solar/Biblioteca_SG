@@ -10,13 +10,13 @@ CONEXIONES LISTAS Y PROBADAS (A NIVEL BÁSICO):
 1.- PERSONA <--> COMUNA (Personas separadas por comuna)
 2.- LIBRO <--> AUTOR (Libros por cada autor y viceversa)
 3.- PERSONA <--> RESERVA <-> EJEMPLAR (Lista de reservas con datos de ejemplar y persona)
+4.- PERSONA <--> PRESTAMO <--> EJEMPLAR 
+5.- EJEMPLAR <--> EDICION
+6.- EJEMPLAR <--> LIBRO 
+7.- LIBRO <--> GENERO
 
 CONEXIONES PENDIENTES:
-1.- LIBRO <--> GENERO (Fran)
-2.- EJEMPLAR <--> LIBRO (Josue) ***LISTO***
-3.- EJEMPLAR <--> EDITORIAL (Fran)
-4.- EJEMPLAR <--> EDICION (Fran)
-5.- PERSONA <--> PRESTAMO <--> EJEMPLAR (Josue)
+1.- EDICION <--> EDITORIAL (Fran) 
 
 COSAS A ARREGLAR:
 - AL HACER BUSQUEDA DE LOS AUTORES POR LIBRO LOS DATOS SE MUESTRAN REPETIDOS
