@@ -19,15 +19,16 @@ import com.example.edicion.model.Edicion;
 import com.example.edicion.service.EdicionService;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/v2/ediciones")
+@RequestMapping("/api/v1/ediciones")
+@RequiredArgsConstructor
 public class EdicionController {
 
     private static final Logger logger = LoggerFactory.getLogger(EdicionController.class.getName());
     
-    @Autowired
-    private EdicionService edicionService;
+    private final EdicionService edicionService;
 
     @GetMapping
     public ResponseEntity<Object> listar(){
@@ -49,6 +50,11 @@ public class EdicionController {
         return ResponseEntity.ok(ediciones);
     }
 
+    @GetMapping("/librosPorEdicion/{edicionId}")
+    public ResponseEntity<?> librosPorEdicion(@PathVariable Long edicionId){
+        return ResponseEntity.ok(edicionService.librosPorEdicion(edicionId));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Edicion> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar edicion por ID: " + id);//log
@@ -59,7 +65,6 @@ public class EdicionController {
             return ResponseEntity.notFound().build();
         }
     }
-    
 
     @PostMapping
     public ResponseEntity<Edicion> crear(@RequestBody Edicion edicion) {
@@ -77,8 +82,6 @@ public class EdicionController {
         }
         return ResponseEntity.notFound().build();
     }
-
-
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable long id) {

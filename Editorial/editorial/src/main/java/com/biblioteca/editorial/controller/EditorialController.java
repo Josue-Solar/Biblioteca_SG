@@ -41,6 +41,10 @@ public class EditorialController {
         return ResponseEntity.ok(editoriales);
     }
 
+    @GetMapping("/ediciones/{editorialId}")
+    public ResponseEntity<?> listarEdiciones(@PathVariable Long editorialId){
+        return ResponseEntity.ok(editorialService.listarEdiciones(editorialId));
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<Editorial> buscarPorId(@PathVariable long id) {

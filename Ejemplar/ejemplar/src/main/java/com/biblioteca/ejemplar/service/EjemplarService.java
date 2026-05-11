@@ -1,11 +1,14 @@
 package com.biblioteca.ejemplar.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.biblioteca.ejemplar.client.EdicionClient;
 import com.biblioteca.ejemplar.client.LibroClient;
+import com.biblioteca.ejemplar.dto.EjemplarDTO;
 import com.biblioteca.ejemplar.dto.LibroDTO;
 import com.biblioteca.ejemplar.model.Ejemplar;
 import com.biblioteca.ejemplar.repository.EjemplarRepository;
@@ -21,6 +24,9 @@ import lombok.extern.slf4j.Slf4j;
 public class EjemplarService {
 
     private final EjemplarRepository ejemplarRepository;
+    private final LibroClient libroClient;
+    private final EdicionClient edicionClient;
+
 
     public List<Ejemplar> obtenerTodos(){
         return ejemplarRepository.findAll();
@@ -37,8 +43,21 @@ public class EjemplarService {
     public List<Ejemplar> obtenerTodosPorIsbn(long libroIsbn) {
         return ejemplarRepository.getAllByLibroIsbn(libroIsbn);
     }
+
     public Ejemplar guardar(Ejemplar ejemplar) {
         return ejemplarRepository.save(ejemplar);
+    }
+
+    public List<EjemplarDTO.Response> obtenerTodosPorEdicionId(Long id){
+        List<Ejemplar> registros = ejemplarRepository.getAllByEdicionId(id);
+        List<EjemplarDTO.Response> ejemplaresPorEdicion = new ArrayList<>();
+
+        for (Ejemplar ej : registros) {
+            ejemplaresPorEdicion.add(new EjemplarDTO.Response(ej.getLibroIsbn(), libroClient.getByID(ej.getLibroIsbn()).getNombre(), edicionClient.buscarPorId(id)));
+        }
+
+        return ejemplaresPorEdicion;
+
     }
 
     public Optional<Ejemplar> modReserva(long id, Ejemplar nEjemplar){
@@ -57,7 +76,6 @@ public class EjemplarService {
         ejemplarRepository.deleteById(libroIsbn);
     }
 
-    private final LibroClient libroClient;
     public LibroDTO getLibro(Long id){
         LibroDTO libro = libroClient.getByID(ejemplarRepository.getById(id).getLibroIsbn());
         return libro;

@@ -789,3 +789,379 @@ https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a sho
 2026-05-11 12:17:24 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-05-11 12:17:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2026-05-11 12:17:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-11 15:45:08 INFO  com.example.libro.LibroApplication - Starting LibroApplication using Java 17.0.12 with PID 286158 (/home/jos/Documentos/GitHub/Biblioteca_SG/Libro/libro/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG/Libro)
+2026-05-11 15:45:08 INFO  com.example.libro.LibroApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-11 15:45:09 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-11 15:45:09 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
+2026-05-11 15:45:09 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=678228e7-4293-3223-b75e-ac48ab10fa5e
+2026-05-11 15:45:10 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-11 15:45:10 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-11 15:45:10 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-11 15:45:10 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1237 ms
+2026-05-11 15:45:10 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-11 15:45:10 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-11 15:45:10 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-11 15:45:10 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-11 15:45:11 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@7ae6927
+2026-05-11 15:45:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-11 15:45:11 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-11 15:45:11 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-11 15:45:11 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-11 15:45:11 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-11 15:45:11 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 15:45:12 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-11 15:45:12 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-11 15:45:12 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-11 15:45:13 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-11 15:45:13 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-11 15:45:13 INFO  com.example.libro.LibroApplication - Started LibroApplication in 4.502 seconds (process running for 4.963)
+2026-05-11 15:45:14 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-11 15:45:14 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-11 15:45:14 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-11 16:08:35 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-11 16:08:35 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-11 16:08:35 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 16:08:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-11 16:08:35 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-11 16:43:16 INFO  com.example.libro.LibroApplication - Starting LibroApplication using Java 17.0.12 with PID 349837 (/home/jos/Documentos/GitHub/Biblioteca_SG/Libro/libro/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG/Libro)
+2026-05-11 16:43:16 INFO  com.example.libro.LibroApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-11 16:43:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-11 16:43:17 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
+2026-05-11 16:43:17 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=678228e7-4293-3223-b75e-ac48ab10fa5e
+2026-05-11 16:43:18 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-11 16:43:18 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-11 16:43:18 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-11 16:43:18 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1227 ms
+2026-05-11 16:43:18 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-11 16:43:18 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-11 16:43:18 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-11 16:43:18 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-11 16:43:19 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@55574295
+2026-05-11 16:43:19 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-11 16:43:19 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-11 16:43:19 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-11 16:43:19 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-11 16:43:19 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-11 16:43:19 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 16:43:19 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-11 16:43:20 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-11 16:43:20 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-11 16:43:20 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-11 16:43:20 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-11 16:43:21 INFO  com.example.libro.LibroApplication - Started LibroApplication in 4.476 seconds (process running for 4.918)
+2026-05-11 16:43:22 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-11 16:43:22 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-11 16:43:22 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-05-11 16:48:16 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@51c482 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:48:27 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@43290687 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:48:35 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@7fbcfb4 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:48:41 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@5502d382 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:48:47 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@2ef928d6 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:48:52 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@fdcc07d (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:48:57 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@6f80e1c (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:49:03 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@5fd75fff (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:49:08 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@55574295 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:49:19 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@69caacc8 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 16:50:16 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Pool is empty, failed to create/setup connection (a008eb9d-c0e4-4857-a59f-529bcdc8543a)
+java.sql.SQLTimeoutException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=L87TglNNSQu5r89hYv/CPw==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1912)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1228)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1210)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: oracle.net.ns.NetException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=L87TglNNSQu5r89hYv/CPw==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.net.nt.TcpNTAdapter.handleEstablishSocketException(TcpNTAdapter.java:385)
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:350)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:228)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:357)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1296)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:791)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:724)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:972)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:341)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3746)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1107)
+	... 14 common frames omitted
+2026-05-11 16:51:17 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Pool is empty, failed to create/setup connection (6bd1be71-241a-42f0-bc7a-5197f54d4d55)
+java.sql.SQLTimeoutException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=GsrPh7xVSfWmWtchxraqEg==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1912)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1228)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1210)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: oracle.net.ns.NetException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=GsrPh7xVSfWmWtchxraqEg==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.net.nt.TcpNTAdapter.handleEstablishSocketException(TcpNTAdapter.java:385)
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:350)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:228)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:357)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1296)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:791)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:724)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:972)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:341)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3746)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1107)
+	... 14 common frames omitted
+2026-05-11 16:52:18 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Pool is empty, failed to create/setup connection (aee43075-d295-4776-8d37-2b260a9457c5)
+java.sql.SQLTimeoutException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=mfQYvc5ASaOaAjVa5gav5g==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1912)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1228)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1210)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: oracle.net.ns.NetException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=mfQYvc5ASaOaAjVa5gav5g==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.net.nt.TcpNTAdapter.handleEstablishSocketException(TcpNTAdapter.java:385)
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:350)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:228)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:357)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1296)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:791)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:724)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:972)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:341)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3746)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1107)
+	... 14 common frames omitted
+2026-05-11 16:53:22 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Pool is empty, failed to create/setup connection (92cf7baa-adc0-4fa2-8750-971969b73bdc)
+java.sql.SQLTimeoutException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=RT7cgLCHRV2h2HcLDHCUkA==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1912)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1228)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1210)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: oracle.net.ns.NetException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=RT7cgLCHRV2h2HcLDHCUkA==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.net.nt.TcpNTAdapter.handleEstablishSocketException(TcpNTAdapter.java:385)
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:350)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:228)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:357)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1296)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:791)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:724)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:972)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:341)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3746)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1107)
+	... 14 common frames omitted
+2026-05-11 16:54:32 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Pool is empty, failed to create/setup connection (8525ecf6-86ea-4a4b-ab37-03a697326f08)
+java.sql.SQLTimeoutException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=XrSHopbXTGOq2f3a56VSUg==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.jdbc.driver.T4CConnection.handleLogonNetException(T4CConnection.java:1912)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1228)
+	at oracle.jdbc.driver.PhysicalConnection.connect(PhysicalConnection.java:1210)
+	at oracle.jdbc.driver.T4CDriverExtension.getConnection(T4CDriverExtension.java:106)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:887)
+	at oracle.jdbc.driver.OracleDriver.connect(OracleDriver.java:694)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:144)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:373)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:210)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:488)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:752)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:731)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Caused by: oracle.net.ns.NetException: ORA-12170: No se puede conectar. Timeout TCP connect de 30000ms para host 192.168.1.13 port 1521. (CONNECTION_ID=XrSHopbXTGOq2f3a56VSUg==)
+https://docs.oracle.com/error-help/db/ora-12170/
+	at oracle.net.nt.TcpNTAdapter.handleEstablishSocketException(TcpNTAdapter.java:385)
+	at oracle.net.nt.TcpNTAdapter.establishSocket(TcpNTAdapter.java:350)
+	at oracle.net.nt.TcpNTAdapter.connect(TcpNTAdapter.java:228)
+	at oracle.net.nt.ConnOption.connect(ConnOption.java:357)
+	at oracle.net.nt.ConnStrategy.executeConnOption(ConnStrategy.java:1296)
+	at oracle.net.nt.ConnStrategy.execute(ConnStrategy.java:791)
+	at oracle.net.resolver.AddrResolution.resolveAndExecute(AddrResolution.java:724)
+	at oracle.net.ns.NSProtocol.establishConnection(NSProtocol.java:972)
+	at oracle.net.ns.NSProtocol.connect(NSProtocol.java:341)
+	at oracle.jdbc.driver.T4CConnection.connectNetworkSessionProtocol(T4CConnection.java:3746)
+	at oracle.jdbc.driver.T4CConnection.logon(T4CConnection.java:1107)
+	... 14 common frames omitted
+2026-05-11 16:55:12 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-11 16:55:12 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-11 16:55:12 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 16:55:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-11 16:55:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-11 16:55:14 INFO  com.example.libro.LibroApplication - Starting LibroApplication using Java 17.0.12 with PID 364388 (/home/jos/Documentos/GitHub/Biblioteca_SG/Libro/libro/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG/Libro)
+2026-05-11 16:55:14 INFO  com.example.libro.LibroApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-11 16:55:14 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-11 16:55:15 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 29 ms. Found 3 JPA repository interfaces.
+2026-05-11 16:55:15 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=678228e7-4293-3223-b75e-ac48ab10fa5e
+2026-05-11 16:55:15 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-11 16:55:15 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-11 16:55:15 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-11 16:55:15 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 1212 ms
+2026-05-11 16:55:15 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-11 16:55:16 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-11 16:55:16 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-11 16:55:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-11 16:55:16 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@6d0a4a22
+2026-05-11 16:55:16 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-11 16:55:16 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-11 16:55:16 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-11 16:55:16 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-11 16:55:17 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-11 16:55:17 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 16:55:17 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-11 16:55:17 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-11 16:55:18 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-11 16:55:18 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-11 16:55:18 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-11 16:55:18 INFO  com.example.libro.LibroApplication - Started LibroApplication in 4.565 seconds (process running for 5.046)
+2026-05-11 16:55:21 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-11 16:55:21 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-11 16:55:21 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-11 17:10:05 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@549bd5c5 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 17:10:23 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@6d8fcbab (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 17:10:34 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@1b8a8945 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 17:10:39 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@6d0a4a22 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 17:10:49 WARN  com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to validate connection oracle.jdbc.driver.T4CConnection@50ceba5 (ORA-17008: Conexión cerrada
+https://docs.oracle.com/error-help/db/ora-17008/). Possibly consider using a shorter maxLifetime value.
+2026-05-11 17:11:06 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-11 17:11:06 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-11 17:11:06 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 17:11:06 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-11 17:11:45 WARN  com.zaxxer.hikari.pool.HikariPool - Timed-out waiting for close connection executor to shutdown
+2026-05-11 17:11:45 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-05-11 17:53:08 INFO  com.example.libro.LibroApplication - Starting LibroApplication using Java 17.0.12 with PID 427860 (/home/jos/Documentos/GitHub/Biblioteca_SG/Libro/libro/target/classes started by jos in /home/jos/Documentos/GitHub/Biblioteca_SG/Libro)
+2026-05-11 17:53:08 INFO  com.example.libro.LibroApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-11 17:53:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-11 17:53:10 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 50 ms. Found 3 JPA repository interfaces.
+2026-05-11 17:53:10 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=678228e7-4293-3223-b75e-ac48ab10fa5e
+2026-05-11 17:53:11 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-05-11 17:53:11 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-11 17:53:11 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/11.0.21]
+2026-05-11 17:53:11 INFO  o.s.b.w.c.s.WebApplicationContextInitializer - Root WebApplicationContext: initialization completed in 2328 ms
+2026-05-11 17:53:11 INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-05-11 17:53:11 INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-05-11 17:53:11 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-11 17:53:11 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-11 17:53:12 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection oracle.jdbc.driver.T4CConnection@750457a5
+2026-05-11 17:53:12 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-11 17:53:12 WARN  org.hibernate.orm.deprecation - HHH90000025: OracleDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-11 17:53:12 WARN  org.hibernate.orm.jdbc - HHH100123: Low default JDBC fetch size: 10 (consider setting 'hibernate.jdbc.fetch_size')
+2026-05-11 17:53:12 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [jdbc:oracle:thin:@192.168.1.13:1521/xe]
+	Database driver: Oracle JDBC driver
+	Database dialect: OracleDialect
+	Database version: 21.3
+	Default catalog/schema: undefined/SG
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 10
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-05-11 17:53:13 INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-11 17:53:13 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 17:53:13 INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-11 17:53:13 WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-11 17:53:13 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-11 17:53:14 INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-05-11 17:53:14 INFO  o.s.boot.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-05-11 17:53:14 INFO  com.example.libro.LibroApplication - Started LibroApplication in 6.248 seconds (process running for 7.16)
+2026-05-11 17:53:17 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-11 17:53:17 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-11 17:53:17 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2026-05-11 19:04:38 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-11 19:04:38 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-11 19:04:38 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-11 19:04:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-11 19:04:38 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

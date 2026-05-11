@@ -11,4 +11,5 @@ import com.biblioteca.ejemplar.model.Ejemplar;
 public interface EjemplarRepository extends JpaRepository<Ejemplar, Long>{
     Ejemplar getById(Long id);
     List<Ejemplar> getAllByLibroIsbn(Long isbn);
+    List<Ejemplar> getAllByEdicionId(Long edicionId);
 }

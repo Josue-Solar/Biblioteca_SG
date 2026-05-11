@@ -24,4 +24,7 @@ public class Ejemplar {
     @Column(unique = true, name = "Libro_Isbn")
     private Long libroIsbn;
 
+    @Column(name = "edicion_id")
+    private Long edicionId;
+
 }

@@ -1,4 +1,4 @@
-package com.biblioteca.ejemplar.model;
+package com.biblioteca.editorial.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,15 +13,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Ejemplar_edicion")
-@IdClass(EjemplarEdicionID.class)
-public class EjemplarEdicion {
+@Table(name = "editorial_edicion")
+@IdClass(EditorialEdicionID.class)
+public class EditorialEdicion {
+    @Id
+    @Column(nullable = false, name = "editorial_id")
+    private Long editorialId;
 
     @Id
-    @Column(nullable = false, name = "Ejemplar_id")
-    long ejemplarId;
-
-    @Id
-    @Column(nullable = false, name = "Edicion_id")
-    long edicionId;
+    @Column(nullable = false, name = "edicion_id")
+    private Long edicionId;
 }

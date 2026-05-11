@@ -24,6 +24,6 @@ public class Edicion {
     @Column(nullable = false, length = 50, name = "nombre")
     private String nombre;
 
-    @Column(nullable = false, name = "fecha_publicacion")
-    private Date fechaPublicacion;
+    @Column(nullable = false, name = "annio_publicacion")
+    private int annioPublicacion;
 }

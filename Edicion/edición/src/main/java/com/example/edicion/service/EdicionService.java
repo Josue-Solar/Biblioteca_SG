@@ -3,6 +3,9 @@ package com.example.edicion.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+import com.example.edicion.client.EjemplarClient;
+import com.example.edicion.dto.EjemplarDTO;
+import com.example.edicion.dto.EjemplarEdicionDTO;
 import com.example.edicion.model.Edicion;
 import com.example.edicion.repository.EdicionRepository;
 
@@ -15,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class EdicionService {
     
     private final EdicionRepository edicionRepository;
+    private final EjemplarClient ejemplarClient;
 
     public List<Edicion> obtenerTodos(){
         return edicionRepository.findAll();
@@ -29,6 +33,13 @@ public class EdicionService {
         return edicionRepository.findByNombre(nombre);
     }
 
+    public EjemplarEdicionDTO librosPorEdicion(Long edicionId){
+        List<EjemplarDTO> ejemplares = ejemplarClient.getAllByEdicionId(edicionId);
+        EjemplarEdicionDTO ejemplarEdicionDTO = new EjemplarEdicionDTO(edicionRepository.findById(edicionId).orElseThrow(() -> new RuntimeException()), ejemplares);
+
+        return ejemplarEdicionDTO;
+    }
+
     public Edicion guardar(Edicion edicion) {
         return edicionRepository.save(edicion);
     }
@@ -37,7 +48,7 @@ public class EdicionService {
         Edicion edicion = findByIdOrThrow(id);
         if(edicion!=null){
             edicion.setNombre(nEdicion.getNombre());
-            edicion.setFechaPublicacion(nEdicion.getFechaPublicacion());
+            edicion.setAnnioPublicacion(nEdicion.getAnnioPublicacion());
             return edicionRepository.save(edicion);
         }
         return null;

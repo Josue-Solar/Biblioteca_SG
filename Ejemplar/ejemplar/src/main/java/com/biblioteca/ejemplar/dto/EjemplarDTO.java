@@ -1,24 +1,24 @@
-package com.example.libro.dto;
+package com.biblioteca.ejemplar.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-public class LibroGeneroDTO {
+public class EjemplarDTO {
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Request{
-        
-        private Long generoId;
-        private Long libroIsbn; 
+        private Long libroIsbn;
+        private Long edicionId;
     }
 
     @Data
     @AllArgsConstructor
     @NoArgsConstructor
     public static class Response{
-        private Long generoId;
         private Long libroIsbn;
+        private String nombreLibro;
+        private EdicionDTO edicion;
     }
 }

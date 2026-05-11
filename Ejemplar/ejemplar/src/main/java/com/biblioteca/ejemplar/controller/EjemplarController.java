@@ -46,6 +46,11 @@ public class EjemplarController {
         return ResponseEntity.ok(ejemplarService.obtenerTodosPorIsbn(isbn));
     }
 
+    @GetMapping("porEdicion/{edicionId}")
+    public ResponseEntity<?> getAllByEdicionId(@PathVariable Long edicionId){
+        return ResponseEntity.ok(ejemplarService.obtenerTodosPorEdicionId(edicionId));
+    }
+
     @PostMapping
     public ResponseEntity<Ejemplar> saveEntity(@Valid @RequestBody Ejemplar ejemplar){
         return ResponseEntity.status(HttpStatus.CREATED).body(ejemplarService.guardar(ejemplar));
