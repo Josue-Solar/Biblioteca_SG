@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class LibroEjemplarDTO {
+public class LibroAutoresDTO {
     private Libro libro;
-    private List<EjemplarDTO> ejemplares;
+    private List<AutorDTO> autor;
 }

@@ -2,12 +2,11 @@ package com.example.libro.service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.libro.dto.LibroDTO;
 import com.example.libro.dto.LibroGeneroDTO;
 import com.example.libro.model.Libro;
 import com.example.libro.model.LibroGenero;
@@ -28,19 +27,18 @@ public class LibroGeneroService {
     private final LibroGeneroRepository libroGeneroRepo;
     private final LibroRepository libroRepository;
 
-    public List<LibroGenero> obtenerTodos(){
-        return libroGeneroRepo.findAll();
+    public List<LibroGeneroDTO.Response> obtenerTodos(){
+        return libroGeneroRepo.findAll().stream().map(l -> mapToResponse(l)).toList();
     }
     
-    public List<Libro> obtenerPorGeneroId(Long generoId) {
+    public List<LibroDTO.Response> obtenerPorGeneroId(Long generoId) {
         List<LibroGenero> registros = libroGeneroRepo.findAllByGeneroId(generoId);
         List<Libro> libros = registros.stream().map(reg -> libroRepository.findByIsbn(reg.getLibroIsbn())).collect(Collectors.toList());
-        
-        return libros;
+        return libros.stream().map(l -> maptoResponseLibroDTO(l)).toList();
     }
 
-    public Optional<LibroGenero> obtenerPorIsbn(LibroGeneroID libroIsbn) {
-        return libroGeneroRepo.findById(libroIsbn);
+    public LibroGeneroDTO.Response obtenerPorIsbn(LibroGeneroID libroIsbn) {
+        return mapToResponse(libroGeneroRepo.findById(libroIsbn).orElseThrow());
     }
 
     public LibroGeneroDTO.Response guardar(LibroGeneroDTO.Request nLibroGenero) {
@@ -87,5 +85,8 @@ public class LibroGeneroService {
             libroGenero.getLibroIsbn()
         );
     }
-    
+
+    public LibroDTO.Response maptoResponseLibroDTO(Libro libro){
+        return new LibroDTO.Response(libro.getIsbn(), libro.getNombre());
+    }
 }

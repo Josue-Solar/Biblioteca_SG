@@ -2,14 +2,14 @@ package com.example.libro.dto.clientDTO;
 
 import java.util.List;
 
-import com.example.libro.dto.LibroDTO;
+import com.example.libro.model.Libro;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class LibroGeneroDTOcli {
-    private LibroDTO.Response libro;
-    private List<GeneroDTO> generos;
+public class LibroEjemplaresDTO {
+    private Libro libro;
+    private List<EjemplarDTO> ejemplares;
 }

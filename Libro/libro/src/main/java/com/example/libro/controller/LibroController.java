@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.libro.model.Libro;
-import com.example.libro.service.LibroGeneroService;
+import com.example.libro.dto.LibroDTO;
 import com.example.libro.service.LibroService;
 
 import jakarta.validation.Valid;
@@ -27,10 +26,9 @@ import lombok.RequiredArgsConstructor;
 public class LibroController {
 
     private final LibroService libroService;
-    private final LibroGeneroService libroGeneroService;
 
     @GetMapping
-    public List<Libro> getAllLibs(){
+    public List<LibroDTO.Response> getAllLibs(){
         return libroService.obtenerTodos();
     }
 
@@ -75,13 +73,13 @@ public class LibroController {
     }
 
     @PostMapping
-    public ResponseEntity<Libro> addLibro(@Valid @RequestBody Libro lib){
+    public ResponseEntity<LibroDTO.Response> addLibro(@Valid @RequestBody LibroDTO.Request lib){
         return ResponseEntity.status(HttpStatus.CREATED).body(libroService.guardar(lib));
     }
 
     @PutMapping("/editar:{isbn}")
-    public ResponseEntity<Libro> putLibro(@Valid @RequestBody Libro lib, @PathVariable Long isbn){
-        return libroService.actualizar(isbn, lib).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<LibroDTO.Response> putLibro(@Valid @RequestBody LibroDTO.Request request, @PathVariable Long isbn){
+        return ResponseEntity.status(HttpStatus.OK).body(libroService.actualizar(isbn, request));
     }
 
     @DeleteMapping("/eliminar:{isbn}")
