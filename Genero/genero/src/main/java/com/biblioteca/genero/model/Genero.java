@@ -19,6 +19,6 @@ public class Genero {
     private Long id;
 
     @NotBlank(message = "El nombre no puede estar vacío")
-    @Column(nullable = false, name = "nombre")
+    @Column(nullable = false, lenght = 50 ,name = "nombre")
     private String nombre;
 }
