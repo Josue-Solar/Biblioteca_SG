@@ -3,10 +3,7 @@ package com.biblioteca.genero.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-import com.biblioteca.genero.client.LibroClient;
 import com.biblioteca.genero.dto.GeneroDTO;
-import com.biblioteca.genero.dto.GeneroLibroDTO;
-import com.biblioteca.genero.dto.LibroDTO;
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.repository.GeneroRepository;
 
@@ -19,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 public class GeneroService {
     
     private final GeneroRepository generoRepository;
-    private final LibroClient libroClient;
 
     public List<Genero> obtenerTodos(){
         return generoRepository.findAll();
@@ -49,16 +45,6 @@ public class GeneroService {
 
     public void eliminar(long id) {
         generoRepository.deleteById(id);
-    }
-
-    public GeneroLibroDTO librosPorGenero(Long generoId){
-        Genero genero = generoRepository.findById(generoId).orElseThrow(() -> new RuntimeException());
-        GeneroDTO.Response generoDTO = mapToResponse(genero);
-        List<LibroDTO> libros = libroClient.getAllByGeneroId(generoId);
-
-        GeneroLibroDTO librosPorGenero = new GeneroLibroDTO(generoDTO, libros);
-
-        return librosPorGenero;
     }
 
     public GeneroDTO.Response mapToResponse(Genero genero){

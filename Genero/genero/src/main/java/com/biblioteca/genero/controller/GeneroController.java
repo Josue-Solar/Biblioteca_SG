@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biblioteca.genero.dto.GeneroLibroDTO;
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.service.GeneroService;
 
@@ -59,17 +57,6 @@ public class GeneroController {
         try {
             Genero genero = generoService.findByIdOrThrow(id);
             return ResponseEntity.ok(genero);
-        } catch (Exception ex) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/librosPorGenero/{generoId}")
-    public ResponseEntity<GeneroLibroDTO> libroPorGenero(@PathVariable long generoId){
-        logger.info("Recibiendo solicitud para buscar libros por genero: " + generoId);//log
-        try {
-            GeneroLibroDTO generoLibroDTO = generoService.librosPorGenero(generoId);
-            return ResponseEntity.ok(generoLibroDTO);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
         }
