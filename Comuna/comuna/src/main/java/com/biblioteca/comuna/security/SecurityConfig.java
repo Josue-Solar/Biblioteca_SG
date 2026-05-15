@@ -22,18 +22,21 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/v1/comunas/**").hasRole("user")
+                .requestMatchers("/api/public/**").permitAll()
+                .requestMatchers("/api/v1/comunas/**").hasRole("USER")
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());
+
         return http.build();
-}
+    }
+
     @Bean
     public UserDetailsService userDetailsService(PasswordEncoder encoder) {
         UserDetails user = User
             .withUsername("user")
             .password(encoder.encode("1234"))
-            .roles("user")
+            .roles("USER")
             .build();
 
         return new InMemoryUserDetailsManager(user);

@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biblioteca.comuna.model.Comuna;
+import com.biblioteca.comuna.dto.ComunaDTO;
+
 import com.biblioteca.comuna.service.ComunaService;
 
 import jakarta.validation.Valid;
@@ -34,9 +34,9 @@ public class ComunaController {
     private ComunaService comunaService;
 
     @GetMapping
-    public ResponseEntity<List<Comuna>> listar() {
+    public ResponseEntity<List<ComunaDTO.Response>> listar() {
         logger.info("Recibiendo solicitud para listar comunas");//log
-        List<Comuna> comunas = comunaService.findAll();
+        List<ComunaDTO.Response> comunas = comunaService.findAll();
         if(comunas.isEmpty()){
             return ResponseEntity.noContent().build();
         }
@@ -44,10 +44,10 @@ public class ComunaController {
     }
 
     @PostMapping
-    public ResponseEntity<Comuna> guardar(@Valid @RequestBody Comuna comuna){
+    public ResponseEntity<ComunaDTO.Response> guardar(@Valid @RequestBody ComunaDTO.Request request){
         logger.info("Recibiendo solicitud para guardar comuna");//log
-            Comuna nComuna = comunaService.save(comuna);
-            return ResponseEntity.status(HttpStatus.CREATED).body(nComuna);
+            ComunaDTO.Response response = comunaService.save(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @DeleteMapping("/{id}")
@@ -63,34 +63,46 @@ public class ComunaController {
 
     // Buscar por ID
     @GetMapping("/id/{id}")
-    public ResponseEntity<Comuna> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<ComunaDTO.Response> buscarPorId(@PathVariable Long id) {
         logger.info("Recibiendo solicitud para buscar comuna por id");//log
         try {
-            Comuna comuna = comunaService.findByIdOrThrow(id);
-            return ResponseEntity.ok(comuna);
+            ComunaDTO.Response response = comunaService.findByIdOrThrow(id);
+            return ResponseEntity.ok(response);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
         }
     }
 
     // buscar por nombre
-    @GetMapping("/nombre")
-    public ResponseEntity<Comuna> buscarPorNombre(@RequestParam String nombre) {
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<ComunaDTO.Response> buscarPorNombre(@PathVariable String nombre) {
         logger.info("Recibiendo solicitud para buscar comunas por nombre");//log
-        Optional<Comuna> comuna = comunaService.findByNombre(nombre);
-        return comuna
+        Optional<ComunaDTO.Response> response = comunaService.findByNombre(nombre);
+        return response
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
 
     @PutMapping("/{id}") // Actualizar por ID
-    public ResponseEntity<Comuna> actualizar(@PathVariable Long id, @Valid @RequestBody Comuna comuna) {
+    public ResponseEntity<ComunaDTO.Response> 
+            actualizar(@PathVariable Long id, @Valid @RequestBody ComunaDTO.Request request) {
         logger.info("Recibiendo solicitud para actualizar Comuna por ID: " + id);
-        Comuna comunaActualizado = comunaService.updateComuna(id, comuna);  
-        if (comunaActualizado != null) {
-            return ResponseEntity.ok(comunaActualizado);
-        }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.ok(comunaService.update(id, request));
     }
+
+    /*@PutMapping("/{id}")
+    public ResponseEntity<ComunaDTO.Response> actualizar(@PathVariable Long id, @Valid @RequestBody ComunaDTO.Request request) {
+    logger.info("Recibiendo solicitud para actualizar Comuna por ID: {}", id);
+    try {
+        ComunaDTO.Response response = comunaService.update(id, request);
+        
+        // Si todo sale bien, devolvemos 200 OK
+        return ResponseEntity.ok(response);
+    } catch (Exception ex) {
+        // Si el service lanzó el RuntimeException, caemos aquí y devolvemos 404
+        logger.error("Error al actualizar la comuna: {}", ex.getMessage());
+        return ResponseEntity.notFound().build();
+        }
+    } */
 
 }

@@ -25,7 +25,7 @@ public class Comuna {
 
     @NotBlank(message = "El nombre de la comuna es obligatorio")
     @Size(max = 50)
-    @Column(nullable = false, length = 50)
+    @Column(nullable = false, length = 50, unique = true)
     private String nombre;
 
 }

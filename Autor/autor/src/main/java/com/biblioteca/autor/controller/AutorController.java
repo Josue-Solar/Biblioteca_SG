@@ -17,75 +17,70 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biblioteca.autor.model.Autor;
+import com.biblioteca.autor.dto.AutorDTO;
 import com.biblioteca.autor.service.AutorService;
 
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/autores")
-@RequiredArgsConstructor
 public class AutorController {
 
     private static final Logger logger = LoggerFactory.getLogger(AutorController.class.getName());
 
-    private final AutorService autorService;
+    @Autowired
+    private AutorService autorService;
 
     // ver todos
     @GetMapping
-    public ResponseEntity<List<Autor>> listar() {
+    public ResponseEntity<List<AutorDTO.Response>> listar() {
         logger.info("Recibiendo solicitud para listar autores");//log
-        List<Autor> autores = autorService.findAll();
+        List<AutorDTO.Response> autores = autorService.findAll();
         if(autores.isEmpty()){
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(autores);
     }
 
-    @GetMapping("/libros/{autorId}")
-    public ResponseEntity<?> listarLibros(@PathVariable Long autorId){
-        logger.info("Recibiendo solicitud para buscar libros por autor: " + autorId);//log
-        return ResponseEntity.ok(autorService.listarLibros(autorId));
-    }
-
     //crear
     @PostMapping
-    public ResponseEntity<Autor> guardar(@Valid @RequestBody Autor autor){
+    public ResponseEntity<AutorDTO.Response> guardar(@Valid @RequestBody AutorDTO.Request request){
         logger.info("Recibiendo solicitud para guardar autor");//log
-        Autor nAutor = autorService.save(autor);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nAutor);
+            AutorDTO.Response response = autorService.save(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     //borrar
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id){
         logger.info("Recibiendo solicitud para eliminar autor");//log
-        try{
-            autorService.delete(id);
-            return ResponseEntity.noContent().build();
-        }catch(Exception ex){
-            return ResponseEntity.notFound().build();
-        }
+        autorService.delete(id);
+        return ResponseEntity.noContent().build();   
     }
 
     // Buscar por ID
     @GetMapping("/id/{id}")
-    public ResponseEntity<Autor> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<AutorDTO.Response> buscarPorId(@PathVariable Long id) {
         logger.info("Recibiendo solicitud para buscar autor por ID");//log
-        try {
-            Autor autor = autorService.findByIdOrThrow(id);
-            return ResponseEntity.ok(autor);
-        } catch (Exception ex) {
-            return ResponseEntity.notFound().build();
-        }
+            return ResponseEntity.ok(autorService.findByIdOrThrow(id));
     }
 
     //buscar por apellido
     @GetMapping("/apellido/{apellido}")
-    public ResponseEntity<List<Autor>> buscarPorApellido(@PathVariable String apellido) {
-        logger.info("Recibiendo solicitud para buscar autor por el primero apellido");//log
-        List<Autor> autores = autorService.findByApPaterno(apellido);
+    public ResponseEntity<List<AutorDTO.Response>> buscarPorApellido(@PathVariable String apellido) {
+        logger.info("Recibiendo solicitud para buscar autor por el primer apellido");//log
+        List<AutorDTO.Response> autores = autorService.findByApPaterno(apellido);
+        if (autores.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(autores);
+    }
+
+    //buscar por nombre
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<List<AutorDTO.Response>> buscarPorNombre(@PathVariable String nombre) {
+        logger.info("Recibiendo solicitud para buscar autor por el primer nombre");//log
+        List<AutorDTO.Response> autores = autorService.findByPrimerNombre(nombre);
         if (autores.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -93,13 +88,10 @@ public class AutorController {
     }
 
     @PutMapping("/{id}") // Actualizar por ID
-    public ResponseEntity<Autor> actualizar(@PathVariable Long id, @Valid @RequestBody Autor autor) {
+    public ResponseEntity<AutorDTO.Response> 
+            actualizar(@PathVariable Long id, @Valid @RequestBody AutorDTO.Request request) {
         logger.info("Recibiendo solicitud para actualizar Autor por ID: " + id);
-        Autor autorActualizado = autorService.updateAutor(id, autor);  
-        if (autorActualizado != null) {
-            return ResponseEntity.ok(autorActualizado);
-        }
-        return ResponseEntity.notFound().build();
+            return ResponseEntity.ok(autorService.updateAutor(id, request));
     }
 
 }

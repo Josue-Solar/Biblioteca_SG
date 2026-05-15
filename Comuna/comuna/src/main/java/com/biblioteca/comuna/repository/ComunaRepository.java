@@ -11,9 +11,9 @@ import com.biblioteca.comuna.model.Comuna;
 @Repository
 public interface ComunaRepository extends JpaRepository<Comuna, Long> {
 
-    Optional<Comuna> findByNombre(String nombre);
+    Optional<Comuna> findByNombreIgnoreCase(String nombre);
 
-    boolean existsByNombre(String nombre);
+    boolean existsByNombreIgnoreCase(String nombre);
 
 
     

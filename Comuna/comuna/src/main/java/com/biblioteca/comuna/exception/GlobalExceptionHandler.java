@@ -23,6 +23,17 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
     }
 
+    // --- ¡NUEVO MÉTODO para q no se repitan los nombres, en este caso el nombre de la comuna
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleConflict(IllegalArgumentException ex) {
+        Map<String, Object> body = new HashMap<>();
+        // El mensaje será el que escribiste en el Service: "La comuna con el nombre '...' ya existe."
+        body.put("mensaje", ex.getMessage()); 
+        body.put("codigo", HttpStatus.CONFLICT.value()); // Devuelve un 409 Conflict
+        body.put("timestamp", LocalDateTime.now().toString());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String, Object>> handleValidation(MethodArgumentNotValidException ex) {
         Map<String, Object> errores = new HashMap<>();

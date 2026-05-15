@@ -11,12 +11,12 @@ import com.biblioteca.autor.model.Autor;
 public interface AutorRepository extends JpaRepository<Autor, Long> {
 
     //ver autor por nombre
-    List<Autor> findByPNombre(String pNombre);
+    List<Autor> findByPrimerNombreIgnoreCase(String primerNombre);
 
     //ver persona por apellido
-    List<Autor> findByApPaterno(String apPaterno);
+    List<Autor> findByApPaternoIgnoreCase(String apPaterno);
 
     //buscar todos los que coincidan con nombre y apellido
-    List<Autor> findAllByPNombreAndApPaterno(String pNombre, String apPaterno);
+    List<Autor> findAllByPrimerNombreAndApPaternoAllIgnoreCase(String primerNombre, String apPaterno);
 
 }

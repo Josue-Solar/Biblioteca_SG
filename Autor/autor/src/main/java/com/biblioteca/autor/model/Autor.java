@@ -26,11 +26,11 @@ public class Autor {
     @NotBlank(message = "El primer nombre es obligatorio")
     @Size(max = 50)
     @Column(name="pnombre",nullable = false, length = 50)
-    private String pNombre;
+    private String primerNombre;
 
     @Size(max = 50)
     @Column(name="snombre",length = 50)
-    private String sNombre;
+    private String segundoNombre;
 
     @NotBlank(message = "El primero apellido es obligatorio")
     @Size(max = 50)
