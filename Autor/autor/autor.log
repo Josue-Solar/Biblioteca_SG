@@ -51,3 +51,8 @@
 2026-05-17 14:58:48 INFO  c.b.autor.controller.AutorController - Recibiendo solicitud para buscar autor por ID
 2026-05-17 15:02:47 INFO  c.b.autor.controller.AutorController - Recibiendo solicitud para buscar autor por ID
 2026-05-17 15:03:21 INFO  c.b.autor.controller.AutorController - Recibiendo solicitud para buscar autor por ID
+2026-05-17 15:46:33 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17 15:46:33 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-17 15:46:33 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17 15:46:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-17 15:46:33 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

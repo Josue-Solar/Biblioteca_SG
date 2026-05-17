@@ -95,3 +95,8 @@
 2026-05-17 13:17:40 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para guardar genero
 2026-05-17 13:17:59 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para guardar genero
 2026-05-17 13:22:08 INFO  c.b.g.controller.GeneroController - Recibiendo solicitud para buscar genero por ID: 1
+2026-05-17 15:46:36 INFO  o.s.boot.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+2026-05-17 15:46:39 INFO  o.s.boot.tomcat.GracefulShutdown - Graceful shutdown complete
+2026-05-17 15:46:42 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-17 15:46:42 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-05-17 15:46:43 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

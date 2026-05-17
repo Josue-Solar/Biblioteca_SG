@@ -23,7 +23,7 @@ import com.biblioteca.editorial.service.EditorialService;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v2/editoriales")
+@RequestMapping("/api/v1/editoriales")
 public class EditorialController {
 
     private static final Logger logger = LoggerFactory.getLogger(EditorialController.class.getName());
