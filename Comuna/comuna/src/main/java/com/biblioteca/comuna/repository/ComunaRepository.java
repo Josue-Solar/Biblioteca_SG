@@ -15,6 +15,5 @@ public interface ComunaRepository extends JpaRepository<Comuna, Long> {
 
     boolean existsByNombreIgnoreCase(String nombre);
 
-
     
 }

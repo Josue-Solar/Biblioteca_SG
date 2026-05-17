@@ -1,31 +1,62 @@
 package com.biblioteca.editorial.exception;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-@RestControllerAdvice
+@ControllerAdvice
 public class GlobalExceptionHandler {
-    
-    // Captura errores de @Valid en los @RequestBody
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, String>> handleValidation(MethodArgumentNotValidException ex) {
-        Map<String, String> errores = new HashMap<>();
-        ex.getBindingResult().getFieldErrors()
-                .forEach(e -> errores.put(e.getField(), e.getDefaultMessage()));
-        return ResponseEntity.badRequest().body(errores);
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<Map<String, Object>> handleNotFound(ResourceNotFoundException ex) {
+        Map<String, Object> body = new HashMap<>();
+        body.put("mensaje", ex.getMessage());
+        body.put("codigo", HttpStatus.NOT_FOUND.value());
+        body.put("timestamp", LocalDateTime.now().toString());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
     }
 
-    // Captura cualquier RuntimeException lanzada en el Service
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Map<String, String>> handleRuntime(RuntimeException ex) {
-        Map<String, String> error = new HashMap<>();
-        error.put("error", ex.getMessage());
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    // --- ¡NUEVO MÉTODO para q no se repitan los nombres, en este caso el nombre de la editorial
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, Object>> handleConflict(IllegalArgumentException ex) {
+        Map<String, Object> body = new HashMap<>();
+        // El mensaje será el que escribiste en el Service: "La comuna con el nombre '...' ya existe."
+        body.put("mensaje", ex.getMessage()); 
+        body.put("codigo", HttpStatus.CONFLICT.value()); // Devuelve un 409 Conflict
+        body.put("timestamp", LocalDateTime.now().toString());
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
     }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, Object>> handleValidation(MethodArgumentNotValidException ex) {
+        Map<String, Object> errores = new HashMap<>();
+        for (FieldError fe : ex.getBindingResult().getFieldErrors()) {
+            errores.put(fe.getField(), fe.getDefaultMessage());
+        }
+
+        Map<String, Object> body = new HashMap<>();
+        body.put("mensaje", "Error de validación");
+        body.put("codigo", HttpStatus.BAD_REQUEST.value());
+        body.put("errores", errores);
+        body.put("timestamp", LocalDateTime.now().toString());
+        return ResponseEntity.badRequest().body(body);
+    }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Map<String, Object>> handleGeneral(Exception ex) {
+        // Nota: no exponer stacktrace/mensajes internos en producción.
+        Map<String, Object> body = new HashMap<>();
+        body.put("mensaje", "Error interno del servidor");
+        body.put("codigo", HttpStatus.INTERNAL_SERVER_ERROR.value());
+        body.put("timestamp", LocalDateTime.now().toString());
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
+    }
+
 }

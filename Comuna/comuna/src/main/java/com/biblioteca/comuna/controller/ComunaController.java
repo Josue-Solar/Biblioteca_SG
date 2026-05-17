@@ -53,24 +53,16 @@ public class ComunaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id){
         logger.info("Recibiendo solicitud para borrar comuna por id");//log
-        try{
-            comunaService.delete(id);
-            return ResponseEntity.noContent().build();
-        }catch(Exception ex){
-            return ResponseEntity.notFound().build();
-        }
+        comunaService.delete(id); //si falla va al global
+        return ResponseEntity.noContent().build();
     }
 
     // Buscar por ID
     @GetMapping("/id/{id}")
     public ResponseEntity<ComunaDTO.Response> buscarPorId(@PathVariable Long id) {
         logger.info("Recibiendo solicitud para buscar comuna por id");//log
-        try {
-            ComunaDTO.Response response = comunaService.findByIdOrThrow(id);
-            return ResponseEntity.ok(response);
-        } catch (Exception ex) {
-            return ResponseEntity.notFound().build();
-        }
+        ComunaDTO.Response response = comunaService.findByIdOrThrow(id); //Si falla, va al GlobalExceptionHandler
+        return ResponseEntity.ok(response);
     }
 
     // buscar por nombre

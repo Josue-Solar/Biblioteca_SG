@@ -64,10 +64,6 @@ public class ComunaService {
         return mapToResponse(comuna);
     }
 
-    public boolean existsByNombre(String nombre){
-        return comunaRepository.existsByNombreIgnoreCase(nombre);
-    }
-
     //buscar por nombre
     public Optional<ComunaDTO.Response> findByNombre(String comuna){
         return comunaRepository.findByNombreIgnoreCase(comuna)

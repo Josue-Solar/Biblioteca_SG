@@ -1,10 +1,11 @@
 package com.biblioteca.editorial.controller;
 
-
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,82 +17,69 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.biblioteca.editorial.model.Editorial;
-import com.biblioteca.editorial.service.EditorialService;
-
 import jakarta.validation.Valid;
+
+import com.biblioteca.editorial.dto.EditorialDTO;
+import com.biblioteca.editorial.service.EditorialService;
 
 @RestController
 @RequestMapping("/api/v1/editoriales")
 public class EditorialController {
 
     private static final Logger logger = LoggerFactory.getLogger(EditorialController.class.getName());
-    
+
     @Autowired
     private EditorialService editorialService;
 
     @GetMapping
-    public ResponseEntity<Object> listar(){
+    public ResponseEntity<List<EditorialDTO.Response>> listar() {
         logger.info("Recibiendo solicitud para listar editoriales");//log
-        List<Editorial> editoriales = editorialService.obtenerTodos();
+        List<EditorialDTO.Response> editoriales = editorialService.findAll();
         if(editoriales.isEmpty()){
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.ok(editoriales);
     }
 
-    @GetMapping("/ediciones/{editorialId}")
-    public ResponseEntity<?> listarEdiciones(@PathVariable Long editorialId){
-        return ResponseEntity.ok(editorialService.listarEdiciones(editorialId));
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Editorial> buscarPorId(@PathVariable long id) {
-        logger.info("Recibiendo solicitud para buscar editorial por ID: " + id);//log
-        try {
-            Editorial editorial = editorialService.findByIdOrThrow(id);
-            return ResponseEntity.ok(editorial);
-        } catch (Exception ex) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
-    @GetMapping("/nombre/{nombre}") //buscar por apellido
-    public ResponseEntity<List<Editorial>> buscarPorNombre(@PathVariable String nombre) {
-        logger.info("Recibiendo solicitud para buscar editorial por nombre: " + nombre);//log
-        List<Editorial> editoriales = editorialService.obtenerPorNombre(nombre);
-        if (editoriales.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(editoriales);
-    }
-
     @PostMapping
-    public ResponseEntity<Editorial> crear(@RequestBody Editorial editorial) {
-        logger.info("Recibiendo solicitud para crear editorial");//log
-        Editorial nuevaEditorial = editorialService.guardar(editorial);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevaEditorial);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Editorial> actualizar(@PathVariable long id, @Valid @RequestBody Editorial editorial) {
-        logger.info("Recibiendo solicitud para actualizar editorial" + id);
-        Editorial editorialActualizada = editorialService.modificarEditorial(id, editorial);  
-        if (editorialActualizada != null) {
-            return ResponseEntity.ok(editorialActualizada);
-        }
-        return ResponseEntity.notFound().build();
+    public ResponseEntity<EditorialDTO.Response> guardar(@Valid @RequestBody EditorialDTO.Request request){
+        logger.info("Recibiendo solicitud para guardar comuna");//log
+            EditorialDTO.Response response = editorialService.save(request);
+            return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable long id) {
-        logger.info("Recibiendo solicitud para eliminar editorial por ID: " + id);//log
-        try {
-            editorialService.eliminar(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Void> eliminar(@PathVariable Long id){
+        logger.info("Recibiendo solicitud para borrar comuna por id");//log
+        editorialService.delete(id); //si falla va al global
+        return ResponseEntity.noContent().build();
     }
+
+    // Buscar por ID
+    @GetMapping("/id/{id}")
+    public ResponseEntity<EditorialDTO.Response> buscarPorId(@PathVariable Long id) {
+        logger.info("Recibiendo solicitud para buscar editorial por id");//log
+        EditorialDTO.Response response = editorialService.findByIdOrThrow(id); //Si falla, va al GlobalExceptionHandler
+        return ResponseEntity.ok(response);
+    }
+
+    // buscar por nombre
+    @GetMapping("/nombre/{nombre}")
+    public ResponseEntity<EditorialDTO.Response> buscarPorNombre(@PathVariable String nombre) {
+        logger.info("Recibiendo solicitud para buscar comunas por nombre");//log
+        Optional<EditorialDTO.Response> response = editorialService.findByNombre(nombre);
+        return response
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
+    }
+
+    @PutMapping("/{id}") // Actualizar por ID
+    public ResponseEntity<EditorialDTO.Response> 
+            actualizar(@PathVariable Long id, @Valid @RequestBody EditorialDTO.Request request) {
+        logger.info("Recibiendo solicitud para actualizar Editorial por ID: " + id);
+        return ResponseEntity.ok(editorialService.update(id, request));
+    }
+
+    
+
 }

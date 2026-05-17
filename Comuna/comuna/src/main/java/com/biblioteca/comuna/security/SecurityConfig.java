@@ -23,7 +23,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/public/**").permitAll()
-                .requestMatchers("/api/v1/comunas/**").hasRole("user")
+                .requestMatchers("/api/v1/comunas/**").hasRole("USER")
                 .anyRequest().authenticated()
             )
             .httpBasic(Customizer.withDefaults());
@@ -36,7 +36,7 @@ public class SecurityConfig {
         UserDetails user = User
             .withUsername("user")
             .password(encoder.encode("1234"))
-            .roles("user")
+            .roles("USER")
             .build();
 
         return new InMemoryUserDetailsManager(user);

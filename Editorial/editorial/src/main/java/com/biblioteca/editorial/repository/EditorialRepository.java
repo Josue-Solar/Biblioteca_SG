@@ -1,16 +1,17 @@
 package com.biblioteca.editorial.repository;
 
-import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.biblioteca.editorial.model.Editorial;
 
 @Repository
-public interface EditorialRepository extends  JpaRepository<Editorial, Long> {
+public interface EditorialRepository extends JpaRepository<Editorial, Long>{
 
-    List<Editorial> findByNombre(String nombre);
+    Optional<Editorial> findByNombreIgnoreCase(String nombre);
 
-    List<Editorial> findById(long id);  
+    boolean existsByNombreIgnoreCase(String nombre);
 
 }

@@ -1,74 +1,86 @@
 package com.biblioteca.editorial.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collector;
+import java.util.Optional;
 import java.util.stream.Collectors;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 
-import com.biblioteca.editorial.client.EdicionClient;
-import com.biblioteca.editorial.dto.EdicionDTO;
-import com.biblioteca.editorial.dto.EditorialEdicionDTO;
-import com.biblioteca.editorial.dto.EjemplarDTO;
-import com.biblioteca.editorial.dto.EjemplarEdicionDTO;
+import com.biblioteca.editorial.exception.ResourceNotFoundException;
+import com.biblioteca.editorial.dto.EditorialDTO;
 import com.biblioteca.editorial.model.Editorial;
-import com.biblioteca.editorial.model.EditorialEdicion;
-import com.biblioteca.editorial.repository.EditorialEdicionRepository;
 import com.biblioteca.editorial.repository.EditorialRepository;
 
-import jakarta.transaction.Transactional;
-import lombok.RequiredArgsConstructor;
-
+@Slf4j
 @Service
-@RequiredArgsConstructor
 @Transactional
 public class EditorialService {
 
-    private final EditorialRepository editorialRepository;
-    private final EdicionClient edicionClient;
-    private final EditorialEdicionRepository editorialEdicionRepository;
+    @Autowired
+    private EditorialRepository editorialRepository;
 
-    public List<Editorial> obtenerTodos(){
-        return editorialRepository.findAll();
-    }
-    
-    public Editorial findByIdOrThrow(Long id){
-        return editorialRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Editorial no encontrada con ID: " + id));
+    //transformar comuna a dto response
+    private EditorialDTO.Response mapToResponse(Editorial editorial){
+        EditorialDTO.Response response = new EditorialDTO.Response();
+        response.setId(editorial.getId());
+        response.setNombre(editorial.getNombre());
+        return response;
     }
 
-    public List<Editorial> obtenerPorNombre(String nombre){
-        return editorialRepository.findByNombre(nombre);
+    //ver todas las editoriales
+    public List<EditorialDTO.Response> findAll(){
+        return editorialRepository.findAll()
+                .stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
-    
-    public EditorialEdicionDTO listarEdiciones(Long editorialId){
-        List<EditorialEdicion> registros = editorialEdicionRepository.findAllByEditorialId(editorialId);
-        List<EdicionDTO> ediciones = registros.stream().map(r -> edicionClient.buscarPorId(r.getEdicionId())).collect(Collectors.toList());
-        List<EjemplarEdicionDTO> ejemplarEdicionDTO = new ArrayList<>();
 
-        for (EdicionDTO ed : ediciones) {
-            ejemplarEdicionDTO.add(edicionClient.librosPorEdicion(ed.getId()));
+    //buscar por id
+    public EditorialDTO.Response findByIdOrThrow(Long id){
+        return editorialRepository.findById(id).map(this::mapToResponse)
+            .orElseThrow(() -> new ResourceNotFoundException("Comuna no encontrado con ID: " + id));
+    }
+
+    //crear
+    public EditorialDTO.Response save(EditorialDTO.Request request) {
+        //para q no se repita el nombre de comuna
+    if (editorialRepository.existsByNombreIgnoreCase(request.getNombre())) {
+            throw new IllegalArgumentException("La comuna con el nombre '" + request.getNombre() + "' ya existe.");
         }
-
-        EditorialEdicionDTO editorialEdicionDTO = new EditorialEdicionDTO(editorialRepository.findById(editorialId).orElseThrow(), ejemplarEdicionDTO);
-        return editorialEdicionDTO;
+    // Creamos un objeto de la entidad Comuna y le pasamos los datos del Request
+    Editorial editorial = new Editorial();
+    editorial.setNombre(request.getNombre());
+    // El repository sigue trabajando con la Entidad, no con el DTO
+    Editorial editorialGuardada = editorialRepository.save(editorial);    
+    return mapToResponse(editorialGuardada);
     }
 
-    public Editorial guardar(Editorial editorial) {
-        return editorialRepository.save(editorial);
+    //borrar
+    public void delete(Long id) {
+    // Verificamos si la comuna realmente existe antes de intentar borrarla
+    if (!editorialRepository.existsById(id)) {
+        // Si no existe, lanzamos un error 
+        throw new ResourceNotFoundException("No se puede eliminar: La comuna con ID " + id + " no existe.");
+    }
+    //Si existe, procedemos a eliminarla
+    editorialRepository.deleteById(id);
     }
 
-    public Editorial modificarEditorial(long id, Editorial nEditorial) {
-        Editorial editorial = findByIdOrThrow(id);
-        if(editorial!=null){
-            editorial.setNombre(nEditorial.getNombre());
-            return editorialRepository.save(editorial);
-        }
-        return null;
+    //buscar por nombre
+    public Optional<EditorialDTO.Response> findByNombre(String comuna){
+        return editorialRepository.findByNombreIgnoreCase(comuna)
+                .map(this::mapToResponse);
     }
 
-    public void eliminar(long id) {
-        editorialRepository.deleteById(id);
-    }
+    //updatear 
+    public EditorialDTO.Response update(Long id, EditorialDTO.Request request){
+        Editorial editorialExistente= editorialRepository.findById(id)
+            .orElseThrow(()-> new ResourceNotFoundException("Comuna no encontrada con id "+ id));
+        editorialExistente.setNombre(request.getNombre());
+        Editorial actualizada = editorialRepository.save(editorialExistente);
+        return mapToResponse(actualizada);
+    } 
+
 }
