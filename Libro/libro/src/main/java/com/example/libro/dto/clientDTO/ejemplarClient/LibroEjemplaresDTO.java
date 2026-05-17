@@ -1,4 +1,4 @@
-package com.example.libro.dto.clientDTO;
+package com.example.libro.dto.clientDTO.ejemplarClient;
 
 import java.util.List;
 

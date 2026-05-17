@@ -3,10 +3,6 @@ package com.example.libro.service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.libro.client.AutorClient;
@@ -15,12 +11,14 @@ import com.example.libro.client.GeneroClient;
 import com.example.libro.dto.LibroAutorDTO;
 import com.example.libro.dto.LibroDTO;
 import com.example.libro.dto.LibroGeneroDTO;
-import com.example.libro.dto.clientDTO.AutorDTO;
-import com.example.libro.dto.clientDTO.EjemplarDTO;
-import com.example.libro.dto.clientDTO.GeneroDTO;
-import com.example.libro.dto.clientDTO.LibroAutoresDTO;
-import com.example.libro.dto.clientDTO.LibroEjemplaresDTO;
-import com.example.libro.dto.clientDTO.LibroGenerosDTO;
+import com.example.libro.dto.clientDTO.autorClient.AutorDTO;
+import com.example.libro.dto.clientDTO.autorClient.AutorLibrosDTO;
+import com.example.libro.dto.clientDTO.autorClient.LibroAutoresDTO;
+import com.example.libro.dto.clientDTO.ejemplarClient.EjemplarDTO;
+import com.example.libro.dto.clientDTO.ejemplarClient.LibroEjemplaresDTO;
+import com.example.libro.dto.clientDTO.generoClient.GeneroDTO;
+import com.example.libro.dto.clientDTO.generoClient.GeneroLibrosDTO;
+import com.example.libro.dto.clientDTO.generoClient.LibroGenerosDTO;
 import com.example.libro.model.Libro;
 import com.example.libro.model.LibroAutor;
 import com.example.libro.model.LibroGenero;
@@ -94,7 +92,7 @@ public class LibroService {
         return libroPorAutores;
     }
 
-    public List<LibroDTO.Response> listarLibros(Long autorId){
+    public AutorLibrosDTO listarLibros(Long autorId){
         List<LibroAutor> registros = libroAutRepo.findAllByAutorId(autorId);
         List<LibroDTO.Response> libros = new ArrayList<>();
 
@@ -104,7 +102,8 @@ public class LibroService {
                                             )
                                         );
 
-        return libros;
+        AutorLibrosDTO autorLibrosDTO = new AutorLibrosDTO(autorClient.buscarPorId(registros.get(0).getAutorId()), libros);
+        return autorLibrosDTO;
     }
 
     public final EjemplarClient ejemplarClient;
@@ -122,10 +121,21 @@ public class LibroService {
         for(LibroGenero libGen : registros){
             generoDTOs.add(generoClient.buscarPorId(libGen.getGeneroId()));
         }
-        LibroGenerosDTO libroGeneroDTOcli = new LibroGenerosDTO(maptoResponseLibroDTO(libroRepository.findByIsbn(isbn)), generoDTOs);
+        LibroGenerosDTO libroGeneroDTO = new LibroGenerosDTO(maptoResponseLibroDTO(libroRepository.findByIsbn(isbn)), generoDTOs);
 
-        return libroGeneroDTOcli;
+        return libroGeneroDTO;
     }
+
+    public GeneroLibrosDTO verLibrosPorGenero(Long idGenero){
+        List<LibroGenero> registros = libroGeneroRepository.findAllByGeneroId(idGenero);
+        List<LibroDTO.Response> libros = new ArrayList<>();
+
+        registros.forEach(r -> libros.add(maptoResponseLibroDTO(libroRepository.findByIsbn(r.getLibroIsbn()))));
+
+        GeneroLibrosDTO generoLibrosDTO = new GeneroLibrosDTO(generoClient.buscarPorId(idGenero), libros);
+        return generoLibrosDTO;
+    }
+
     public LibroGeneroDTO.Response mapToResponseLibroGeneroDTO(LibroGenero libroGenero){
         return new LibroGeneroDTO.Response(libroGenero.getGeneroId(), libroGenero.getLibroIsbn());
     }

@@ -68,8 +68,13 @@ public class LibroController {
     
 
     @GetMapping("/autorId/{id}")
-    public ResponseEntity<List<?>> getAllByAuthId(@PathVariable Long id){
+    public ResponseEntity<?> getAllByAuthId(@PathVariable Long id){
         return ResponseEntity.ok(libroService.listarLibros(id));
+    }
+
+    @GetMapping("/porGenero/{id}")
+    public ResponseEntity<?> getAllByGenre(@PathVariable Long id){
+        return ResponseEntity.ok(libroService.verLibrosPorGenero(id));
     }
 
     @PostMapping

@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.libro.config.FeignConfig;
-import com.example.libro.dto.clientDTO.AutorDTO;
+import com.example.libro.dto.clientDTO.autorClient.AutorDTO;
 
 @FeignClient(name = "autor", url = "http://localhost:8089", configuration = FeignConfig.class)
 public interface AutorClient {

@@ -10,8 +10,8 @@ import com.biblioteca.persona.dto.ComunaDTO;
 
 @FeignClient(name = "comuna", url = "${comuna.url}", configuration = FeignConfig.class)
 public interface ComunaClient {
-    @GetMapping("/api/v1/comunas/nombre")
-    ComunaDTO buscarPorNombre(@RequestParam String nombre);
+    @GetMapping("/api/v1/comunas/nombre/{nombre}")
+    ComunaDTO buscarPorNombre(@PathVariable String nombre);
 
     @GetMapping("/api/v1/comunas/id/{id}")
     ComunaDTO buscarPorId(@PathVariable("id") Long id);

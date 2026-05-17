@@ -1,0 +1,29 @@
+"filename", "language", "XML", "Log", "Java", "Java Properties", "Batch", "comment", "blank", "total"
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona.log", "Log", 0, 41, 0, 0, 0, 0, 1, 42
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/.mvn/wrapper/maven-wrapper.properties", "Java Properties", 0, 0, 0, 3, 0, 0, 1, 4
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/mvnw.cmd", "Batch", 0, 0, 0, 0, 139, 26, 25, 190
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/pom.xml", "XML", 174, 0, 0, 0, 0, 1, 6, 181
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/PersonaApplication.java", "Java", 0, 0, 11, 0, 0, 0, 5, 16
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/client/ComunaClient.java", "Java", 0, 0, 14, 0, 0, 0, 4, 18
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/config/FeignConfig.java", "Java", 0, 0, 11, 0, 0, 0, 4, 15
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/controller/PersonaController.java", "Java", 0, 0, 135, 0, 0, 4, 25, 164
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/controller/RolController.java", "Java", 0, 0, 65, 0, 0, 4, 14, 83
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/controller/SexoController.java", "Java", 0, 0, 65, 0, 0, 7, 15, 87
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/dto/ComunaDTO.java", "Java", 0, 0, 10, 0, 0, 0, 5, 15
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/dto/PersonaComunaDTO.java", "Java", 0, 0, 11, 0, 0, 0, 5, 16
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/dto/PersonaDTO.java", "Java", 0, 0, 56, 0, 0, 3, 17, 76
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/exception/GlobalExceptionHandler.java", "Java", 0, 0, 24, 0, 0, 4, 5, 33
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/model/Persona.java", "Java", 0, 0, 66, 0, 0, 3, 18, 87
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/model/Rol.java", "Java", 0, 0, 21, 0, 0, 0, 6, 27
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/model/Sexo.java", "Java", 0, 0, 21, 0, 0, 0, 6, 27
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/repository/PersonaRepository.java", "Java", 0, 0, 19, 0, 0, 7, 14, 40
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/repository/RolRepository.java", "Java", 0, 0, 9, 0, 0, 0, 6, 15
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/repository/SexoRepository.java", "Java", 0, 0, 10, 0, 0, 2, 8, 20
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/security/SecurityConfig.java", "Java", 0, 0, 41, 0, 0, 0, 9, 50
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/service/PersonaService.java", "Java", 0, 0, 19, 0, 0, 0, 4, 23
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/service/RolService.java", "Java", 0, 0, 35, 0, 0, 5, 13, 53
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/service/SexoService.java", "Java", 0, 0, 38, 0, 0, 6, 14, 58
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/java/com/biblioteca/persona/service/impl/PersonaServiceImpl.java", "Java", 0, 0, 136, 0, 0, 13, 33, 182
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/main/resources/application.properties", "Java Properties", 0, 0, 0, 17, 0, 27, 13, 57
+"/home/jos/Documentos/GitHub/Biblioteca_SG/Persona/persona/src/test/java/com/biblioteca/persona/PersonaApplicationTests.java", "Java", 0, 0, 9, 0, 0, 0, 5, 14
+"Total", "-", 174, 41, 826, 20, 139, 112, 281, 1593
