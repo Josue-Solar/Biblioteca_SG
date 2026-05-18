@@ -14,5 +14,4 @@ public interface GeneroRepository extends  JpaRepository<Genero, Long> {
 
     List<Genero> findById(long id);
 
-
 }

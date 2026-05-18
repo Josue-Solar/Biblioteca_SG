@@ -25,24 +25,29 @@ public class GeneroService {
         return generoRepository.findAll();
     }
     
-    public Genero findByIdOrThrow(Long id){
-        return generoRepository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Genero no encontrado con ID: " + id));
+    public GeneroDTO.Response findByIdOrThrow(Long id){
+        return mapToResponse(generoRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Genero no encontrado con ID: " + id)));
     }
 
-    public List<Genero> obtenerPorNombre(String nombre){
-        return generoRepository.findByNombre(nombre);
+    public List<GeneroDTO.Response> obtenerPorNombre(String nombre){
+        return generoRepository.findByNombre(nombre).stream().map(this::mapToResponse).toList();
     }
 
-    public Genero guardar(Genero genero) {
-        return generoRepository.save(genero);
+    public GeneroDTO.Response guardar(GeneroDTO.Request request) {
+        Genero genero = new Genero();
+        genero.setNombre(request.getNombre());
+        return mapToResponse(generoRepository.save(genero));
     }
 
-    public Genero modificarGenero(long id, Genero nGenero) {
-        Genero genero = findByIdOrThrow(id);
-        if(genero!=null){
+    public GeneroDTO.Response modificarGenero(long id, GeneroDTO.Request nGenero) {
+        
+        if(findByIdOrThrow(id) != null){
+            Genero genero = new Genero();
             genero.setNombre(nGenero.getNombre());
-            return generoRepository.save(genero);
+            
+            Genero guardado = generoRepository.save(genero);
+            return mapToResponse(guardado);
         }
         return null;
     }

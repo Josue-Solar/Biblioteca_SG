@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.biblioteca.persona.model.Rol;
+import com.biblioteca.persona.dto.RolDTO;
 import com.biblioteca.persona.service.RolService;
 
 import jakarta.validation.Valid;
@@ -31,9 +31,9 @@ public class RolController {
 
     // Listar todos los roles
     @GetMapping
-    public ResponseEntity<List<Rol>> listar() {
+    public ResponseEntity<?> listar() {
         logger.info("Recibiendo solicitud para listar roles");//log
-        List<Rol> roles = rolService.findAll();
+        List<RolDTO.Response> roles = rolService.findAll();
         if (roles.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -42,18 +42,18 @@ public class RolController {
 
     // Crear nuevo rol
     @PostMapping
-    public ResponseEntity<Rol> guardar(@Valid @RequestBody Rol rol) {
+    public ResponseEntity<?> guardar(@Valid @RequestBody RolDTO.Request rol) {
         logger.info("Recibiendo solicitud para guardar rol");//log
-        Rol nrol = rolService.save(rol);
+        RolDTO.Response nrol = rolService.save(rol);
         return ResponseEntity.status(HttpStatus.CREATED).body(nrol);
     }
 
     // Buscar por ID
     @GetMapping("/id/{id}")
-    public ResponseEntity<Rol> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         logger.info("Recibiendo solicitud para buscar rol por ID: " + id);//log
         try {
-            Rol rol = rolService.findByIdOrThrow(id);
+            RolDTO.Response rol = rolService.findByIdOrThrow(id);
             return ResponseEntity.ok(rol);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
@@ -62,17 +62,15 @@ public class RolController {
 
     // Buscar por nombre
     @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<Rol> buscarPorNombre(@PathVariable String nombre) {
+    public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre) {
         logger.info("Recibiendo solicitud para buscar rol por NOMBRE: " + nombre);//log
-        return rolService.findByNombre(nombre)
-            .map(ResponseEntity::ok)
-            .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok(rolService.findByNombre(nombre));
     }
 
     @PutMapping("/{id}") // Actualizar por ID
-    public ResponseEntity<Rol> actualizar(@PathVariable Long id, @Valid @RequestBody Rol rol) {
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody RolDTO.Request rol) {
         logger.info("Recibiendo solicitud para actualizar rol por ID: " + id);
-        Rol rolActualizado = rolService.updateRol(id, rol);  
+        RolDTO.Response rolActualizado = rolService.updateRol(id, rol);  
         if (rolActualizado != null) {
             return ResponseEntity.ok(rolActualizado);
         }

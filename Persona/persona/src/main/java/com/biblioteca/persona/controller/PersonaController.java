@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.dto.PersonaDTO;
+import com.biblioteca.persona.dto.RolDTO;
+import com.biblioteca.persona.dto.SexoDTO;
 import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.service.RolService;
 import com.biblioteca.persona.service.SexoService;
@@ -96,9 +98,9 @@ public class PersonaController {
     @GetMapping("/rol/{rolId}")
     public ResponseEntity<List<PersonaDTO.Response>> buscarPorrol(@PathVariable Long rolId) {
         logger.info("Recibiendo solicitud para buscar persona por ROL: " + rolId);//log
-        Rol rol = rolService.findByIdOrThrow(rolId);  
+        RolDTO.Response rol = rolService.findByIdOrThrow(rolId);  
         List<PersonaDTO.Response> personas = personaService.findByRol(rol);
-            return ResponseEntity.ok(personas);
+        return ResponseEntity.ok(personas);
     }
 
     @GetMapping("/apellido/{apellido}") //buscar por apellido
@@ -115,7 +117,7 @@ public class PersonaController {
     public ResponseEntity<List<PersonaDTO.Response>> buscarPorSexo(@PathVariable Long sexoId) {
         logger.info("Recibiendo solicitud para buscar persona por SEXO: " + sexoId);//log
         try {
-            Sexo sexo = sexoService.findByIdOrThrow(sexoId);
+            SexoDTO.Response sexo = sexoService.findByIdOrThrow(sexoId);
             List<PersonaDTO.Response> personas = personaService.findBySexo(sexo);
             if (personas.isEmpty()) {
                 return ResponseEntity.noContent().build();

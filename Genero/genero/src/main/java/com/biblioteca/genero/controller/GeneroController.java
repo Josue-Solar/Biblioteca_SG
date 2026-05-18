@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biblioteca.genero.dto.GeneroDTO;
 import com.biblioteca.genero.dto.GeneroLibroDTO;
 import com.biblioteca.genero.model.Genero;
 import com.biblioteca.genero.service.GeneroService;
@@ -43,9 +44,9 @@ public class GeneroController {
     }
 
     @GetMapping("/nombre/{nombre}") //buscar por nombre
-    public ResponseEntity<List<Genero>> buscarPorNombre(@PathVariable String nombre) {
+    public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre) {
         logger.info("Recibiendo solicitud para buscar genero por nombre: " + nombre);//log
-        List<Genero> generos = generoService.obtenerPorNombre(nombre);
+        List<GeneroDTO.Response> generos = generoService.obtenerPorNombre(nombre);
         if (generos.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -54,10 +55,10 @@ public class GeneroController {
 
 
     @GetMapping("/{id}") // Buscar por ID
-    public ResponseEntity<Genero> buscarPorId(@PathVariable long id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable long id) {
         logger.info("Recibiendo solicitud para buscar genero por ID: " + id);//log
         try {
-            Genero genero = generoService.findByIdOrThrow(id);
+            GeneroDTO.Response genero = generoService.findByIdOrThrow(id);
             return ResponseEntity.ok(genero);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
@@ -76,16 +77,16 @@ public class GeneroController {
     }
 
     @PostMapping //registrar género
-    public ResponseEntity<Genero> crear(@RequestBody Genero genero) {
+    public ResponseEntity<?> crear(@RequestBody GeneroDTO.Request genero) {
         logger.info("Recibiendo solicitud para guardar genero");//log
-        Genero nuevoGenero = generoService.guardar(genero);
+        GeneroDTO.Response nuevoGenero = generoService.guardar(genero);
         return ResponseEntity.status(HttpStatus.CREATED).body(nuevoGenero);
     }
 
     @PutMapping("/{id}") //actualizar por id
-    public ResponseEntity<Genero> actualizar(@PathVariable long id, @Valid @RequestBody Genero genero) {
+    public ResponseEntity<?> actualizar(@PathVariable long id, @Valid @RequestBody GeneroDTO.Request genero) {
         logger.info("Recibiendo solicitud para actualizar genero" + id);
-        Genero generoActualizado = generoService.modificarGenero(id, genero);  
+        GeneroDTO.Response generoActualizado = generoService.modificarGenero(id, genero);  
         if (generoActualizado != null) {
             return ResponseEntity.ok(generoActualizado);
         }

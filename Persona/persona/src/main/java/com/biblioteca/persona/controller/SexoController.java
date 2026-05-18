@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biblioteca.persona.dto.SexoDTO;
 import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.service.SexoService;
 
@@ -31,9 +32,9 @@ public class SexoController {
 
     // Listar todos los sexos
     @GetMapping
-    public ResponseEntity<List<Sexo>> listar() {
+    public ResponseEntity<?> listar() {
         logger.info("Recibiendo solicitud para listar sexos");//log
-        List<Sexo> sexos = sexoService.findAll();
+        List<SexoDTO.Response> sexos = sexoService.findAll();
         if (sexos.isEmpty()) {
             return ResponseEntity.noContent().build();
         }
@@ -42,18 +43,18 @@ public class SexoController {
 
     // Crear nuevo sexo
     @PostMapping
-    public ResponseEntity<Sexo> guardar(@Valid @RequestBody Sexo sexo) {
+    public ResponseEntity<?> guardar(@Valid @RequestBody SexoDTO.Request sexo) {
         logger.info("Recibiendo solicitud para guardar sexo");//log
-        Sexo nSexo = sexoService.save(sexo);
+        SexoDTO.Response nSexo = sexoService.save(sexo);
         return ResponseEntity.status(HttpStatus.CREATED).body(nSexo);
     }
 
     // Buscar por ID
     @GetMapping("/id/{id}")
-    public ResponseEntity<Sexo> buscarPorId(@PathVariable Long id) {
+    public ResponseEntity<?> buscarPorId(@PathVariable Long id) {
         logger.info("Recibiendo solicitud para buscar sexo por ID: " + id);//log
         try {
-            Sexo sexo = sexoService.findByIdOrThrow(id);
+            SexoDTO.Response sexo = sexoService.findByIdOrThrow(id);
             return ResponseEntity.ok(sexo);
         } catch (Exception ex) {
             return ResponseEntity.notFound().build();
@@ -62,11 +63,9 @@ public class SexoController {
 
     // Buscar por nombre
     @GetMapping("/nombre/{nombre}")
-    public ResponseEntity<Sexo> buscarPorNombre(@PathVariable String nombre) {
+    public ResponseEntity<?> buscarPorNombre(@PathVariable String nombre) {
         logger.info("Recibiendo solicitud para buscar sexo por nombre: " + nombre);//log
-        return sexoService.findByNombre(nombre)
-            .map(ResponseEntity::ok)
-            .orElse(ResponseEntity.notFound().build());
+        return ResponseEntity.ok(sexoService.findByNombre(nombre));
     }
 
     // ELIMINADO - No permitimos eliminar sexos para evitar referencias inválidas
@@ -74,9 +73,9 @@ public class SexoController {
 
     //  metodo PUT actualizar
     @PutMapping("/{id}") // Actualizar por ID
-    public ResponseEntity<Sexo> actualizar(@PathVariable Long id, @Valid @RequestBody Sexo sexo) {
+    public ResponseEntity<?> actualizar(@PathVariable Long id, @Valid @RequestBody SexoDTO.Request sexo) {
         logger.info("Recibiendo solicitud para actualizar sexo por NOMBRE: " + id);
-        Sexo sexoActualizado = sexoService.updateSexo(id, sexo);  
+        SexoDTO.Response sexoActualizado = sexoService.updateSexo(id, sexo);  
         if (sexoActualizado != null) {
             return ResponseEntity.ok(sexoActualizado);
         }

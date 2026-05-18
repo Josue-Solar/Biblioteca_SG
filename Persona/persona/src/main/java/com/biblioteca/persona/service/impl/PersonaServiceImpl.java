@@ -13,8 +13,9 @@ import com.biblioteca.persona.client.ComunaClient;
 import com.biblioteca.persona.dto.ComunaDTO;
 import com.biblioteca.persona.dto.PersonaComunaDTO;
 import com.biblioteca.persona.dto.PersonaDTO;
+import com.biblioteca.persona.dto.RolDTO;
+import com.biblioteca.persona.dto.SexoDTO;
 import com.biblioteca.persona.model.Persona;
-import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.repository.PersonaRepository;
 import com.biblioteca.persona.service.PersonaService;
 
@@ -32,15 +33,11 @@ public class PersonaServiceImpl implements PersonaService{
     private final ComunaClient comunaClient;
 
     //ver todas las personas
-    @Override
-    @Transactional(readOnly = true)
     public List<PersonaDTO.Response> findAll(){
         return personaRepository.findAll().stream().map(this::mapToResponse).collect(Collectors.toList());
     }
 
     // buscar por id con excepcion
-    @Override
-    @Transactional(readOnly = true)
     public PersonaDTO.Response findById(Long id){
         Persona persona = personaRepository.findById(id).orElseThrow(() -> new RuntimeException("Persona no encontrada con ID: " + id));
 
@@ -73,7 +70,7 @@ public class PersonaServiceImpl implements PersonaService{
     //updatear por run
     public PersonaDTO.Response updatePersona(String run, PersonaDTO.Request request){
         if(existsByRun(request.getRun())){
-            Persona persona = new Persona();
+            Persona persona = personaRepository.findByRun(run).orElse(null);
             persona.setRun(request.getRun());
             persona.setDvRun(request.getDvRun());
             persona.setPNombre(request.getPNombre());
@@ -100,8 +97,6 @@ public class PersonaServiceImpl implements PersonaService{
     }
 
     //buscar por run
-    @Override
-    @Transactional(readOnly = true)
     public PersonaDTO.Response findByRun(String run) {
         Persona persona = personaRepository.findByRun(run).orElseThrow(() -> new RuntimeException());
         return mapToResponse(persona);
@@ -113,8 +108,6 @@ public class PersonaServiceImpl implements PersonaService{
     }
 
     //buscar por apellido
-    @Override
-    @Transactional(readOnly = true)
     public List<PersonaDTO.Response> findByApPaterno(String apPaterno){
         List<Persona> personas = personaRepository.findByApPaterno(apPaterno);
         List<PersonaDTO.Response> personasResponse = new ArrayList<>();
@@ -129,10 +122,8 @@ public class PersonaServiceImpl implements PersonaService{
     }
 
     //buscar por rol
-    @Override
-    @Transactional(readOnly = true)
-    public List<PersonaDTO.Response> findByRol(Rol rol){
-        List<Persona> personas = personaRepository.findByRol(rol);
+    public List<PersonaDTO.Response> findByRol(RolDTO.Response rol){
+        List<Persona> personas = personaRepository.findByRolNombre(rol.getNombre());
         List<PersonaDTO.Response> personasResponse = new ArrayList<>();
         
         personas.forEach(per -> personasResponse.add(mapToResponse(per)));
@@ -141,10 +132,8 @@ public class PersonaServiceImpl implements PersonaService{
     }
 
     // Buscar personas por sexo
-    @Override
-    @Transactional(readOnly = true)
-    public List<PersonaDTO.Response> findBySexo(Sexo sexo) {
-        List<Persona> personas = personaRepository.findBySexo(sexo);
+    public List<PersonaDTO.Response> findBySexo(SexoDTO.Response sexo) {
+        List<Persona> personas = personaRepository.findBySexoNombre(sexo.getNombre());
         List<PersonaDTO.Response> personasResponse = new ArrayList<>();
         
         personas.forEach(per -> personasResponse.add(mapToResponse(per)));
@@ -158,8 +147,6 @@ public class PersonaServiceImpl implements PersonaService{
         return persoComuDTO;
     }
 
-    @Override
-    @Transactional(readOnly = true)
     public PersonaComunaDTO findByComunaID(Long id){
         ComunaDTO comuna = comunaClient.buscarPorId(id);
         PersonaComunaDTO persoComuDTO = new PersonaComunaDTO(comuna, personaRepository.findByComunaId(id));

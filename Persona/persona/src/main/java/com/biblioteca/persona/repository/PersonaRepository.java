@@ -8,8 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Persona;
-import com.biblioteca.persona.model.Sexo;
-
 @Repository
 public interface PersonaRepository extends JpaRepository<Persona, Long> {
 
@@ -26,6 +24,8 @@ public interface PersonaRepository extends JpaRepository<Persona, Long> {
     //buscar por rol
     List<Persona> findByRol(Rol rol);
 
+    List<Persona> findByRolNombre(String rolNombre);
+
     // Verificar si existe por RUN 
     boolean existsByRun(String run);
 
@@ -33,7 +33,7 @@ public interface PersonaRepository extends JpaRepository<Persona, Long> {
     Optional<Persona> findByRun(String run);
     
     //buscar por sexo
-    List<Persona> findBySexo(Sexo sexo);
+    List<Persona> findBySexoNombre(String sexoNombre);
 
     List<Persona> findByComunaId(Long comunaId);
 }
