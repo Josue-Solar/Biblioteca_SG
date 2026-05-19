@@ -5,13 +5,13 @@ import org.springframework.stereotype.Repository;
 
 import com.example.edicion.model.Edicion;
 import java.util.List;
+import java.util.Optional;
 
 
 @Repository
 public interface EdicionRepository extends JpaRepository<Edicion, Long>{
-
+    Edicion findById(long id);
     List<Edicion> findByNombre(String nombre);
-
-    List<Edicion> findById(long id);
+    Optional<Boolean> deleteEdicionById(long id);
 
 }

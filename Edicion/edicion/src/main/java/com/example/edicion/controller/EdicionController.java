@@ -1,9 +1,6 @@
 package com.example.edicion.controller;
 
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.edicion.model.Edicion;
+import com.example.edicion.dto.EdicionDTO;
 import com.example.edicion.service.EdicionService;
 
 import jakarta.validation.Valid;
@@ -26,72 +23,58 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EdicionController {
 
-    private static final Logger logger = LoggerFactory.getLogger(EdicionController.class.getName());
-    
+
     private final EdicionService edicionService;
 
     @GetMapping
-    public ResponseEntity<Object> listar(){
-        logger.info("Recibiendo solicitud para listar ediciones");//log
-        List<Edicion> ediciones = edicionService.obtenerTodos();
-        if(ediciones.isEmpty()){
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(ediciones);
+    public List<EdicionDTO.Response> getAllEdics(){
+        return edicionService.obtenerTodos();
     }
 
-    @GetMapping("/nombre/{nombre}") //buscar por apellido
-    public ResponseEntity<List<Edicion>> buscarPorNombre(@PathVariable String nombre) {
-        logger.info("Recibiendo solicitud para buscar edicion por nombre: " + nombre);//log
-        List<Edicion> ediciones = edicionService.obtenerPorNombre(nombre);
-        if (ediciones.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(ediciones);
-    }
 
     @GetMapping("/librosPorEdicion/{edicionId}")
     public ResponseEntity<?> librosPorEdicion(@PathVariable Long edicionId){
         return ResponseEntity.ok(edicionService.librosPorEdicion(edicionId));
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Edicion> buscarPorId(@PathVariable long id) {
-        logger.info("Recibiendo solicitud para buscar edicion por ID: " + id);//log
-        try {
-            Edicion edicion = edicionService.findByIdOrThrow(id);
-            return ResponseEntity.ok(edicion);
-        } catch (Exception ex) {
-            return ResponseEntity.notFound().build();
+    @GetMapping("/id:{id}")
+    public ResponseEntity<?> getByID(@Valid @PathVariable long id){
+        try{
+            return ResponseEntity.ok(edicionService.obtenerPorId(id));
+        }catch(Exception ex){
+            ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage());
         }
+    }
+
+    @GetMapping("/edicionesPorEditorial:{id}")
+    public ResponseEntity<?> getAutoresPorLibro(@PathVariable Long id){
+        try{
+            return ResponseEntity.ok(edicionService.listarEdiciones(id));
+        }catch(Exception ex){
+            ex.printStackTrace(); 
+            return ResponseEntity.status(500).body(ex.getMessage());
+        }
+    }
+
+    @GetMapping("/editorialId/{id}")
+    public ResponseEntity<?> getAllByEditorialId(@PathVariable Long id){
+        return ResponseEntity.ok(edicionService.listarEdiciones(id));
     }
 
     @PostMapping
-    public ResponseEntity<Edicion> crear(@RequestBody Edicion edicion) {
-        logger.info("Recibiendo solicitud para crear edicion");//log
-        Edicion nuevaEdicion = edicionService.guardar(edicion);
-        return ResponseEntity.status(HttpStatus.CREATED).body(nuevaEdicion);
+    public ResponseEntity<EdicionDTO.Response> addLibro(@Valid @RequestBody EdicionDTO.Request edic){
+        return ResponseEntity.status(HttpStatus.CREATED).body(edicionService.guardar(edic));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Edicion> actualizar(@PathVariable long id, @Valid @RequestBody Edicion edicion) {
-        logger.info("Recibiendo solicitud para actualizar edicion" + id);
-        Edicion edicionActualizada = edicionService.modificarEdicion(id, edicion);  
-        if (edicionActualizada != null) {
-            return ResponseEntity.ok(edicionActualizada);
-        }
-        return ResponseEntity.notFound().build();
+    @PutMapping("/editar:{id}")
+    public ResponseEntity<EdicionDTO.Response> putEdicion(@Valid @RequestBody EdicionDTO.Request request, @PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK).body(edicionService.actualizar(id, request));
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminar(@PathVariable long id) {
-        logger.info("Recibiendo solicitud para eliminar edicion por ID: " + id);//log
-        try {
-            edicionService.eliminar(id);
-            return ResponseEntity.noContent().build();
-        } catch (Exception e) {
-            return ResponseEntity.notFound().build();
-        }
+    @DeleteMapping("/eliminar:{id}")
+    public ResponseEntity<Boolean> deleteEdicion(@Valid @PathVariable Long id){
+        return edicionService.eliminar(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
 
