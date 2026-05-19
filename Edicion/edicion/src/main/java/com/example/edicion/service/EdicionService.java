@@ -40,7 +40,7 @@ public class EdicionService {
     }    
 
     public EdicionDTO.Response obtenerPorId(long id) {
-        return maptoResponseEdicionDTO(edicionRepository.findById(id));
+        return maptoResponseEdicionDTO(edicionRepository.findById(id).orElseThrow());
     }
 
     public EdicionDTO.Response obtenerPorNombre(String nombre) {
@@ -88,7 +88,7 @@ public class EdicionService {
         List<EdicionDTO.Response> ediciones = new ArrayList<>();
 
         registros.forEach(edics -> ediciones.add(maptoResponseEdicionDTO(
-                                                    edicionRepository.findById(edics.getEdicionId())
+                                                    edicionRepository.findById(edics.getEdicionId()).orElseThrow()
                                                 )
                                             )
                                         );

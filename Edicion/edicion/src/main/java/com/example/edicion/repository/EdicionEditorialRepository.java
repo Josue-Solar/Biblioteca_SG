@@ -10,7 +10,7 @@ import com.example.edicion.model.EdicionEditorialID;
 
 @Repository
 public interface EdicionEditorialRepository extends JpaRepository<EdicionEditorial, EdicionEditorialID>{
-    List<EdicionEditorial> findAllByEdicionIsbn(Long edicionId);
+    List<EdicionEditorial> findAllByEdicionId(Long edicionId);
     List<EdicionEditorial> findAllByEditorialId(Long editorialId);
     List<EdicionEditorial> findByEdicionId(Long edicionId);
 }

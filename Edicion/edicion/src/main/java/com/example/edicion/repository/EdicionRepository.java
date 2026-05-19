@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Repository
 public interface EdicionRepository extends JpaRepository<Edicion, Long>{
-    Edicion findById(long id);
+    Optional<Edicion> findById(long id);
     List<Edicion> findByNombre(String nombre);
     Optional<Boolean> deleteEdicionById(long id);
 
