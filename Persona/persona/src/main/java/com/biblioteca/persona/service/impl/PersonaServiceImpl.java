@@ -2,13 +2,14 @@ package com.biblioteca.persona.service.impl;
 
 import com.biblioteca.persona.repository.RolRepository;
 import com.biblioteca.persona.repository.SexoRepository;
+import com.biblioteca.persona.service.RolService;
+import com.biblioteca.persona.service.SexoService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.client.ComunaClient;
 import com.biblioteca.persona.dto.ComunaDTO;
 import com.biblioteca.persona.dto.PersonaComunaDTO;
@@ -27,6 +28,8 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 public class PersonaServiceImpl implements PersonaService{
 
+    private final RolService rolService;
+    private final SexoService sexoService;
     private final RolRepository rolRepository;
     private final SexoRepository sexoRepository;
     private final PersonaRepository personaRepository;
@@ -159,8 +162,8 @@ public class PersonaServiceImpl implements PersonaService{
             persona.getRut(), 
             persona.getCorreo(), 
             comunaClient.buscarPorId(persona.getComunaId()), 
-            persona.getSexo(), 
-            persona.getRol()
+            sexoService.mapToResponse(persona.getSexo()), 
+            rolService.mapToResponse(persona.getRol())
         );
 
     }

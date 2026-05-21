@@ -1,8 +1,5 @@
 package com.biblioteca.persona.dto;
 
-import com.biblioteca.persona.model.Rol;
-import com.biblioteca.persona.model.Sexo;
-
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -69,7 +66,7 @@ public class PersonaDTO {
         private String rut;
         private String correo;
         private ComunaDTO comuna;
-        private Sexo sexo;
-        private Rol rol;
+        private SexoDTO.Response sexo;
+        private RolDTO.Response rol;
     }   
 }
