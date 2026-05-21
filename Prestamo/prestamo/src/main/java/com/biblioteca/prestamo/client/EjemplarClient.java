@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.biblioteca.prestamo.dto.EjemplarDTO;
 
+
 @FeignClient(name = "ejemplares", url = "${ms.ejemplares.url}", configuration = FeignClientConfig.class)
 public interface EjemplarClient {
 

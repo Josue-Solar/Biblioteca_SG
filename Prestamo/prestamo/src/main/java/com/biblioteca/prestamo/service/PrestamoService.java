@@ -36,7 +36,7 @@ public class PrestamoService {
 
     // MÉTODOS PÚBLICOS
 
-    //Crear un préstamo
+    // Crear un préstamo
     public PrestamoDTO.Response crear(PrestamoDTO.Request request) {
         // Validar si el ejemplar ya está prestado antes de hacer nada
         if (isEjemplarPrestado(request.getEjemplarId())) {
@@ -44,7 +44,7 @@ public class PrestamoService {
         }
 
         // Validar que la persona y el ejemplar existan en los otros microservicios
-        //validarExistencia(request.getPersonaId(), request.getEjemplarId());
+        validarExistencia(request.getPersonaId(), request.getEjemplarId()); //esta se comenta para q funcione solo
     
         // Convertir el Request (DTO) a Entidad para guardarlo en la BD
         Prestamo prestamo = new Prestamo();
@@ -82,7 +82,7 @@ public class PrestamoService {
         // Solo validamos existencia si cambiaron los IDs
         if (!prestamo.getPersonaId().equals(request.getPersonaId()) || 
             !prestamo.getEjemplarId().equals(request.getEjemplarId())) {
-            validarExistencia(request.getPersonaId(), request.getEjemplarId());
+            validarExistencia(request.getPersonaId(), request.getEjemplarId()); //esta se comenta para q funcione solo
         }
 
         prestamo.setFechaInicio(request.getFechaInicio());
@@ -109,7 +109,7 @@ public class PrestamoService {
         return mapToResponse(guardado);
     }
 
-    // Buscar préstamos de una persona
+    // Buscar prestamos de una persona
     public List<PrestamoDTO.Response> findByPersonaId(Long personaId) {
         return prestamoRepository.findByPersonaId(personaId)
                 .stream()
@@ -117,7 +117,7 @@ public class PrestamoService {
                 .collect(Collectors.toList());
     }
 
-    // Buscar préstamos activos (no devueltos aún)
+    // Buscar prestamos activos (no devueltos aún)
     public List<PrestamoDTO.Response> findPrestamosActivos() {
         return prestamoRepository.findByFechaDevolucionIsNull()
                 .stream()
@@ -166,8 +166,18 @@ public class PrestamoService {
         response.setFechaInicio(prestamo.getFechaInicio());
         response.setFechaFin(prestamo.getFechaFin());
         response.setFechaDevolucion(prestamo.getFechaDevolucion());
-        response.setAtrasado(prestamo.isAtrasado());
-
+    // --- CÁLCULO SEGURO DE ATRASADO ---
+    boolean estaAtrasado = false;
+    if (prestamo.getFechaFin() != null) {
+        if (prestamo.getFechaDevolucion() != null) {
+            // Si ya se devolvió, revisamos si la devolución fue después de la fecha fin
+            estaAtrasado = prestamo.getFechaDevolucion().isAfter(prestamo.getFechaFin());
+        } else {
+            // Si aún no se devuelve, está atrasado si hoy ya pasó la fecha fin
+            estaAtrasado = java.time.LocalDate.now().isAfter(prestamo.getFechaFin());
+        }
+    }
+            response.setAtrasado(estaAtrasado);
         // Traemos la información humana desde los otros microservicios
         try {
             PersonaDTO persona = personaClient.obtenerPorId(prestamo.getPersonaId());
@@ -179,7 +189,6 @@ public class PrestamoService {
             log.warn("No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: {}", prestamo.getId());
             // Si el otro MS está caído, devolvemos el préstamo igual pero sin los datos enriquecidos.
         }
-
         return response;
     }
 }

@@ -38,9 +38,9 @@ public class PrestamoDTO {
     @AllArgsConstructor
     public static class Response {
         private Long id;
-        private LocalDate fechaInicio;
-        private LocalDate fechaFin;
-        private LocalDate fechaDevolucion;
+        private LocalDate fechaInicio;     //las fechas hay q ponerlas en el postman asi:
+        private LocalDate fechaFin;        // "2026-05-19"
+        private LocalDate fechaDevolucion; // anio-mes-dia
         
         // Aquí sí va si está atrasado, lo calcularemos en el Service
         private boolean atrasado; 
