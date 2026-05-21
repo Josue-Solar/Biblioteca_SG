@@ -30,16 +30,17 @@ public class Prestamo {
 
     @NotNull(message=   "La fecha de inicio es obligatoria")
     @PastOrPresent(message="La fecha de inicio no puede ser futura")
-    @Column(nullable = false)
+    @Column(name="fecha_inicio",nullable = false)
     private LocalDate fechaInicio;
 
     @NotNull(message = "La fecha limite es obligatoria")
     @Future(message = "La fecha limite debe ser futura")
-    @Column(nullable = false)
+    @Column(name="fecha_fin",nullable = false)
     private LocalDate fechaFin; //fecha limite de devolucion
 
 
     @Future(message = "La fecha de devolucion debe ser futura")
+    @Column(name="fecha_devolucion")
     private LocalDate fechaDevolucion; //cuando lo devolvio
 
     @Transient

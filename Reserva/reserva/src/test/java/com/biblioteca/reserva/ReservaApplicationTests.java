@@ -1,4 +1,4 @@
-package com.example.reserva;
+package com.biblioteca.reserva;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

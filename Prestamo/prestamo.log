@@ -1,36 +1,131 @@
-2026-05-09 03:34:27 WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h45m42s374ms326µs800ns).
-2026-05-09 03:49:51 INFO  c.b.prestamo.PrestamoApplication - Starting PrestamoApplication using Java 17.0.17 with PID 16232 (C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo\prestamo\target\classes started by Rodrigo in C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo)
-2026-05-09 03:49:51 DEBUG c.b.prestamo.PrestamoApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
-2026-05-09 03:49:51 INFO  c.b.prestamo.PrestamoApplication - No active profile set, falling back to 1 default profile: "default"
-2026-05-09 03:49:56 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-05-09 03:49:57 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 199 ms. Found 1 JPA repository interface.
-2026-05-09 03:49:57 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=ed96a571-15b0-3887-9c76-91a5b9c4d1e3
-2026-05-09 03:50:00 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
-2026-05-09 03:50:00 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
-2026-05-09 03:50:00 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
-2026-05-09 03:50:00 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
-2026-05-09 03:50:00 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8628 ms
-2026-05-09 03:50:00 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2026-05-09 03:50:02 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:prestamo_db user=SA
-2026-05-09 03:50:02 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2026-05-09 03:50:02 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:prestamo_db'
-2026-05-09 03:50:03 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-05-09 03:50:03 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
-2026-05-09 03:50:03 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
-2026-05-09 03:50:05 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-05-09 03:50:05 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2026-05-09 03:50:08 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-05-09 03:50:09 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-05-09 03:50:10 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
-2026-05-09 03:50:12 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2026-05-09 03:50:13 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
-2026-05-09 03:50:14 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@54e0b29c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@33428132, org.springframework.security.web.context.SecurityContextHolderFilter@518d4537, org.springframework.security.web.header.HeaderWriterFilter@28cc690d, org.springframework.web.filter.CorsFilter@4c24063c, org.springframework.security.web.authentication.logout.LogoutFilter@57a259c1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7ba38cce, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5824b485, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@52f8effb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3dd22110, org.springframework.security.web.access.ExceptionTranslationFilter@39000894, org.springframework.security.web.access.intercept.AuthorizationFilter@5f0b2fe1]
-2026-05-09 03:50:16 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
-2026-05-09 03:50:17 INFO  c.b.prestamo.PrestamoApplication - Started PrestamoApplication in 28.111 seconds (process running for 29.971)
-2026-05-09 03:52:47 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-05-09 03:52:47 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2026-05-09 03:52:47 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
-2026-05-09 03:53:11 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
-2026-05-09 03:56:56 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para guardar prestamo
-2026-05-09 03:56:57 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
-2026-05-09 03:58:14 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para guardar prestamo
+2026-05-19 01:40:44 INFO  c.b.prestamo.PrestamoApplication - Starting PrestamoApplication using Java 17.0.17 with PID 12316 (C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo\prestamo\target\classes started by Rodrigo in C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo)
+2026-05-19 01:40:44 DEBUG c.b.prestamo.PrestamoApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-05-19 01:40:44 INFO  c.b.prestamo.PrestamoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-19 01:40:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 01:40:49 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 215 ms. Found 1 JPA repository interface.
+2026-05-19 01:40:50 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=ed96a571-15b0-3887-9c76-91a5b9c4d1e3
+2026-05-19 01:40:52 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-05-19 01:40:52 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 01:40:52 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-05-19 01:40:53 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-19 01:40:53 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 8253 ms
+2026-05-19 01:40:53 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 01:40:54 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:prestamo_db user=SA
+2026-05-19 01:40:54 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 01:40:54 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:prestamo_db'
+2026-05-19 01:40:55 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-19 01:40:55 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-05-19 01:40:55 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-19 01:40:57 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 01:40:57 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-19 01:41:00 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 01:41:00 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 01:41:02 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 01:41:03 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 01:41:04 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-19 01:41:05 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6be6cb16, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69ee825c, org.springframework.security.web.context.SecurityContextHolderFilter@712adc04, org.springframework.security.web.header.HeaderWriterFilter@45745de6, org.springframework.web.filter.CorsFilter@5c44bce3, org.springframework.security.web.authentication.logout.LogoutFilter@57fd3b57, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6afd0ef8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1c2503d2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2984edab, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@444958a4, org.springframework.security.web.access.ExceptionTranslationFilter@389f4282, org.springframework.security.web.access.intercept.AuthorizationFilter@4b9b57d9]
+2026-05-19 01:41:07 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-19 01:41:07 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-05-19 01:41:09 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-19 01:41:09 INFO  c.b.prestamo.PrestamoApplication - Started PrestamoApplication in 28.021 seconds (process running for 29.246)
+2026-05-19 01:41:40 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 01:41:40 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 01:41:40 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 5 ms
+2026-05-19 01:41:41 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 01:46:53 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para guardar prestamo
+2026-05-19 01:46:53 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:49:07 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para guardar prestamo
+2026-05-19 01:49:20 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 01:49:21 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:49:30 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para buscar prestamos por ID
+2026-05-19 01:49:30 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:50:06 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para buscar prestamos por el ID de la PERSONA
+2026-05-19 01:50:06 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:51:19 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para registrar la devolucion por ID
+2026-05-19 01:51:19 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:51:45 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 01:51:45 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:52:24 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para buscar prestamos atrasados
+2026-05-19 01:53:33 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para registrar la devolucion por ID
+2026-05-19 01:53:33 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 01:57:24 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 01:57:24 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 02:13:53 INFO  c.b.prestamo.PrestamoApplication - Starting PrestamoApplication using Java 17.0.17 with PID 10092 (C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo\prestamo\target\classes started by Rodrigo in C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo)
+2026-05-19 02:13:53 DEBUG c.b.prestamo.PrestamoApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-05-19 02:13:53 INFO  c.b.prestamo.PrestamoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-19 02:13:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 02:13:58 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 227 ms. Found 1 JPA repository interface.
+2026-05-19 02:14:00 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=ed96a571-15b0-3887-9c76-91a5b9c4d1e3
+2026-05-19 02:14:02 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-05-19 02:14:02 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 02:14:02 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-05-19 02:14:03 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-19 02:14:03 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 9255 ms
+2026-05-19 02:14:03 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 02:14:05 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:prestamo_db user=SA
+2026-05-19 02:14:05 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 02:14:05 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:prestamo_db'
+2026-05-19 02:14:06 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-19 02:14:06 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-05-19 02:14:06 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-19 02:14:07 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 02:14:08 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-19 02:14:11 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 02:14:11 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 02:14:12 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 02:14:14 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 02:14:15 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-19 02:14:17 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a64e2d0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@651e3cc9, org.springframework.security.web.context.SecurityContextHolderFilter@45543b88, org.springframework.security.web.header.HeaderWriterFilter@6ad2a8db, org.springframework.web.filter.CorsFilter@45dce9f7, org.springframework.security.web.authentication.logout.LogoutFilter@69c03fa2, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4e8036bb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2fad7002, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@712adc04, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@9da20f1, org.springframework.security.web.access.ExceptionTranslationFilter@1683b9ba, org.springframework.security.web.access.intercept.AuthorizationFilter@5effc15d]
+2026-05-19 02:14:19 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-19 02:14:19 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-05-19 02:14:21 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-19 02:14:21 INFO  c.b.prestamo.PrestamoApplication - Started PrestamoApplication in 30.43 seconds (process running for 31.817)
+2026-05-19 02:14:36 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 02:14:36 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 02:14:36 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-05-19 02:14:36 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 02:15:24 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para guardar prestamo
+2026-05-19 02:15:24 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 02:15:57 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para registrar la devolucion por ID
+2026-05-19 02:15:57 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 02:16:43 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 02:16:43 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 02:19:47 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para registrar la devolucion por ID
+2026-05-19 02:19:47 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 02:32:16 INFO  c.b.prestamo.PrestamoApplication - Starting PrestamoApplication using Java 17.0.17 with PID 1652 (C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo\prestamo\target\classes started by Rodrigo in C:\Users\Rodrigo\Desktop\2026 1semestre\fullstack\proyecto biblioteca FS\prestamo)
+2026-05-19 02:32:16 DEBUG c.b.prestamo.PrestamoApplication - Running with Spring Boot v3.3.0, Spring v6.1.8
+2026-05-19 02:32:16 INFO  c.b.prestamo.PrestamoApplication - No active profile set, falling back to 1 default profile: "default"
+2026-05-19 02:32:20 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-19 02:32:21 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 210 ms. Found 1 JPA repository interface.
+2026-05-19 02:32:22 INFO  o.s.cloud.context.scope.GenericScope - BeanFactory id=ed96a571-15b0-3887-9c76-91a5b9c4d1e3
+2026-05-19 02:32:24 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8086 (http)
+2026-05-19 02:32:24 INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-05-19 02:32:24 INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.24]
+2026-05-19 02:32:24 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-05-19 02:32:24 INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7234 ms
+2026-05-19 02:32:24 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-05-19 02:32:25 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:prestamo_db user=SA
+2026-05-19 02:32:25 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-05-19 02:32:25 INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:prestamo_db'
+2026-05-19 02:32:26 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-19 02:32:27 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-05-19 02:32:27 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-05-19 02:32:28 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-19 02:32:29 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-19 02:32:31 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-19 02:32:31 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-19 02:32:32 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-19 02:32:34 WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-19 02:32:34 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsService
+2026-05-19 02:32:36 INFO  o.s.s.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4e8036bb, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7c3b8b26, org.springframework.security.web.context.SecurityContextHolderFilter@6ad2a8db, org.springframework.security.web.header.HeaderWriterFilter@6d7c8a2, org.springframework.web.filter.CorsFilter@5113ab26, org.springframework.security.web.authentication.logout.LogoutFilter@214fe287, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@2762bd70, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@59bdd277, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45745de6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2a64e2d0, org.springframework.security.web.access.ExceptionTranslationFilter@7734ddb8, org.springframework.security.web.access.intercept.AuthorizationFilter@6903bec9]
+2026-05-19 02:32:39 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-19 02:32:39 INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8086 (http) with context path '/'
+2026-05-19 02:32:41 INFO  o.s.cloud.commons.util.InetUtils - Cannot determine local hostname
+2026-05-19 02:32:41 INFO  c.b.prestamo.PrestamoApplication - Started PrestamoApplication in 27.209 seconds (process running for 28.384)
+2026-05-19 02:32:52 INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-19 02:32:52 INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-05-19 02:32:52 INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-05-19 02:32:53 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para listar prestamos
+2026-05-19 02:33:04 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para guardar prestamo
+2026-05-19 02:33:04 WARN  c.b.prestamo.service.PrestamoService - No se pudo obtener el detalle de Persona/Ejemplar para el préstamo ID: 1
+2026-05-19 02:33:18 INFO  c.b.p.controller.PrestamoController - Recibiendo solicitud para registrar la devolucion por ID
