@@ -39,7 +39,7 @@ public class Prestamo {
     private LocalDate fechaFin; //fecha limite de devolucion
 
 
-    @Future(message = "La fecha de devolucion debe ser futura")
+
     @Column(name="fecha_devolucion")
     private LocalDate fechaDevolucion; //cuando lo devolvio
 

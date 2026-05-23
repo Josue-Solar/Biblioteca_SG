@@ -29,9 +29,9 @@ public class RolService {
             .orElseThrow(() -> new RuntimeException("Rol no encontrado con ID: " + id)));
     }
 
-    // Crear o actualizar
+    // Crear
     public RolDTO.Response save(RolDTO.Request request) {
-        if(rolRepository.findByNombre(request.getNombre()) == null){
+        if(rolRepository.findByNombre(request.getNombre()).isEmpty()){  //en vez de null
             Rol rol = new Rol();
             rol.setNombre(request.getNombre());
 

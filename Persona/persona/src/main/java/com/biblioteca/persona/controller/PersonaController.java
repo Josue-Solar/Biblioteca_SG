@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.dto.PersonaDTO;
 import com.biblioteca.persona.dto.RolDTO;
 import com.biblioteca.persona.dto.SexoDTO;
+import com.biblioteca.persona.model.Sexo;
 import com.biblioteca.persona.service.RolService;
 import com.biblioteca.persona.service.SexoService;
 import com.biblioteca.persona.service.impl.PersonaServiceImpl;
@@ -59,7 +61,7 @@ public class PersonaController {
     }
 
     @DeleteMapping("/{id}") //borrar por id
-    public ResponseEntity<Void> eliminar(@PathVariable Long id){
+    public ResponseEntity<Void> eliminar(@PathVariable("id") Long id){
     logger.info("Recibiendo solicitud para eliminar persona por ID: " + id);//log
         try{
             personaService.delete(id);
@@ -70,8 +72,8 @@ public class PersonaController {
     }
 
     // Buscar por ID
-    @GetMapping("/id:{id}")
-    public ResponseEntity<PersonaDTO.Response> buscarPorId(@PathVariable long id) {
+    @GetMapping("/{id}") //corregido
+    public ResponseEntity<PersonaDTO.Response> buscarPorId(@PathVariable("id") long id) {
         logger.info("Recibiendo solicitud para buscar persona por RUT: " + id);//log
         try {
             PersonaDTO.Response persona = personaService.findById(id);
@@ -83,7 +85,7 @@ public class PersonaController {
 
     //Buscar por RUN (corregido)
     @GetMapping("/run/{run}")
-    public ResponseEntity<PersonaDTO.Response> buscarPorRun(@PathVariable String run) {
+    public ResponseEntity<PersonaDTO.Response> buscarPorRun(@PathVariable("run") String run) { //agregado el ("run") para q no se confunda al buscar, esto fue agregado a mas metodos
         logger.info("Recibiendo solicitud para buscar persona por RUT: " + run);//log
         PersonaDTO.Response persona = personaService.findByRun(run);
         if(persona== null){
@@ -94,7 +96,7 @@ public class PersonaController {
     
     //buscar por rol
     @GetMapping("/rol/{rolId}")
-    public ResponseEntity<List<PersonaDTO.Response>> buscarPorrol(@PathVariable Long rolId) {
+    public ResponseEntity<List<PersonaDTO.Response>> buscarPorrol(@PathVariable("rolId") Long rolId) {
         logger.info("Recibiendo solicitud para buscar persona por ROL: " + rolId);//log
         RolDTO.Response rol = rolService.findByIdOrThrow(rolId);  
         List<PersonaDTO.Response> personas = personaService.findByRol(rol);
@@ -102,7 +104,7 @@ public class PersonaController {
     }
 
     @GetMapping("/apellido/{apellido}") //buscar por apellido
-    public ResponseEntity<List<PersonaDTO.Response>> buscarPorApellido(@PathVariable String apellido) {
+    public ResponseEntity<List<PersonaDTO.Response>> buscarPorApellido(@PathVariable("apellido") String apellido) {
         logger.info("Recibiendo solicitud para buscar persona por APELLIDO: " + apellido);//log
         List<PersonaDTO.Response> personas = personaService.findByApPaterno(apellido);
         if (personas.isEmpty()) {
@@ -112,7 +114,7 @@ public class PersonaController {
     }
 
     @GetMapping("/sexo/{sexoId}")
-    public ResponseEntity<List<PersonaDTO.Response>> buscarPorSexo(@PathVariable Long sexoId) {
+    public ResponseEntity<List<PersonaDTO.Response>> buscarPorSexo(@PathVariable("sexoId") Long sexoId) {
         logger.info("Recibiendo solicitud para buscar persona por SEXO: " + sexoId);//log
         try {
             SexoDTO.Response sexo = sexoService.findByIdOrThrow(sexoId);
@@ -127,7 +129,7 @@ public class PersonaController {
     }
 
     @GetMapping("/comuna")
-    public ResponseEntity<?> buscarPorComuna(@RequestParam String nombre){
+    public ResponseEntity<?> buscarPorComuna(@RequestParam("nombre") String nombre){
         try{
             return ResponseEntity.ok(personaService.findByComunaNombre(nombre));
         }catch(Exception ex){
@@ -137,7 +139,7 @@ public class PersonaController {
     }
 
     @GetMapping("/comunaID/{id}")
-    public ResponseEntity<?> buscarPorComunaID(@PathVariable Long id){
+    public ResponseEntity<?> buscarPorComunaID(@PathVariable("id") Long id){
         try{
             return ResponseEntity.ok(personaService.findByComunaID(id));
         }catch(Exception ex){
@@ -149,7 +151,7 @@ public class PersonaController {
 
     //  metodo PUT actualizar
     @PutMapping("/{run}") // Actualizar por RUN
-    public ResponseEntity<PersonaDTO.Response> actualizar(@PathVariable String run, @Valid @RequestBody PersonaDTO.Request persona) {
+    public ResponseEntity<PersonaDTO.Response> actualizar(@PathVariable("run") String run, @Valid @RequestBody PersonaDTO.Request persona) {
         logger.info("Recibiendo solicitud para actualizar persona por RUN: " + run);
         PersonaDTO.Response personaActualizada = personaService.updatePersona(run, persona);  
         if (personaActualizada != null) {

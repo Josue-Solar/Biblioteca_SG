@@ -2,14 +2,13 @@ package com.biblioteca.persona.service.impl;
 
 import com.biblioteca.persona.repository.RolRepository;
 import com.biblioteca.persona.repository.SexoRepository;
-import com.biblioteca.persona.service.RolService;
-import com.biblioteca.persona.service.SexoService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.client.ComunaClient;
 import com.biblioteca.persona.dto.ComunaDTO;
 import com.biblioteca.persona.dto.PersonaComunaDTO;
@@ -19,6 +18,8 @@ import com.biblioteca.persona.dto.SexoDTO;
 import com.biblioteca.persona.model.Persona;
 import com.biblioteca.persona.repository.PersonaRepository;
 import com.biblioteca.persona.service.PersonaService;
+import com.biblioteca.persona.service.RolService;
+import com.biblioteca.persona.service.SexoService;
 
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -101,7 +102,10 @@ public class PersonaServiceImpl implements PersonaService{
 
     //buscar por run
     public PersonaDTO.Response findByRun(String run) {
-        Persona persona = personaRepository.findByRun(run).orElseThrow(() -> new RuntimeException());
+        Persona persona = personaRepository.findByRun(run).orElse(null);//.orElseThrow(() -> new RuntimeException());
+        if (persona == null) {  //agregado el if para q de 404
+        return null;
+        }
         return mapToResponse(persona);
     }
 

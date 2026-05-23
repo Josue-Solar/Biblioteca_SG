@@ -17,7 +17,7 @@ public interface PersonaClient {
     // Las anotaciones son EXACTAMENTE iguales a las del
     // EspecialidadController en ms-especialidades.
     // Feign las usa como "contrato" para construir la petición.
-    @GetMapping("/api/v1/personas/id:{id}")       // ("/api/v1/personas") ("/id:{id}")
-    PersonaDTO obtenerPorId(@PathVariable Long id);
+    @GetMapping("/api/v1/personas/{id}")       // ajustado al ms persona
+    PersonaDTO obtenerPorId(@PathVariable("id") Long id);
 
 }

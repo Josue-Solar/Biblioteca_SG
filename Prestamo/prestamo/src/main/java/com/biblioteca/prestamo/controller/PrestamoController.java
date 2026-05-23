@@ -74,6 +74,7 @@ public class PrestamoController {
         return ResponseEntity.ok(prestamoService.registrarDevolucion(id));
     }
 
+
     @PutMapping("/{id}")
     public ResponseEntity<PrestamoDTO.Response> actualizar(@PathVariable Long id, @Valid @RequestBody PrestamoDTO.Request request) {
         logger.info("Recibiendo solicitud para actualizar prestamo por ID");

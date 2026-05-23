@@ -1,5 +1,8 @@
 package com.biblioteca.persona.dto;
 
+import com.biblioteca.persona.model.Rol;
+import com.biblioteca.persona.model.Sexo;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

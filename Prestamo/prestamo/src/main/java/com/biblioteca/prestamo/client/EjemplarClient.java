@@ -10,8 +10,8 @@ import com.biblioteca.prestamo.dto.EjemplarDTO;
 @FeignClient(name = "ejemplares", url = "${ms.ejemplares.url}", configuration = FeignClientConfig.class)
 public interface EjemplarClient {
 
-    @GetMapping("/api/v1/ejemplares/id:{id}")       // ("/api/v1/ejemplares") ("/id:{id}")
-    EjemplarDTO obtenerPorId(@PathVariable Long id);
+    @GetMapping("/api/v1/ejemplares/id/{id}")       // ("/api/v1/ejemplares") ("/id:{id}")
+    EjemplarDTO obtenerPorId(@PathVariable("id") Long id);
 
 
 }

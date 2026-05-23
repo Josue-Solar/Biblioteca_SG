@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.biblioteca.prestamo.model.Prestamo;
@@ -109,6 +111,8 @@ public class PrestamoService {
         return mapToResponse(guardado);
     }
 
+    
+
     // Buscar prestamos de una persona
     public List<PrestamoDTO.Response> findByPersonaId(Long personaId) {
         return prestamoRepository.findByPersonaId(personaId)
@@ -128,6 +132,7 @@ public class PrestamoService {
     // Verificar si un ejemplar está actualmente prestado (Este retorna boolean, se queda igual)
     public boolean isEjemplarPrestado(Long ejemplarId) {
         return prestamoRepository.existsByEjemplarIdAndFechaDevolucionIsNull(ejemplarId);
+        //return false; // temporal
     }
 
     // Buscar préstamos atrasados hasta hoy
@@ -150,16 +155,14 @@ public class PrestamoService {
         try {
             // Asumimos que los clients tienen un método "obtenerPorId"
             personaClient.obtenerPorId(personaId); 
-            ejemplarClient.obtenerPorId(ejemplarId);
+            ejemplarClient.obtenerPorId(ejemplarId); //temporal: para probar solo persona
         } catch (Exception e) {
             log.error("Error al validar con microservicios externos: {}", e.getMessage());
             throw new RuntimeException("La persona o el ejemplar no existen en los registros.");
         }
     }
 
-    /**
-     * Transforma una Entidad Prestamo en un DTO Response enriquecido con Feign.
-     */
+    //Transforma una Entidad Prestamo en un DTO Response enriquecido con Feign.
     private PrestamoDTO.Response mapToResponse(Prestamo prestamo) {
         PrestamoDTO.Response response = new PrestamoDTO.Response();
         response.setId(prestamo.getId());
