@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "EditorialApplication",
+            "request": "launch",
+            "mainClass": "com.biblioteca.editorial.EditorialApplication",
+            "projectName": "editorial"
+        },
+        {
+            "type": "java",
             "name": "GeneroApplication",
             "request": "launch",
             "mainClass": "com.biblioteca.genero.GeneroApplication",
