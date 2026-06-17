@@ -31,6 +31,8 @@ public class EjemplarService {
     public List<Ejemplar> obtenerTodos(){
         return ejemplarRepository.findAll();
     }
+
+    
     
     public Optional<Ejemplar> obtenerPorId(long id) {
         return ejemplarRepository.findById(id);

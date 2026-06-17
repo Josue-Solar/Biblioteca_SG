@@ -1,6 +1,7 @@
 package com.biblioteca.ejemplar.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,4 +13,7 @@ public interface EjemplarRepository extends JpaRepository<Ejemplar, Long>{
     Ejemplar getById(Long id);
     List<Ejemplar> getAllByLibroIsbn(Long isbn);
     List<Ejemplar> getAllByEdicionId(Long edicionId);
+    Optional<Boolean> deleteEjemplarById(long id);
+
+    Optional<Boolean> deleteEjemplarByLibroIsbn(long Libroisbn);
 }
