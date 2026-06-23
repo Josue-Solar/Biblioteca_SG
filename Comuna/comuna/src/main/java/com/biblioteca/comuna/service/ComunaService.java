@@ -48,19 +48,19 @@ public class ComunaService {
 
     //borrar
     public void delete(Long id) {
-    // 1. Verificamos si la comuna realmente existe antes de intentar borrarla
+    //Verificamos si la comuna realmente existe antes de intentar borrarla
     if (!comunaRepository.existsById(id)) {
         // Si no existe, lanzamos un error para que el sistema no explote en silencio
         throw new ResourceNotFoundException("No se puede eliminar: La comuna con ID " + id + " no existe.");
     }
-    // 2. Si existe, procedemos a eliminarla de la base de datos
+    //Si existe, procedemos a eliminarla de la base de datos
     comunaRepository.deleteById(id);
     }
 
     // buscar por id
     public ComunaDTO.Response findByIdOrThrow(Long id){
         Comuna comuna = comunaRepository.findById(id)
-            .orElseThrow(()-> new RuntimeException("Comuna no encontrada"));
+            .orElseThrow(()-> new ResourceNotFoundException("Comuna no encontrada"));
         return mapToResponse(comuna);
     }
 
@@ -74,6 +74,11 @@ public class ComunaService {
     public ComunaDTO.Response update(Long id, ComunaDTO.Request request){
         Comuna comunaExistente= comunaRepository.findById(id)
             .orElseThrow(()-> new ResourceNotFoundException("Comuna no encontrada con id "+ id));
+        // VALIDACIÓN NUEVA: Revisar si el nombre que envian ya existe en OTRA comuna
+        if (!comunaExistente.getNombre().equalsIgnoreCase(request.getNombre()) && 
+            comunaRepository.existsByNombreIgnoreCase(request.getNombre())) {
+            throw new IllegalArgumentException("La comuna con el nombre '" + request.getNombre() + "' ya existe.");
+        }
         comunaExistente.setNombre(request.getNombre());
         Comuna actualizada = comunaRepository.save(comunaExistente);
         return mapToResponse(actualizada);

@@ -1,1 +1,0 @@
-INSERT INTO comuna (id, nombre) VALUES (1, 'Puente Alto');
