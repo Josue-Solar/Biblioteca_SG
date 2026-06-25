@@ -26,5 +26,9 @@ public class EdicionDTO {
     public static class Response {
         private String nombre;
         private int annio_publicacion;
+        public Long getId() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getId'");
+        }
     }
 }

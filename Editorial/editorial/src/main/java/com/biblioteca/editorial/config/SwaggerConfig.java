@@ -15,7 +15,7 @@ public class SwaggerConfig {
                 .info(new Info()
                         .title("Microservicio de Editorial")
                         .version("1.0")
-                        .description(""));
+                        .description("API REST para la gestion de editoriales en el sistema de la Biblioteca."));
     }
 
 }

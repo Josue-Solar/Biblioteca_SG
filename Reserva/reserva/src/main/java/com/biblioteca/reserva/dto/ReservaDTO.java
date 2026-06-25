@@ -38,6 +38,14 @@ public class ReservaDTO {
         // FKs
         private PersonaDTO persona;   
         private EjemplarDTO ejemplar;
+        public Long getPersonaId() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getPersonaId'");
+        }
+        public Long getEjemplarId() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getEjemplarId'");
+        }
 
     }    
 }

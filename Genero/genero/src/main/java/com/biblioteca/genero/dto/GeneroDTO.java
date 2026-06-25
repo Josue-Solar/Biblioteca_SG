@@ -19,5 +19,10 @@ public class GeneroDTO {
     @AllArgsConstructor
     public static class Response{
         private String nombre;
+
+        public long getId() {
+            // TODO Auto-generated method stub
+            throw new UnsupportedOperationException("Unimplemented method 'getId'");
+        }
     }
 }

@@ -12,8 +12,6 @@ import com.example.edicion.dto.EdicionDTO;
 import com.example.edicion.dto.EdicionEditorialDTO;
 import com.example.edicion.dto.EjemplarDTO;
 import com.example.edicion.dto.EjemplarEdicionDTO;
-import com.example.edicion.dto.clientDTO.editorialclient.EdicionEditorialesDTO;
-import com.example.edicion.dto.clientDTO.editorialclient.EditorialDTO;
 import com.example.edicion.dto.clientDTO.editorialclient.EditorialEdicionesDTO;
 import com.example.edicion.model.Edicion;
 import com.example.edicion.model.EdicionEditorial;
