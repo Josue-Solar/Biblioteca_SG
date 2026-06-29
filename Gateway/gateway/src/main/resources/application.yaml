@@ -1,0 +1,18 @@
+server:
+  port: 8099 # El Gateway siempre suele correr en el puerto 8080 (la entrada principal)
+
+spring:
+  application:
+    name: api-gateway
+  
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true # Le permite al Gateway "Mirar" la lista de Eureka automáticamente
+          lower-case-service-id: true # Convierte los nombres a minúsculas para las URLs
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ # Le decimos dónde está su jefe (Eureka)

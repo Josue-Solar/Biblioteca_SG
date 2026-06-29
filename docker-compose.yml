@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # --- 1. EL DIRECTORIO (EUREKA) ---
+  eureka-server:
+    build: ./eureka-server/eureka-server # Ruta a la carpeta de Eureka para que busque su Dockerfile
+    container_name: eureka-server
+    ports:
+      - "8761:8761" # Mapea el puerto de tu PC al del contenedor
+    networks:
+      - biblioteca-net
+
+  # --- 2. EL MICROSERVICIO (COMUNA) ---
+  ms-comuna:
+    build: ./Comuna/comuna # REVISA AQUÍ: Pon el nombre exacto de tu carpeta de comuna
+    container_name: ms-comuna
+    ports:
+      - "8088:8088"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/ # Truco clave en Docker
+    depends_on:
+      - eureka-server # Le dice a Docker: "No enciendas Comuna hasta que Eureka esté listo"
+    networks:
+      - biblioteca-net
+
+  # --- 3. EL CONSERJE (GATEWAY) ---
+  api-gateway:
+    build: ./gateway/gateway # REVISA AQUÍ: Pon el nombre exacto de tu carpeta del gateway
+    container_name: api-gateway
+    ports:
+      - "8099:8099"
+    environment:
+      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
+    depends_on:
+      - eureka-server
+    networks:
+      - biblioteca-net
+
+# --- RED VIRTUAL INTERNA ---
+networks:
+  biblioteca-net:
+    driver: bridge

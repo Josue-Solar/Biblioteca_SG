@@ -1,0 +1,83 @@
+properties antiguo
+spring.application.name=comuna
+spring.profiles.active=dev
+
+test
+# BASE DE DATOS TESTING (Exclusiva para JUnit)
+# para q no se borre la base de inmediato, hasta q todo se ejecute por completo
+spring.datasource.url=jdbc:h2:mem:comuna_db_test;DB_CLOSE_DELAY=-1
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=true
+
+spring.sql.init.mode=never
+
+dev
+server.port=8088
+
+# # Datasource
+# spring.datasource.url=jdbc:oracle:thin:@192.168.1.13:1521/xe
+# spring.datasource.username=SG
+# spring.datasource.password=SAN_GABRIEL_BIBLIOTECA
+# spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+# # JPA / Hibernate
+# spring.jpa.database-platform=org.hibernate.dialect.OracleDialect
+# spring.jpa.hibernate.ddl-auto=none
+# spring.jpa.show-sql=true
+
+#nivel de log global
+#INFO WARN y ERROR
+logging.level.root=INFO
+
+#nivel de log para el paquete de la aplicacion
+#DEBUG, informacion detallada para desarrollo y depuracion
+#INFO, informacion general sobre el funcionamiento de la aplicacion
+#WARN, advertencias sobre situaciones potencialmente problemáticas
+#ERROR, errores que afectan el funcionamiento de la aplicacion
+logging.level.com.biblioteca=DEBUG
+
+#formato del log, incluyendo timestamp, nivel de log, clase y mensaje
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+
+#Nombre del archivo de log
+logging.file.name=comuna.log
+
+#Nivel de log para el archivo, en este caso se registra todo desde DEBUG en adelante
+logging.level.file=INFO
+
+#Nivel de log para el paquete de la aplicacion en el archivo, se puede configurar diferente al nivel de consola
+logging.level.com.biblioteca.file=DEBUG
+
+#Formato del log para el archivo, similar al de la consola pero con un formato diferente si se desea
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n
+
+#para probar solo
+# H2 Database
+spring.datasource.url=jdbc:h2:mem:comuna_db
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+# JPA
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.hibernate.ddl-auto=update
+#esta sirve para el h2 con data.sql
+spring.jpa.hibernate.ddl-auto=create-drop 
+spring.jpa.show-sql=true
+# para q inicie con el archivo data,sql e inserte los datos automaticamente, no se usaran ahora
+#spring.sql.init.mode=always
+#spring.jpa.defer-datasource-initialization=true
+# Consola H2 (opcional, para ver la BD)
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+#para swaggers
+debug=true
+springdoc.api-docs.enabled=true
+springdoc.swagger-ui.enabled=true
+#springdoc.api-docs.path=/doc/v3/api-docs
+#springdoc.swagger-ui.path=/doc/swagger-ui.html
