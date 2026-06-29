@@ -67,6 +67,6 @@ public class GeneroService {
     }
 
     public GeneroDTO.Response mapToResponse(Genero genero){
-        return new GeneroDTO.Response(genero.getNombre());
+        return new GeneroDTO.Response(null, genero.getNombre());
     }
 }

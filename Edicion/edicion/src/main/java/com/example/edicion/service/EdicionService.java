@@ -2,7 +2,6 @@ package com.example.edicion.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -34,52 +33,49 @@ public class EdicionService {
     private final EjemplarClient ejemplarClient;
 
     public List<EdicionDTO.Response> obtenerTodos(){
-        return edicionRepository.findAll().stream().map(e -> maptoResponseEdicionDTO(e)).toList();
-    }    
-
-    public EdicionDTO.Response obtenerPorId(long id) {
-        return maptoResponseEdicionDTO(edicionRepository.findById(id).orElseThrow());
+        List<Edicion> ediciones = edicionRepository.findAll();
+        List<EdicionDTO.Response> respuestas = new ArrayList<>();
+        for(Edicion ed : ediciones) {
+            respuestas.add(maptoResponseEdicionDTO(ed));
+        }
+        return respuestas;
     }
 
-    public EdicionDTO.Response obtenerPorNombre(String nombre) {
-        List<Edicion> ediciones = edicionRepository.findByNombre(nombre);
-        if (!ediciones.isEmpty()) {
-            return maptoResponseEdicionDTO(ediciones.get(0));
-        }else{
-            throw new RuntimeException("Edicion no encontrada");
-        }
-        
+    public EdicionDTO.Response obtenerPorId(Long id) {
+        Edicion edicion = edicionRepository.findById(id).orElseThrow(() -> new RuntimeException("Edición no encontrada con ID: " + id));
+        return maptoResponseEdicionDTO(edicion);
     }
 
     public EdicionDTO.Response guardar(EdicionDTO.Request request) {
-        Edicion edic = new Edicion();
-        edic.setNombre(request.getNombre());
-        edic.setAnnioPublicacion(request.getAnnio_publicacion());
-        
-        Edicion guardado = edicionRepository.save(edic);
-        return maptoResponseEdicionDTO(guardado);
+        Edicion edicion = new Edicion();
+        edicion.getId();
+        edicion.setNombre(request.getNombre());
+        edicion.setAnnioPublicacion(request.getAnnioPublicacion());
+        Edicion guardada = edicionRepository.save(edicion);
+        return maptoResponseEdicionDTO(guardada);
     }
 
-    public EdicionDTO.Response actualizar(long id, EdicionDTO.Request request) {
-        return edicionRepository.findById(id).map(e -> {
-            e.setNombre(request.getNombre());
-            e.setAnnioPublicacion(request.getAnnio_publicacion());
-            return maptoResponseEdicionDTO(edicionRepository.save(e));
-        }).orElseThrow();
+    public EdicionDTO.Response actualizar(Long id, EdicionDTO.Request request) {
+        Edicion edicion = edicionRepository.findById(id).orElseThrow(() -> new RuntimeException("Edición no encontrada"));
+        edicion.setNombre(request.getNombre());
+        edicion.setAnnioPublicacion(request.getAnnioPublicacion());
+        Edicion actualizada = edicionRepository.save(edicion);
+        return maptoResponseEdicionDTO(actualizada);
     }
 
-    public Optional<Boolean> eliminar(long id) {
-        return edicionRepository.deleteEdicionById(id);
+    // 👇 ESTE ES EL MÉTODO QUE TE FALTABA PARA QUE FUNCIONE EL TEST
+    public void eliminar(Long id) {
+        if (!edicionRepository.existsById(id)) {
+            throw new RuntimeException("Edicion no encontrada con ID: " + id);
+        }
+        edicionRepository.deleteById(id);
     }
 
     public EjemplarEdicionDTO librosPorEdicion(Long edicionId){
         List<EjemplarDTO> ejemplares = ejemplarClient.getAllByEdicionId(edicionId);
         EjemplarEdicionDTO ejemplarEdicionDTO = new EjemplarEdicionDTO(edicionRepository.findById(edicionId).orElseThrow(() -> new RuntimeException()), ejemplares);
-
         return ejemplarEdicionDTO;
     }
-
-
 
     public EditorialEdicionesDTO listarEdiciones(Long editorialId){
         List<EdicionEditorial> registros = edicionEditorialRepo.findAllByEditorialId(editorialId);
@@ -99,7 +95,8 @@ public class EdicionService {
         return new EdicionEditorialDTO.Response(edicionEditorial.getEditorialId(), edicionEditorial.getEdicionId());
     }
 
+    // 👇 AQUÍ TAMBIÉN CORREGÍ QUE SE PASE EL ID COMO PRIMER ARGUMENTO
     public EdicionDTO.Response maptoResponseEdicionDTO(Edicion edicion){
-        return new EdicionDTO.Response( edicion.getNombre(), edicion.getAnnioPublicacion());
+        return new EdicionDTO.Response(edicion.getId(), edicion.getNombre(), edicion.getAnnioPublicacion());
     }
 }

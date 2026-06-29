@@ -2,9 +2,6 @@ package com.biblioteca.ejemplar.controller;
 
 import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,115 +16,98 @@ import org.springframework.web.bind.annotation.RestController;
 import com.biblioteca.ejemplar.model.Ejemplar;
 import com.biblioteca.ejemplar.service.EjemplarService;
 
-// Importaciones de Swagger
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/v1/ejemplares")
 @RequiredArgsConstructor
-@Tag(name = "Gestion de Ejemplares", description = "Operaciones relacionadas con los ejemplares físicos de los libros")
+// @Tag define el nombre y descripción del módulo en la interfaz de Swagger UI
+@Tag(name = "Ejemplar Controller", description = "API para la gestión, control y reservas de ejemplares en la biblioteca")
 public class EjemplarController {
-
-    private static final Logger logger = LoggerFactory.getLogger(EjemplarController.class);
 
     private final EjemplarService ejemplarService;
 
     @GetMapping
-    @Operation(summary = "Obtener todos los ejemplares", description = "Obtiene una lista de todos los ejemplares registrados en la biblioteca")
+    @Operation(summary = "Obtener todos los ejemplares", description = "Retorna una lista con todos los ejemplares registrados en el sistema.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Lista de ejemplares obtenida con éxito"),
-        @ApiResponse(responseCode = "204", description = "No hay ejemplares registrados")
+        @ApiResponse(responseCode = "200", description = "Lista de ejemplares obtenida con éxito")
     })
-    public ResponseEntity<List<Ejemplar>> getAllEjemplares() {
-        logger.info("Recibiendo solicitud para listar todos los ejemplares");
-        List<Ejemplar> ejemplares = ejemplarService.obtenerTodos();
-        if(ejemplares.isEmpty()) {
-            return ResponseEntity.noContent().build();
-        }
-        return ResponseEntity.ok(ejemplares);
+    public List<Ejemplar> getAllEjemplares(){
+        return ejemplarService.obtenerTodos();
     }
 
-    @GetMapping("/{id}")
-    @Operation(summary = "Buscar ejemplar por ID", description = "Obtiene los detalles específicos de un ejemplar mediante su identificador único")
+    @GetMapping("/id/{id}")
+    @Operation(summary = "Obtener ejemplar por ID", description = "Busca y retorna un ejemplar específico utilizando su identificador único.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Ejemplar encontrado con éxito"),
-        @ApiResponse(responseCode = "404", description = "No se encontró el ejemplar con el ID proporcionado")
+        @ApiResponse(responseCode = "404", description = "El ejemplar con el ID proporcionado no existe")
     })
-    public ResponseEntity<Ejemplar> getByID(@Valid @PathVariable long id) {
-        logger.info("Recibiendo solicitud para buscar ejemplar por ID: {}", id);
-        return ejemplarService.obtenerPorId(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<Ejemplar> getByID(@PathVariable("id") long id){
+        return ejemplarService.obtenerPorId(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/{id}/libro")
-    @Operation(summary = "Obtener el libro de un ejemplar", description = "Busca y retorna la información del libro asociado a un ejemplar específico")
+    @GetMapping("/traeLibro/{id}")
+    @Operation(summary = "Obtener el libro de un ejemplar", description = "Retorna la información del libro asociado al ID del ejemplar suministrado.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Libro obtenido con éxito"),
+        @ApiResponse(responseCode = "200", description = "Información del libro obtenida correctamente"),
         @ApiResponse(responseCode = "404", description = "Ejemplar o libro no encontrado")
     })
-    public ResponseEntity<?> getLibro(@PathVariable Long id) {
-        logger.info("Recibiendo solicitud para obtener el libro del ejemplar ID: {}", id);
+    public ResponseEntity<?> getLibro(@PathVariable("id") Long id){
         return ResponseEntity.ok(ejemplarService.getLibro(id));
     }
 
-    @GetMapping("/isbn/{isbn}")
-    @Operation(summary = "Buscar ejemplares por ISBN", description = "Obtiene una lista de todos los ejemplares que corresponden a un ISBN de libro específico")
+    @GetMapping("/porISBN/{isbn}")
+    @Operation(summary = "Obtener ejemplares por ISBN", description = "Retorna una lista de ejemplares que corresponden a un número de ISBN específico.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Lista de ejemplares obtenida con éxito")
     })
-    public ResponseEntity<?> getAllByISBN(@PathVariable Long isbn) {
-        logger.info("Recibiendo solicitud para buscar ejemplares por ISBN: {}", isbn);
+    public ResponseEntity<?> getAllByISBN(@PathVariable("isbn") Long isbn){
         return ResponseEntity.ok(ejemplarService.obtenerTodosPorIsbn(isbn));
     }
 
-    @GetMapping("/edicion/{edicionId}")
-    @Operation(summary = "Buscar ejemplares por Edición", description = "Obtiene una lista de ejemplares asociados a una edición específica")
+    @GetMapping("/porEdicion/{edicionId}")
+    @Operation(summary = "Obtener ejemplares por ID de edición", description = "Retorna una lista de ejemplares pertenecientes a una edición en particular.")
     @ApiResponses(value = {
         @ApiResponse(responseCode = "200", description = "Lista de ejemplares obtenida con éxito")
     })
-    public ResponseEntity<?> getAllByEdicionId(@PathVariable Long edicionId) {
-        logger.info("Recibiendo solicitud para buscar ejemplares por ID de Edición: {}", edicionId);
+    public ResponseEntity<?> getAllByEdicionId(@PathVariable("edicionId") Long edicionId){
         return ResponseEntity.ok(ejemplarService.obtenerTodosPorEdicionId(edicionId));
     }
 
     @PostMapping
-    @Operation(summary = "Crear un nuevo ejemplar", description = "Registra un nuevo ejemplar en la base de datos")
+    @Operation(summary = "Registrar un nuevo ejemplar", description = "Crea y almacena un nuevo ejemplar en el sistema.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "201", description = "Ejemplar creado de forma exitosa"),
-        @ApiResponse(responseCode = "400", description = "Error de validación en los datos enviados")
+        @ApiResponse(responseCode = "201", description = "Ejemplar creado exitosamente"),
+        @ApiResponse(responseCode = "400", description = "El cuerpo de la petición contiene datos inválidos o mal estructurados")
     })
-    public ResponseEntity<Ejemplar> saveEntity(@Valid @RequestBody Ejemplar ejemplar) {
-        logger.info("Recibiendo solicitud para guardar un nuevo ejemplar");
+    public ResponseEntity<Ejemplar> saveEntity(@Valid @RequestBody Ejemplar ejemplar){
         return ResponseEntity.status(HttpStatus.CREATED).body(ejemplarService.guardar(ejemplar));
     }
     
-    @PutMapping("/{id}")
-    @Operation(summary = "Actualizar un ejemplar", description = "Modifica los datos de un ejemplar existente utilizando su ID")
+    @PutMapping("/actualizar/{id}")
+    @Operation(summary = "Actualizar un ejemplar existente", description = "Modifica los datos o el estado de reserva de un ejemplar según su ID.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Ejemplar actualizado exitosamente"),
+        @ApiResponse(responseCode = "200", description = "Ejemplar actualizado con éxito"),
         @ApiResponse(responseCode = "400", description = "Datos de actualización inválidos"),
-        @ApiResponse(responseCode = "404", description = "El ejemplar que se intenta actualizar no existe")
+        @ApiResponse(responseCode = "404", description = "Ejemplar no encontrado")
     })
-    public ResponseEntity<?> updateEjemplar(@PathVariable Long id, @Valid @RequestBody Ejemplar ejemplar) {
-        logger.info("Recibiendo solicitud para actualizar el ejemplar ID: {}", id);
+    public ResponseEntity<?> updateEjemplar(@PathVariable("id") Long id, @Valid @RequestBody Ejemplar ejemplar){
         return ResponseEntity.ok(ejemplarService.modReserva(id, ejemplar));
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Eliminar un ejemplar", description = "Remueve un ejemplar del sistema mediante su ID")
+    @Operation(summary = "Eliminar un ejemplar", description = "Elimina físicamente un ejemplar de la base de datos utilizando su identificador único.")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "200", description = "Ejemplar eliminado exitosamente"),
-        @ApiResponse(responseCode = "404", description = "No se encontró el ejemplar a eliminar")
+        @ApiResponse(responseCode = "204", description = "Ejemplar eliminado exitosamente (No Content)"),
+        @ApiResponse(responseCode = "404", description = "El ejemplar a eliminar no fue encontrado")
     })
-    public ResponseEntity<?> deleteEjemplar(@PathVariable Long id) {
-        logger.info("Recibiendo solicitud para eliminar el ejemplar ID: {}", id);
-        return (ResponseEntity<?>) ResponseEntity.ok();
+    public ResponseEntity<?> deleteById(@PathVariable("id") Long id){
+        ejemplarService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }
