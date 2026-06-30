@@ -1,0 +1,70 @@
+server:
+  port: 8085
+
+# --- BASE DE DATOS ORACLE (Comentada) ---
+# spring:
+#   datasource:
+#     url: jdbc:oracle:thin:@192.168.1.13:1521/xe
+#     username: SG
+#     password: SAN_GABRIEL_BIBLIOTECA
+#     driver-class-name: oracle.jdbc.OracleDriver
+#   jpa:
+#     database-platform: org.hibernate.dialect.OracleDialect
+#     hibernate:
+#       ddl-auto: none
+#     show-sql: true
+
+spring:
+  # --- BASE DE DATOS H2 (Activa) ---
+  datasource:
+    url: jdbc:h2:mem:persona_db
+    driverClassName: org.h2.Driver
+    username: sa
+    password: 
+  
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    defer-datasource-initialization: true
+  
+  sql:
+    init:
+      mode: always
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      
+  security:
+    user:
+      name: user
+      password: 1234
+
+comuna:
+  url: http://localhost:8088
+
+# --- CONFIGURACIÓN DE LOGS ---
+logging:
+  file:
+    name: persona.log
+  level:
+    root: INFO
+    com.biblioteca: DEBUG
+    file: INFO
+    com.biblioteca.file: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+
+# --- SWAGGER Y DEBUG ---
+debug: true
+
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+  enable-hateoas: false

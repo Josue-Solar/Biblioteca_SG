@@ -8,12 +8,14 @@ import io.swagger.v3.oas.models.info.Info;
 
 @Configuration
 public class SwaggerConfig {
+
     @Bean
-    public OpenAPI customOpenAPI(){
+    public OpenAPI custOpenAPI(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("Microservicio de Persona")
+                        .title("Microservicio de Personas")
                         .version("1.0")
-                        .description(""));
+                        .description("API REST para la gestion de personas en el sistema de la Biblioteca."));
     }
+
 }

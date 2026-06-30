@@ -8,10 +8,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.client.ComunaClient;
 import com.biblioteca.persona.dto.ComunaDTO;
-import com.biblioteca.persona.dto.PersonaComunaDTO;
 import com.biblioteca.persona.dto.PersonaDTO;
 import com.biblioteca.persona.dto.RolDTO;
 import com.biblioteca.persona.dto.SexoDTO;
@@ -63,7 +61,7 @@ public class PersonaServiceImpl implements PersonaService{
             persona.setDireccion(request.getDireccion());
             persona.setCorreo(request.getCorreo());
             persona.setSexo(sexoRepository.findById(request.getSexoId()).orElseThrow(() -> new RuntimeException("Sexo no encontrado")));
-            persona.setRol(rolRepository.findById(request.getIdRol()).orElseThrow(() -> new RuntimeException("Sexo no encontrado")));
+            persona.setRol(rolRepository.findById(request.getIdRol()).orElseThrow(() -> new RuntimeException("Rol no encontrado")));
             persona.setComunaId(request.getComunaId());
 
             Persona guardada = personaRepository.save(persona);
@@ -72,27 +70,38 @@ public class PersonaServiceImpl implements PersonaService{
     }
 
     //updatear por run
-    public PersonaDTO.Response updatePersona(String run, PersonaDTO.Request request){
-        if(existsByRun(request.getRun())){
-            Persona persona = personaRepository.findByRun(run).orElse(null);
-            persona.setRun(request.getRun());
-            persona.setDvRun(request.getDvRun());
-            persona.setPNombre(request.getPNombre());
-            persona.setSNombre(request.getSNombre());
-            persona.setApPaterno(request.getApPaterno());
-            persona.setApMaterno(request.getApMaterno());
-            persona.setDireccion(request.getDireccion());
-            persona.setCorreo(request.getCorreo());
-            persona.setSexo(sexoRepository.findById(request.getSexoId()).orElseThrow(() -> new RuntimeException("Sexo no encontrado")));
-            persona.setRol(rolRepository.findById(request.getIdRol()).orElseThrow(() -> new RuntimeException("Rol no encontrado")));
-            persona.setComunaId(request.getComunaId());
+    public PersonaDTO.Response updatePersona(Long id, PersonaDTO.Request request){
+        // 1. Buscamos a la persona por su ID inmutable
+        Persona persona = personaRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("No existe una persona con el ID: " + id));
 
-            Persona guardada = personaRepository.save(persona);
-            return mapToResponse(guardada);
-            
-        }else{
-            throw new RuntimeException("No existe una persona con el RUT: " + request.getRun());
+        // 2. Validación de seguridad: Si están cambiando el RUN, verificamos que el nuevo no exista ya
+        if (!persona.getRun().equals(request.getRun()) && existsByRun(request.getRun())) {
+            throw new RuntimeException("El nuevo RUT ya está registrado en otra cuenta: " + request.getRun());
         }
+
+        // 3. Actualizamos los campos
+        persona.setRun(request.getRun());
+        persona.setDvRun(request.getDvRun());
+        persona.setPNombre(request.getPNombre());
+        persona.setSNombre(request.getSNombre());
+        persona.setApPaterno(request.getApPaterno());
+        persona.setApMaterno(request.getApMaterno());
+        persona.setDireccion(request.getDireccion());
+        persona.setCorreo(request.getCorreo());
+        
+        persona.setSexo(sexoRepository.findById(request.getSexoId())
+                .orElseThrow(() -> new RuntimeException("Sexo no encontrado")));
+                
+        persona.setRol(rolRepository.findById(request.getIdRol())
+                .orElseThrow(() -> new RuntimeException("Rol no encontrado")));
+                
+        persona.setComunaId(request.getComunaId());
+
+        // 4. Guardamos y mapeamos la respuesta
+        Persona guardada = personaRepository.save(persona);
+        return mapToResponse(guardada);
+    
     }
 
     //borrar
@@ -148,20 +157,29 @@ public class PersonaServiceImpl implements PersonaService{
         return personasResponse;
     }   
 
-    public PersonaComunaDTO findByComunaNombre(String nombreComuna){
+    // buscar por nombre de comuna
+    public List<PersonaDTO.Response> findByComunaNombre(String nombreComuna){
         ComunaDTO comuna = comunaClient.buscarPorNombre(nombreComuna);
-        PersonaComunaDTO persoComuDTO = new PersonaComunaDTO(comuna, personaRepository.findByComunaId(comuna.getId()));
-        return persoComuDTO;
+        List<Persona> personas = personaRepository.findByComunaId(comuna.getId());
+        // 3. Convertimos a la lista estándar
+        return personas.stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
-    public PersonaComunaDTO findByComunaID(Long id){
-        ComunaDTO comuna = comunaClient.buscarPorId(id);
-        PersonaComunaDTO persoComuDTO = new PersonaComunaDTO(comuna, personaRepository.findByComunaId(id));
-        return persoComuDTO;
+    // Buscar por ID de comuna
+    public List<PersonaDTO.Response> findByComunaID(Long id) {
+        // Aquí es más fácil, buscamos directo por el ID
+        List<Persona> personas = personaRepository.findByComunaId(id);
+        
+        return personas.stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
     public PersonaDTO.Response mapToResponse(Persona persona){
         return new PersonaDTO.Response(
+            persona.getId(),
             persona.getNombreYApellido(), 
             persona.getRut(), 
             persona.getCorreo(), 

@@ -2,6 +2,7 @@ package com.biblioteca.persona.dto;
 
 import com.biblioteca.persona.model.Rol;
 import com.biblioteca.persona.model.Sexo;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -27,9 +28,11 @@ public class PersonaDTO {
 
         @NotBlank(message = "El primer nombre es obligatorio")
         @Size(max = 50)
+        @JsonProperty("pNombre")
         private String pNombre;
 
         @Size(max = 50)
+        @JsonProperty("sNombre")
         private String sNombre;
 
         @NotBlank(message = "El apellido paterno es obligatorio")
@@ -65,6 +68,7 @@ public class PersonaDTO {
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Response{
+        private Long id;
         private String nombreCompleto;
         private String rut;
         private String correo;

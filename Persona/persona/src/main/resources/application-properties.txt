@@ -49,7 +49,7 @@ spring.datasource.password=
 
 # JPA
 spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=create-drop 
 spring.jpa.show-sql=true
 # para q inicie con el archivo data,sql e inserte los datos automaticamente
 spring.sql.init.mode=always
@@ -59,9 +59,5 @@ spring.jpa.defer-datasource-initialization=true
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2-console
 
-#para swaggers
-debug=true
-springdoc.api-docs.enabled=true
-springdoc.swagger-ui.enabled=true
-springdoc.swagger-ui.path=/doc/swagger-ui.html
-#springdoc.api-docs.path=/doc/v3/api-docs
+#hateoas, con esto no se conecta swagger con hateoas
+springdoc.enable-hateoas=false

@@ -22,6 +22,8 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+                // con esta linea no hay q poner user y pass en swagger
+                .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .requestMatchers("/api/v1/personas/**").hasRole("user")
                 .anyRequest().authenticated()
             )
